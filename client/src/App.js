@@ -18,7 +18,7 @@ class App extends Component{
     .catch(err=> console.log(err))} 
 render()
  { return (
-    <div className="App">
+    <div>
       <h1>{this.state.title}</h1>
     </div>
   );}
