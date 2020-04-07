@@ -1,13 +1,26 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import App from './App';
+import React from "react";
+import App from "./App";
+import Enzyme, { shallow, ShallowWrapper } from "enzyme";
+import EnzymeAdapter from "enzyme-adapter-react-16";
 
-configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new EnzymeAdapter() });
+/** 
+ * Factory function to create a ShallowWrapper for the App Component
+ * @function setup
+ * @param {object} props - Component props specific to this setup
+ * @param {any} state - Initial state for setup
+ * @return {ShallowWrapper}
+ *  */
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+ const setup = (props={}, state = null)=>{
+   const wrapper = shallow(<App {...props}/>)
+   return wrapper
+ }
+
+test('renders app component',  ()=>{
+const wrapper = setup();
+const componentApp = wrapper.find('[data-test="component-app"]')
+expect(componentApp.length).toBe(1)
+
+}
+);
