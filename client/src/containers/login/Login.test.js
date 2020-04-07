@@ -13,30 +13,47 @@ const setup = (props={}, state=null) =>{
 
 
 
-test('renders login component withou error',  ()=>{
+test('renders login component without error',  ()=>{
 const wrapper = setup();
 const componentLogin= findByTestAttr(wrapper,"login-component")
 expect(componentLogin.length).toBe(1)
 
 }
 );
-test('renders form component', () => {
+test('renders form without error', () => {
 const wrapper = setup();
 const componentForm= findByTestAttr(wrapper,"form-component")
 expect(componentForm.length).toBe(1)
 
 })
+test(' renders input without error ', ()=>{
+  const wrapper = setup();
+const InputForm= findByTestAttr(wrapper,"input-form")
+expect(InputForm.length).toBe(2)
+})
+test(' renders submit button without error ', ()=>{
+  const wrapper = setup();
+const submitButton= findByTestAttr(wrapper,"submit-button")
+expect(submitButton.length).toBe(1)
+})
 
-/* test('renders messages erros ', ()=>{
-    const wrapper = setup ({success:false})
-const message = findByTestAttr(wrapper, 'message')
-expect(message.text().length).not.toBe(0)
-}) */
- 
-/* test('default value state email = null ', ()=>{
-const wrapper = setup();
-const InitualValueState = wrapper.state('email')
-expect(InitualValueState).not.toMatch(/\w/)
-})  */
+
+
+describe(" controlled input field",()=>{
+  test('message state updates values',() =>{
+    const mockSetMessage = jest.fn();
+    React.useState = jest.fn(()=>["",mockSetMessage]);
+
+    const wrapper = setup();
+    const componentForm= findByTestAttr(wrapper,"form-component")
+    componentForm.simulate('submit')
+
+    expect(mockSetMessage).not.toHaveBeenCalledWith("")
+  
+  })
+
+})
+
+
     
     
