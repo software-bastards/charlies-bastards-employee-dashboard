@@ -3,9 +3,12 @@ import Login from "./Login";
 import Enzyme, { shallow, ShallowWrapper } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
 import mockAxios from 'axios'
-import onSubmit from "./Login"
+import loginHelper from "../../services/loginHelper"
+import MockAdapter from "axios-mock-adapter"
+import "axios"
 
   import {findByTestAttr} from "../../../test/testUltil"
+import axios from "../../../_mock_/axios";
   Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 const setup = (props={}, state=null) =>{
@@ -43,22 +46,28 @@ const submitButton= findByTestAttr(wrapper,"submit-button")
 expect(submitButton.length).toBe(1)
 })
 
-const fakeUserListCorrect =[
-{email: "ligia@gmail", password:"ligia",
-}
-]
-const fakeUserListIncorrect =[
-  { email: "fake@gmail"}
-]
-test("check status 200 on axios promise",async ()=>{
-  mockAxios.get.mockImplementationOnce(()=>{
-  Promise.resolve({data:fakeUserListCorrect})
-   })
-   const submit = await onSubmit()
+const fakeUserListCorrect ={email: "ligia@gmail", password:"ligia"}
+const fakeUserListIncorrect = { email: "fake@gmail"}
+const mock = new MockAdapter(axios)
 
-  expect(submit).toBeDefined()
-  expect(mockAxios.post).toHaveBeenCalledWith("./login")
-})
+test("check status 200 on axios promise",async ()=>{
+ const mockVar = mock.onPost('/login').reply(200,{email:"ligia@gmail", password:"ligia"})
+/*     const data = await loginHelper("ligia@gmail","ligia")
+ */    
+expect(mockVar).toEqual(fakeUserListCorrect)
+
+  
+ 
+/*   expect(mockAxios.post).toHaveBeenCalledWith("./login")
+ */})
+
+/*  test ("check status 400 on axios promise", () =>{
+  mockAxios.post.mockImplementation(() => Promise.reject({ ... }));
+  expect(mockAxios.request).toHaveBeenCalledWith({
+      method: 'get',
+      url: '/test'
+    });
+}) */
 
 
 

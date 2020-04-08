@@ -1,22 +1,20 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {useForm} from 'react-hook-form'
 import axios from "axios"
+import dataFunction from "../../services/loginHelper"
 export default function Login(){
-const [message,setMessage] = React.useState("")
+const [message,setMessage] = useState("")
  const {register,errors, handleSubmit} = useForm()
   const onSubmit = (data, e) => {
      e.preventDefault()
-       axios.post("/login", {
-        email: data.email,
-        password:data.password
-    })
-      .then(res=>
+     dataFunction(data.email, data.password)
+     .then(res=>
         {
-          console.log(res.data.message)
+          console.log(res.data)
          /* setMessage(`${res.data.firstname}, ${res.data.message}`) */})
-       .catch(err=> console.log(err.stack)
+       .catch(err=> console.log(err.response.data.message.flash)
        /*  setMessage(`${err}`) */)
-  
+
   };
     return(
         <div data-test="login-component">
