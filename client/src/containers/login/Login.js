@@ -1,6 +1,5 @@
 import React from 'react'
 import {useForm} from 'react-hook-form'
-import axios from 'axios'
 export default function Login(){
 const [message,setMessage] = React.useState("")
  const {register,errors, handleSubmit} = useForm()
@@ -14,9 +13,9 @@ const [message,setMessage] = React.useState("")
      headers:{"Content-Type":"application/json"},
      body: JSON.stringify(user)})
      .then(res => res.json())
-    /*  .then( 
+    .then( 
          res=>
-         res.firstname?setMessage(`${res.firstname}, ${res.message}`): setMessage(`${res.message}`))  */
+         res.firstname?setMessage(`${res.firstname}, ${res.message}`): setMessage(`${res.message}`)) 
        .catch(err=>console.log(err))
 
    

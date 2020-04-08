@@ -39,7 +39,7 @@ expect(submitButton.length).toBe(1)
 
 
 
-describe(" controlled input field",()=>{
+/* describe(" controlled input field",()=>{
   test('message state updates values',() =>{
     const mockSetMessage = jest.fn();
     React.useState = jest.fn(()=>["",mockSetMessage]);
@@ -52,7 +52,7 @@ describe(" controlled input field",()=>{
   
   })
 
-})
+}) */
 
 
     

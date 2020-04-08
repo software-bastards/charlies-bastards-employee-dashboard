@@ -12,15 +12,16 @@ router.post("/login", function(req, res, next) {
   
   passport.authenticate("local", (err, user, info) => {
     if (err) throw res.status(400).send(console.log(err)) 
-   if (!user ) return  res.send(info); 
+   if (!user ) return  res.json(info); 
   
 
    const token = jwt.sign(JSON.stringify(user), process.env.ACCESS_TOKEN_SECRET);
    return   res.json({
      success: true,
-     user:user,
+     firstname:user.firstname,
+     lastname:user.lastname,
      token: token,
-     message:"You were authenticated"})  
+     message:"you were authenticated"})  
      
      
    
