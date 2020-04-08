@@ -11,16 +11,12 @@ module.exports= (Sequelize,connector) =>{
           createdAt: Sequelize.DATE,
           updatedAt: Sequelize.DATE
             },
-            {
-                underscored: true,
+            {underscored: true,
+              freezeTableName: true
               
               })
               
-              Account.associate= models =>{
-                Account.belongsTo(models.Hour,{
-                  onDelete:"cascade"
-                })
-              }
+                 
 
     return Upload}
    

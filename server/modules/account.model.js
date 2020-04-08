@@ -1,11 +1,7 @@
 
 module.exports= (Sequelize,connector) =>{
     const Account = connector.define('account',  {
-     /*  firstname: Sequelize.STRING,
-      lastname:Sequelize.STRING,
-      password:Sequelize.STRING,
-      email: Sequelize.STRING */
-      
+         
           firstname: {
             type: Sequelize.STRING,
             allowNull: false
@@ -27,10 +23,12 @@ module.exports= (Sequelize,connector) =>{
                   msg: 'Please enter your email'
                 }
           }}, 
-       
-        },  
+          upload_id: Sequelize.INTEGER, 
+
+           acount_type: Sequelize.STRING
+        },
          
-          { freezeTableName: true, timestamps:false})
+          { underscored: true, freezeTableName: true})
 
           
    

@@ -17,12 +17,10 @@ module.exports= (Sequelize,connector) =>{
          },
          
           upload_id:Sequelize.INTEGER,
-          createdAt: Sequelize.DATE,
-          updatedAt: Sequelize.DATE
-
+         
      
     },
-    { underscored: true}) 
+    { underscored: true, freezeTableName: true}) 
      
   
 
