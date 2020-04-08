@@ -16,7 +16,7 @@ try{
 
   })
 
-  res.status(200).send(`the user ${req.body.lastname} was created`)
+  res.status(201).send(`the user ${req.body.lastname} was created`)
 }
 catch{err=>( res.send(err))}
 

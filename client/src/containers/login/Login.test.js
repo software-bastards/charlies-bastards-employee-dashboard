@@ -2,13 +2,15 @@ import React from "react";
 import Login from "./Login";
 import Enzyme, { shallow, ShallowWrapper } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
-import mockAxios from 'axios'
+import mocking from 'axios'
 import loginHelper from "../../services/loginHelper"
-import MockAdapter from "axios-mock-adapter"
-import "axios"
-
+/* import MockAdapter from "axios-mock-adapter"
+ */import "axios"
+/* var mockAxios = axios.create();
+ */
   import {findByTestAttr} from "../../../test/testUltil"
-import axios from "../../../_mock_/axios";
+jest.mock('axios')
+
   Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 const setup = (props={}, state=null) =>{
@@ -48,13 +50,14 @@ expect(submitButton.length).toBe(1)
 
 const fakeUserListCorrect ={email: "ligia@gmail", password:"ligia"}
 const fakeUserListIncorrect = { email: "fake@gmail"}
-const mock = new MockAdapter(axios)
 
 test("check status 200 on axios promise",async ()=>{
- const mockVar = mock.onPost('/login').reply(200,{email:"ligia@gmail", password:"ligia"})
-/*     const data = await loginHelper("ligia@gmail","ligia")
- */    
-expect(mockVar).toEqual(fakeUserListCorrect)
+mocking.post.mockImplementationOnce( () => {
+  Promise.resolve({fakeUserListCorrect})
+})
+    const data = await loginHelper("ligia@gmail","ligia")
+   
+expect(data).toEqual(fakeUserListCorrect)
 
   
  
