@@ -37,7 +37,14 @@ const submitButton= findByTestAttr(wrapper,"submit-button")
 expect(submitButton.length).toBe(1)
 })
 
+test( 'fetch send any data' ,() =>{
 
+  expect.assertion(1);
+  return function.onSubmit().then(data =>{
+    expect(data).toHaveBeenCalledTimes(1)
+  })
+
+})
 
 /* describe(" controlled input field",()=>{
   test('message state updates values',() =>{

@@ -1,21 +1,17 @@
 import React from 'react'
 import {useForm} from 'react-hook-form'
+import axios from "axios"
 export default function Login(){
 const [message,setMessage] = React.useState("")
  const {register,errors, handleSubmit} = useForm()
   const onSubmit = (data, e) => {
      e.preventDefault()
-     const user = {
-         email: data.email,
-         password:data.password
-     }
-     fetch("/login", {method:"POST",
-     headers:{"Content-Type":"application/json"},
-     body: JSON.stringify(user)})
-     .then(res => res.json())
-    .then( 
-         res=>
-         res.firstname?setMessage(`${res.firstname}, ${res.message}`): setMessage(`${res.message}`)) 
+       axios.post("/login", {
+        email: data.email,
+        password:data.password
+    })
+      .then(  res=>
+         {res.data.firstname?setMessage(`${res.data.firstname}, ${res.data.message}`): setMessage(`${res.data.message}`)} )
        .catch(err=>console.log(err))
 
    
