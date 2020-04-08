@@ -12,7 +12,8 @@ const [message,setMessage] = React.useState("")
     })
       .then(res=>
         {
-         setMessage(`${res.data.firstname}, ${res.data.message}`)})
+          console.log(res.data.message)
+         /* setMessage(`${res.data.firstname}, ${res.data.message}`) */})
        .catch(err=> console.log(err.stack)
        /*  setMessage(`${err}`) */)
   

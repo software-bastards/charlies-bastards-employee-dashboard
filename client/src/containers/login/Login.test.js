@@ -62,6 +62,20 @@ test("check status 200 on axios promise",async ()=>{
 
 
 
+/*  describe(" controlled input field",()=>{
+  test('message state updates values',() =>{
+    const mockSetMessage = jest.fn();
+    React.useState = jest.fn(()=>["",mockSetMessage]);
+    const wrapper = setup();
+    const componentForm= findByTestAttr(wrapper,"form-component")
+    componentForm.simulate('submit')
+    expect(mockSetMessage).toBeDefined()
+  
+  })
+}) 
+ */
+
+
 
 
 
