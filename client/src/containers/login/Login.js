@@ -10,11 +10,12 @@ const [message,setMessage] = React.useState("")
         email: data.email,
         password:data.password
     })
-      .then(  res=>
-         {res.data.firstname?setMessage(`${res.data.firstname}, ${res.data.message}`): setMessage(`${res.data.message}`)} )
-       .catch(err=>console.log(err))
-
-   
+      .then(res=>
+        {
+         setMessage(`${res.data.firstname}, ${res.data.message}`)})
+       .catch(err=> console.log(err.stack)
+       /*  setMessage(`${err}`) */)
+  
   };
     return(
         <div data-test="login-component">

@@ -2,6 +2,9 @@ import React from "react";
 import Login from "./Login";
 import Enzyme, { shallow, ShallowWrapper } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
+import mockAxios from 'axios'
+import onSubmit from "./Login"
+
   import {findByTestAttr} from "../../../test/testUltil"
   Enzyme.configure({ adapter: new EnzymeAdapter() });
 
@@ -11,6 +14,9 @@ const setup = (props={}, state=null) =>{
     return wrapper
   }
 
+  export const actionTypes ={
+    CHECK_STATUS: "CHECK_STATUS"
+  }
 
 
 test('renders login component without error',  ()=>{
@@ -37,29 +43,26 @@ const submitButton= findByTestAttr(wrapper,"submit-button")
 expect(submitButton.length).toBe(1)
 })
 
-test( 'fetch send any data' ,() =>{
+const fakeUserListCorrect =[
+{email: "ligia@gmail", password:"ligia",
+}
+]
+const fakeUserListIncorrect =[
+  { email: "fake@gmail"}
+]
+test("check status 200 on axios promise",async ()=>{
+  mockAxios.get.mockImplementationOnce(()=>{
+  Promise.resolve({data:fakeUserListCorrect})
+   })
+   const submit = await onSubmit()
 
-  expect.assertion(1);
-  return function.onSubmit().then(data =>{
-    expect(data).toHaveBeenCalledTimes(1)
-  })
-
+  expect(submit).toBeDefined()
+  expect(mockAxios.post).toHaveBeenCalledWith("./login")
 })
 
-/* describe(" controlled input field",()=>{
-  test('message state updates values',() =>{
-    const mockSetMessage = jest.fn();
-    React.useState = jest.fn(()=>["",mockSetMessage]);
 
-    const wrapper = setup();
-    const componentForm= findByTestAttr(wrapper,"form-component")
-    componentForm.simulate('submit')
 
-    expect(mockSetMessage).not.toHaveBeenCalledWith("")
-  
-  })
 
-}) */
 
 
     
