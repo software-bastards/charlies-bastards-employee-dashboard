@@ -68,7 +68,7 @@ describe("api", ()=>{
 
 
 describe('testing async function', ()=>{
-  test ("should return data with a successful request ", () =>{
+  test ("calls onSubmit when form is submited", () =>{
     const mockSubmit = jest.fn();
     const wrapper = shallow(<Login onSubmit={mockSubmit}/>);
     const submitButton= findByTestAttr(wrapper,"submit-button")

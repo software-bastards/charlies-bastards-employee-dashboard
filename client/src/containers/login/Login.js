@@ -1,10 +1,12 @@
 import React from 'react'
 import {useForm} from 'react-hook-form'
 import loginHelper from "../../services/loginHelper"
+import { connect,useDispatch} from  'react-redux';
+
 export default function Login(){
 const [message,setMessage] = React.useState("")
  const {register,errors, handleSubmit} = useForm()
-  
+  const dispatch= useDispatch()
  /**
   * @function onSumit
   * @param {string} data -Values passed in the input 
@@ -15,13 +17,20 @@ const [message,setMessage] = React.useState("")
      e.preventDefault()
      loginHelper(data.email, data.password)
      .then(res=>
-        { setMessage(`${res.data.firstname}, ${res.data.message}`) })
+          dispatch({ 
+            type : "CREATE_SESSION",
+            message:res.data.message,
+            token : res.data.token,
+            firstname:res.data.firstname,
+            lastname:res.data.lastname
+        })  
+        )
        .catch(err=>  setMessage(`${err.response.data.message.message}`) )
 
   };
     return(
         <div data-test="login-component">
-            <h1 data-test="h1-login-component">{message?{message}:null}</h1>
+            <h1 data-test="h1-login-component">{message}</h1>
             <form data-test="form-component" onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="email">E-mail</label>
                 <input
