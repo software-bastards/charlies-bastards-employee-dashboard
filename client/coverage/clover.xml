@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1586359564815" clover="3.2.0">
-  <project timestamp="1586359564815" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1586435392126" clover="3.2.0">
+  <project timestamp="1586435392126" name="All files">
+    <metrics statements="10" coveredstatements="7" conditionals="6" coveredconditionals="3" methods="5" coveredmethods="3" elements="21" coveredelements="13" complexity="0" loc="10" ncloc="10" packages="2" files="2" classes="2"/>
+    <package name="containers.login">
+      <metrics statements="8" coveredstatements="5" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="2"/>
+      <file name="Login.js" path="C:\Users\ligia\OneDrive\Documentos\Wild Code School\Portifolio\charlies-bastards-employee-dashboard\client\src\containers\login\Login.js">
+        <metrics statements="8" coveredstatements="5" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="2"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="services">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="loginHelper.js" path="C:\Users\ligia\OneDrive\Documentos\Wild Code School\Portifolio\charlies-bastards-employee-dashboard\client\src\services\loginHelper.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

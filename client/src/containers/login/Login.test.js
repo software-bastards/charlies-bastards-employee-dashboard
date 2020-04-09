@@ -1,28 +1,27 @@
 import React from "react";
-import Login from "./Login";
+import Login  from "./Login";
 import Enzyme, { shallow, ShallowWrapper } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
-import mocking from 'axios'
+import axios from 'axios'
 import loginHelper from "../../services/loginHelper"
-/* import MockAdapter from "axios-mock-adapter"
- */import "axios"
-/* var mockAxios = axios.create();
- */
-  import {findByTestAttr} from "../../../test/testUltil"
+import {findByTestAttr} from "../../../test/testUltil"
+import {onSubmit} from "./Login"
+
 jest.mock('axios')
 
   Enzyme.configure({ adapter: new EnzymeAdapter() });
-
+/** 
+ * Factory function to create a ShallowWrapper for the App Component
+ * @function setup
+ * @param {object} props - Component props specific to this setup
+ * @param {any} state - Initial state for setup
+ * @return {ShallowWrapper}
+ *  */
 const setup = (props={}, state=null) =>{
     const wrapper =  shallow (<Login {...props}/>)
     if (state) {wrapper.setState(state)}
     return wrapper
   }
-
-  export const actionTypes ={
-    CHECK_STATUS: "CHECK_STATUS"
-  }
-
 
 test('renders login component without error',  ()=>{
 const wrapper = setup();
@@ -49,47 +48,69 @@ expect(submitButton.length).toBe(1)
 })
 
 const fakeUserListCorrect ={email: "ligia@gmail", password:"ligia"}
-const fakeUserListIncorrect = { email: "fake@gmail"}
 
-test("check status 200 on axios promise",async ()=>{
-mocking.post.mockImplementationOnce( () => {
-  Promise.resolve({fakeUserListCorrect})
+describe("api", ()=>{
+  test("check  request successfull, retrieve the response",async ()=>{
+    const data = fakeUserListCorrect;
+    axios.post.mockImplementationOnce(() => Promise.resolve(data));
+    await expect(loginHelper("ligia@gmail", "ligia")).resolves.toEqual(data);
+    expect(axios.post).toHaveBeenCalledTimes(1);
+    expect(axios.post).toHaveBeenCalledWith("/login", (data));})
+
+    test("check  request failure, retrieve an error", async () =>{
+      const error = 'Something went wrong';
+
+      axios.post.mockImplementation(() => Promise.reject(new Error(error)));
+      await expect(loginHelper()).rejects.toThrow(error);
+     
+    }) 
 })
-    const data = await loginHelper("ligia@gmail","ligia")
-   
-expect(data).toEqual(fakeUserListCorrect)
-
-  
- 
-/*   expect(mockAxios.post).toHaveBeenCalledWith("./login")
- */})
-
-/*  test ("check status 400 on axios promise", () =>{
-  mockAxios.post.mockImplementation(() => Promise.reject({ ... }));
-  expect(mockAxios.request).toHaveBeenCalledWith({
-      method: 'get',
-      url: '/test'
-    });
-}) */
 
 
-
-/*  describe(" controlled input field",()=>{
-  test('message state updates values',() =>{
-    const mockSetMessage = jest.fn();
-    React.useState = jest.fn(()=>["",mockSetMessage]);
-    const wrapper = setup();
+describe('testing async function', ()=>{
+  test ("should return data with a successful request ", () =>{
+    const mockSubmit = jest.fn();
+    const wrapper = shallow(<Login onSubmit={mockSubmit}/>);
+    const submitButton= findByTestAttr(wrapper,"submit-button")
+    submitButton.simulate('click')
     const componentForm= findByTestAttr(wrapper,"form-component")
-    componentForm.simulate('submit')
-    expect(mockSetMessage).toBeDefined()
-  
+    componentForm.at(0).simulate('submit')
+    expect(mockSubmit).toHaveBeenCalledTimes(1);
+    }) 
+
+});
+
+/* 
+describe('testing async function', ()=>{
+  const fakeUserData =("ligia@gmail", "ligia")
+  const mockingSetState=jest.fn()
+ React.useState = jest.fn( ()=>[ "", mockingSetState])
+ const wrapper = setup()
+
+ test("show default message",()=>{
+  const messageComp = findByTestAttr(wrapper,"h1-login-component")
+  expect(messageComp).toBeNull()
+ })
+ test ("should return data with a successful request ", () =>{
+   const submit = jest.fn(() => Promise.resolve({}))
+   submit.mockImplementationOnce(() => Promise.resolve("authenticated"));
+   const submitButton= findByTestAttr(wrapper,"submit-button") 
+   submitButton.simulate('click')
+   expect(onSubmit).toHaveBeenCalledTimes(1);
+   }) 
+
+  test(" check it displays the message",async ()=>{
+    const componentForm= findByTestAttr(wrapper,"form-component")
+    const messageComp = findByTestAttr(wrapper,"h1-login-component")
+    await componentForm.simulate('submit')
+
+    expect(messageComp).resolves.not.toBe("")
   })
 }) 
+
+ 
+
  */
 
 
 
-
-
-    
-    
