@@ -2,11 +2,11 @@ import React from 'react'
 import {useForm} from 'react-hook-form'
 import loginHelper from "../../services/loginHelper"
 import { connect,useDispatch} from  'react-redux';
-
+import {createSession} from "../../reducers/actions/index"
 export default function Login(){
 const [message,setMessage] = React.useState("")
  const {register,errors, handleSubmit} = useForm()
-  const dispatch= useDispatch()
+  const dispatch = useDispatch()
  /**
   * @function onSumit
   * @param {string} data -Values passed in the input 
@@ -17,13 +17,11 @@ const [message,setMessage] = React.useState("")
      e.preventDefault()
      loginHelper(data.email, data.password)
      .then(res=>
-          dispatch({ 
-            type : "CREATE_SESSION",
-            message:res.data.message,
-            token : res.data.token,
-            firstname:res.data.firstname,
-            lastname:res.data.lastname
-        })  
+          dispatch(createSession(
+              res.data.message,
+              res.data.token,
+              res.data.firstname,
+              res.data.lastname))  
         )
        .catch(err=>  setMessage(`${err.response.data.message.message}`) )
 

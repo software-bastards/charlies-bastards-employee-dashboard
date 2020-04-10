@@ -19,9 +19,9 @@ const loginRouter = require('./routes/login');
 const dashboardRouter = require('./routes/dashboard');
 
 //configurations
-const db = require("./configuration/helper/configurationSequelize")
+const db = require("./configuration/configurationSequelize")
  
-require('./configuration/passportConfig')(passport)
+require('./configuration/helper/passportConfig')(passport)
 db.connector.sync();
 
 app.use(logger('dev'));

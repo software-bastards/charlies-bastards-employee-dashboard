@@ -26,11 +26,11 @@ const connector = new Sequelize(  enVars.database,  enVars.user,  enVars.passwor
 
 db.Sequelize = Sequelize
 db.connector=connector 
-db.account = require("../../modules/account.model")(Sequelize,connector)
-db.upload = require("../../modules/upload.model")(Sequelize,connector)
-db.project = require("../../modules/project.model")(Sequelize,connector)
-db.hour = require("../../modules/hour.model")(Sequelize,connector)
-db.category = require("../../modules/category.model")(Sequelize,connector)
+db.account = require("../modules/account.model")(Sequelize,connector)
+db.upload = require("../modules/upload.model")(Sequelize,connector)
+db.project = require("../modules/project.model")(Sequelize,connector)
+db.hour = require("../modules/hour.model")(Sequelize,connector)
+db.category = require("../modules/category.model")(Sequelize,connector)
 
 //upload conection 
 db.upload.belongsTo(db.account, {foreignKey: 'id', targetKey: 'upload_id'});

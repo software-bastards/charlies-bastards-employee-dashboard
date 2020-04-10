@@ -4,7 +4,7 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const passportJWT = require ('passport-jwt');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-const db = require ("./helper/configurationSequelize")
+const db = require ("../configurationSequelize")
 const account = db.account
 const ExtractJwt= passportJWT.ExtractJwt
 

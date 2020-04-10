@@ -1,3 +1,9 @@
+/**
+ * @function authorization
+ * @param {object} state  -current sucess state
+ * @param {object} action - action to be reduce
+ */
+
 export default function authorization(state={}, action){
 switch(action.type){
     case "CREATE_SESSION":
