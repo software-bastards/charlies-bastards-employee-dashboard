@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form'
 import loginHelper from "../../services/loginHelper"
 import { connect,useDispatch} from  'react-redux';
 import {createSession} from "../../reducers/actions/index"
-export default function Login(){
+function Login(){
 const [message,setMessage] = React.useState("")
  const {register,errors, handleSubmit} = useForm()
   const dispatch = useDispatch()
@@ -51,3 +51,4 @@ const [message,setMessage] = React.useState("")
     )
 
 }
+export default Login

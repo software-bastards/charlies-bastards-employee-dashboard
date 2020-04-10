@@ -10,8 +10,8 @@ import {findByTestAttr,storeFactory} from "../../../testSetup/testUltil"
 
 const setup = (initialState={}) =>{
     const store = storeFactory(initialState)
-    const wrapper = shallow (<Provider store={store}><Login/></Provider>)
-     console.log(wrapper.debug)
+    const wrapper = shallow (<Provider store={store}><Login/></Provider>).dive().dive()
+     console.log(wrapper.debug())
 }
 setup()
 
