@@ -2,21 +2,23 @@ import React from "react";
 import Login  from "./Login";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import Enzyme, { shallow, ShallowWrapper } from "enzyme";
+import Enzyme, { mount, ShallowWrapper } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
 import {findByTestAttr,storeFactory} from "../../../testSetup/testUltil"
 
   Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-const setup = (initialState={}) =>{
+const setup = (initialState={}, props={}) =>{
     const store = storeFactory(initialState)
-    const wrapper = shallow (<Provider store={store}><Login/></Provider>).dive()
-return wrapper}
+    const wrapper = mount (<Provider store={store}><Login {...props}/></Provider>).dive().dive()
+  console.log(wrapper.debug())}
 
+  setup()
 
 test('login component',  ()=>{
-  /*   const componentLogin= findByTestAttr(wrapper,"login-component")
-    expect(componentLogin.length).toBe(1) */
+  /*   const wrapper = setup()
+   const componentLogin= findByTestAttr(wrapper,"login-component")
+    expect(componentLogin.length).toBe(1)  */
   });
 /* 
 describe ('renders without an error ', () => {
