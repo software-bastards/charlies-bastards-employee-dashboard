@@ -10,10 +10,9 @@ import {findByTestAttr,storeFactory} from "../../../testSetup/testUltil"
 
 const setup = (initialState={}) =>{
     const store = storeFactory(initialState)
-    const wrapper = shallow (<Provider store={store}><Login/></Provider>).dive().dive()
-     console.log(wrapper.debug())
-}
-setup()
+    const wrapper = shallow (<Provider store={store}><Login/></Provider>).dive()
+return wrapper}
+
 
 test('login component',  ()=>{
   /*   const componentLogin= findByTestAttr(wrapper,"login-component")
