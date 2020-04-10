@@ -2,7 +2,7 @@ import React from "react";
 import Login  from "./Login";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import Enzyme, { mount, ShallowWrapper } from "enzyme";
+import Enzyme, { shallow, ShallowWrapper } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
 import {findByTestAttr,storeFactory} from "../../../testSetup/testUltil"
 
@@ -10,7 +10,7 @@ import {findByTestAttr,storeFactory} from "../../../testSetup/testUltil"
 
 const setup = (initialState={}, props={}) =>{
     const store = storeFactory(initialState)
-    const wrapper = mount (<Provider store={store}><Login {...props}/></Provider>).dive().dive()
+    const wrapper = shallow(<Provider store={store}><Login {...props}/></Provider>).dive()
   console.log(wrapper.debug())}
 
   setup()
