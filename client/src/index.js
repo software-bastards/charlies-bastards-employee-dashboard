@@ -11,6 +11,7 @@ const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && wi
 
 
 ReactDOM.render(
+  
   <Provider store={store}>
   <BrowserRouter>
    <React.StrictMode>

@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form'
 import loginHelper from "../../services/loginHelper"
 import { connect,useDispatch} from  'react-redux';
 import {createSession} from "../../reducers/actions/index"
-function Login(){
+function Login({messageStore}){
 const [message,setMessage] = React.useState("")
  const {register,errors, handleSubmit} = useForm()
   const dispatch = useDispatch()
@@ -23,6 +23,7 @@ const [message,setMessage] = React.useState("")
               res.data.firstname,
               res.data.lastname))  
         )
+        .then(res=> setMessage(messageStore))
        .catch(err=>  setMessage(`${err.response.data.message.message}`) )
 
   };
@@ -30,7 +31,7 @@ const [message,setMessage] = React.useState("")
         <div data-test="login-component">
             <h1 data-test="h1-login-component">{message}</h1>
             <form data-test="form-component" onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="email">E-mail</label>
+                <label data-test="label-email" htmlFor="email">E-mail</label>
                 <input
                 data-test="input-form"
                  type="text"
@@ -51,4 +52,11 @@ const [message,setMessage] = React.useState("")
     )
 
 }
-export default Login
+
+function mapState(state){
+    return{
+        messageStore:state.authorization.message
+    }
+}
+
+export default connect(mapState)(Login)
