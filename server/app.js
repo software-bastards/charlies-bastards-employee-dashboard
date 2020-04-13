@@ -23,6 +23,8 @@ const db = require("./database/configurationSequelize")
 require('./Configurations/helper/passportConfig')(passport)
 db.connector.sync();
 require('./Configurations/googleAuth/passportGoogleConfig')(passport)
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,11 +35,7 @@ app.use(cors())
 app.use('/', registerRouter);
 app.use('/', loginRouter);
 app.use('/', dashboardRouter ) 
-app.get('/auth/google',
- passport.authenticate('google',
-(req,res)=>{
-  res.send(res)
-}))
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
