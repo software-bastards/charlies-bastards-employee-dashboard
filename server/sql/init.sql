@@ -1,16 +1,17 @@
  
  create table Account(
-  id INT AUTO_INCREMENT PRIMARY KEY, 
-  firstname varchar (100) NOT NULL, 
-  lastname varchar (100) NOT NULL, 
-  email varchar (100)  NOT NULL,
-  created timestamp
-upload_id int
-password varchar
-  CONSTRAINT FK_AccountUpload FOREIGN KEY (upload_id)
- REFERENCES Upload(id)
+id INT AUTO_INCREMENT PRIMARY KEY, 
+firstname varchar (250) NOT NULL, 
+lastname varchar (250) NOT NULL, 
+email varchar (250)  NOT NULL,
+created timestamp,
+upload_id int,
+password  varchar (250),
+account_type varchar (250),
+CONSTRAINT FK_AccountUpload FOREIGN KEY (upload_id)
+REFERENCES Upload(id)
 ON DELETE NO ACTION ON UPDATE NO ACTION); 
- 
+
 
  create table Projects(
  id INT AUTO_INCREMENT PRIMARY KEY, 
@@ -37,7 +38,7 @@ ON DELETE NO ACTION ON UPDATE NO ACTION);
 
 create table Category(
  id INT AUTO_INCREMENT PRIMARY KEY, 
-category_description VARCHAR);
+category_description VARCHAR (250));
 
 create table Upload(
  id INT AUTO_INCREMENT PRIMARY KEY, 

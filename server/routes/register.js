@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const db = require ("../configuration/configurationSequelize")
+const db = require ("../database/configurationSequelize")
 const account = db.account
 const bcrypt =require("bcrypt")
 router.post("/register",  async (req, res, next) => {

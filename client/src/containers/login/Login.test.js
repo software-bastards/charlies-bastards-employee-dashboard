@@ -14,7 +14,7 @@ const setup = (initialState={}, props={}) =>{
             <Login {...props}/>
          </Provider>
 
-).dive().dive()
+).dive()
   console.log(wrapper.debug())}
 
   setup()
