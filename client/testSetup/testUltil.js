@@ -7,9 +7,10 @@ import {createStore} from 'redux'
  * @returns {Store}- Redux Store
  */
 
-export const storeFactory = (initialState) =>{
-        return createStore(rootReducer,initialState)
-}
+ export const storeFactory=(initialState)=>{
+   return  createStore(rootReducer,initialState)     
+ }
+
  
 
 
@@ -23,3 +24,21 @@ export const findByTestAttr = (wrapper, val)=>{
        
 }
 
+
+
+export const initialState ={
+        state:[],
+        reducer:{}
+
+}
+
+/**
+ * @function expectTruthy
+ * @param {function getAllByTestId("testid")||getByTestId("testid") {
+       return elements in the DOM 
+ }} receiveObj 
+ */
+
+export const expectTruthy = (receiveObj)=>{
+        expectTruthy(receiveObj).toBeTruthy() && expect(receiveObj).not.toBeTruthy()
+}
