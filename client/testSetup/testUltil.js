@@ -7,9 +7,10 @@ import {createStore} from 'redux'
  * @returns {Store}- Redux Store
  */
 
-export const storeFactory = (initialState) =>{
-        return createStore(rootReducer,initialState)
-}
+ export const storeFactory=(initialState)=>{
+   return  createStore(rootReducer,initialState)     
+ }
+
  
 
 
@@ -23,3 +24,19 @@ export const findByTestAttr = (wrapper, val)=>{
        
 }
 
+
+
+export const initialState ={
+        state:[],
+        reducer:{}
+
+}
+
+/**
+ * @function expectTruthy - test if any object existes in our component
+ * @param {*} receiveObj 
+ */
+
+export const expectTruthy = (receiveObj)=>{
+        expect(receiveObj).toBeTruthy() && expect(receiveObj).not.toBeNull()
+}

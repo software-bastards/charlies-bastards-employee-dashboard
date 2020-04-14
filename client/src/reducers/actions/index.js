@@ -1,5 +1,5 @@
 export const actionTypes =  {
-    CORRECT_GUESS:"CREATE_SESSION"
+    CREATE_SESSION:"CREATE_SESSION"
 }
 /**
  * @function createSession
