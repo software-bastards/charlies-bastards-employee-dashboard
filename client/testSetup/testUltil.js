@@ -33,12 +33,10 @@ export const initialState ={
 }
 
 /**
- * @function expectTruthy
- * @param {function getAllByTestId("testid")||getByTestId("testid") {
-       return elements in the DOM 
- }} receiveObj 
+ * @function expectTruthy - test if any object existes in our component
+ * @param {*} receiveObj 
  */
 
 export const expectTruthy = (receiveObj)=>{
-        expectTruthy(receiveObj).toBeTruthy() && expect(receiveObj).not.toBeTruthy()
+        expect(receiveObj).toBeTruthy() && expect(receiveObj).not.toBeNull()
 }

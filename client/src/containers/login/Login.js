@@ -34,37 +34,38 @@ function Login() {
   };
 
   return (
+    <main>
       <form data-testid="form-component" onSubmit={handleSubmit(onSubmit)}>
         <p>{message}</p>
         <label data-testid="test-label" htmlFor="email">
           E-mail
         </label>
         <input
-          data-test="input-form"
+          data-testid="input-form-email"
           type="text"
           name="email"
           ref={register({ required: true })}
         />
         {errors.email && "This field is required"}
-        <label  data-testid="test-label" htmlFor="password">Password</label>
+         <label  data-testid="test-label" htmlFor="password">Password</label>
         <input
-          data-testid="input-form"
           type="password"
           name="password"
           ref={register({ required: true })}
         />
         {errors.password && "This field is required"}
-        <button data-testid="submit-button" type="submit">
+         <button data-testid="submit-button" type="submit">
           {" "}
           Login{" "}
         </button>
       </form>
-     /*  <button
+      <button
         onClick={() => (window.location = "http://localhost:5000/auth/google")}
       >
         {" "}
         Google +
-      </button> */
+      </button> 
+      </main>
   );
 }
 

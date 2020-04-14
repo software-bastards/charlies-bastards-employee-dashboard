@@ -27,24 +27,41 @@ expect(wrapper).toMatchSnapshot()
       }) */
       
 
+describe ('testing form', ()=>{
+  const historyMock = { push: jest.fn() };
+  const mockStore = configureStore()
+    const store = mockStore(initialState)
+    const {getByTestId,getAllByTestId} = render(
+      <Router>
+      <Provider store={store} >
+            <Login history={historyMock}/>
+         </Provider>
+         </Router>
+    )
+  test('if component renders without an error',  ()=>{
+   
+      expectTruthy(getByTestId("input-form-email"));
+      expectTruthy(getByTestId("form-component"));
+      expectTruthy(getAllByTestId("test-label"));
+      expectTruthy(getByTestId("submit-button"));
+     
+      });
 
-    test('login component',  ()=>{
-      const historyMock = { push: jest.fn() };
-      const mockStore = configureStore()
-        const store = mockStore(initialState)
-        const {getByTestId} = render(
-          <Router>
-          <Provider store={store} >
-                <Login history={historyMock}/>
-             </Provider>
-             </Router>
-        )
-        console.log(getByTestId("submit-button"))  
-             /*  const submitButton= findByTestAttr(wrapper,"submit-button")
-        submitButton.simulate('click')
-        expect(historyMock.push).toBeCalled() */
-        });
-      
+  test('if onSubmit is called', async()=>{
+    const onSubmit = jest.fn()
+    const input = getByTestId("input-form-email")
+    await act(async()=>{
+      await fireEvent.change(input,{target:{value:"test@gmail.com"}})
+    await act(async ()=>{
+      fireEvent.submit(getByTestId("form-component"))
+    })
+    expectTruthy(onSubmit).toBeCalled()
+    })
+
+  })
+    
+})
+    
 
  
 
