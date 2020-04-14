@@ -4,14 +4,13 @@ import loginHelper from "../../services/loginHelper";
 import { connect, useDispatch } from "react-redux";
 import { createSession } from "../../reducers/actions/index";
 import { withRouter, useHistory } from "react-router-dom";
-
 function Login() {
   const [message, setMessage] = React.useState("");
   const { register, errors, handleSubmit } = useForm();
   const dispatch = useDispatch();
   const history = useHistory();
   /**
-   * @function onSumit
+   * @function onSuhmit
    * @param {string} data -Values passed in the input
    * @param {*} e - event
    */
@@ -30,8 +29,8 @@ function Login() {
         )
       )
       .then(history.push("/dashboard"))
-      .catch((err) => setMessage(`${err.response.data.message.message}`));
-  };
+/*       .catch((err) => setMessage(`${err.response.data.message.message}`));
+ */  };
 
   return (
     <main>
@@ -47,6 +46,7 @@ function Login() {
           ref={register({ required: true })}
         />
         {errors.email && "This field is required"}
+        
          <label  data-testid="test-label" htmlFor="password">Password</label>
         <input
           data-testid="input-form-password"
@@ -55,7 +55,8 @@ function Login() {
           name="password"
           ref={register({ required: true })}
         />
-        {errors.password && "This field is required"}
+       {errors.password && "This field is required"}
+        
          <button data-testid="submit-button" type="submit">
           {" "}
           Login{" "}

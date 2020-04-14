@@ -9,7 +9,7 @@ import Authentication from "./HOC/IsAuthorized"
  return (
     <div data-test = "component-app">
     <Route path ='/' component={Login} /> 
-    <Route path="/dashboard" component={Authentication(Dashboard)}/>
+    <Route path="/dashboard" component={Dashboard}/>
     </div>
   );
 }

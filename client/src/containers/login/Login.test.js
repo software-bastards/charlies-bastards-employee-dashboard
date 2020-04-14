@@ -33,7 +33,7 @@ import { BrowserRouter as Router}from "react-router-dom"
     const historyMock = { push: jest.fn() };
     const mockStore = configureStore()
       const store = mockStore(initialState)
-      const {getByTestId,getByText} = render(
+      const {getByTestId,getByText,findBy} = render(
         <Router>
         <Provider store={store} >
               <Login history={historyMock} />
@@ -50,12 +50,12 @@ import { BrowserRouter as Router}from "react-router-dom"
       fireEvent.submit(getByTestId("form-component"))
     })
     })
-    const errorMessage = screen.getByText(/This field is required/i)
-
-    expect(errorMessage).toBe("This field is required")
-
+    const find = screen.findByText("jhgf")
+    
+    console.log(screen.debug())
 
  
+
     
 })
     
