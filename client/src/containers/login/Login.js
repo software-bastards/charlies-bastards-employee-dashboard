@@ -49,6 +49,8 @@ function Login() {
         {errors.email && "This field is required"}
          <label  data-testid="test-label" htmlFor="password">Password</label>
         <input
+          data-testid="input-form-password"
+
           type="password"
           name="password"
           ref={register({ required: true })}
