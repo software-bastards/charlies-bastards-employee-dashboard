@@ -12,7 +12,7 @@ module.exports= (Sequelize,connector) =>{
           },
            password: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: true,
          },
           email: {
             type: Sequelize.STRING,

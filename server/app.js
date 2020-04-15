@@ -17,6 +17,7 @@ const passport = require ('passport');
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const dashboardRouter = require('./routes/dashboard');
+const authrouter = require('./routes/authentication')
 
 //configurations
 const db = require("./database/configurationSequelize")
@@ -34,8 +35,8 @@ app.use(cookieParser());
 app.use(cors())
 app.use('/', registerRouter);
 app.use('/', loginRouter);
-app.use('/', dashboardRouter ) 
-
+app.use('/', authrouter);
+app.use('/', dashboardRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
