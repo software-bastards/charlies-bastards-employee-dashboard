@@ -28,9 +28,8 @@ function Login() {
           )
         )
       )
-      .then(history.push("/dashboard"))
-/*       .catch((err) => setMessage(`${err.response.data.message.message}`));
- */  };
+       .catch((err) => setMessage(`${err.response.data.message.message}`));
+ };
 
   return (
     <main>
@@ -68,7 +67,9 @@ function Login() {
         {" "}
         Google +
       </button> 
+      
       </main>
+
   );
 }
 

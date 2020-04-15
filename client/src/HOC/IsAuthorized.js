@@ -7,7 +7,7 @@ export  default  function (ComposedComponent) {
         
         componentDidMount() {
             if (!this.props.authenticated)
-                this.props.history.push('/signin');
+                this.props.history.push('/');
         }
         componentDidUpdate() {
             if (this.props.authenticated)
@@ -18,10 +18,11 @@ export  default  function (ComposedComponent) {
             return  <ComposedComponent  {...this.props}  />
         }
     }
+
+    const   mapStateToProps=(state)=> {
+        return { authenticated:  state.authorization.token };
+    }
     return connect(mapStateToProps)(withRouter(Authentication));
 }
 
 
-export function  mapStateToProps(state) {
-    return { authenticated:  state.authorization.token };
-}

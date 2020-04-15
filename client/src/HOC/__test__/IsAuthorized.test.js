@@ -1,22 +1,30 @@
 import React from "react";
-import IsAuthorized, {Authentication,mapStateToProps}  from "../IsAuthorized";
-import Enzyme, { mount, ShallowWrapper,shallow } from "enzyme";
-import EnzymeAdapter from "enzyme-adapter-react-16";
+import IsAuthorized from "../IsAuthorized";
+import { render, fireEvent, act, cleanup,screen} from "@testing-library/react";
 import configureStore from 'redux-mock-store';
+import { Provider} from 'react-redux';
+import { BrowserRouter as Router}from "react-router-dom"
+import {initialState} from "../../../testSetup/testUltil"
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-/* const setup = (props={})=>{
-    const wrapper = shallow(<IsAuthorized {...props}/>)
-    return wrapper
-  } */
-
-describe('',()=>{
-    beforeEach(()=>{
+    test('Should render the component only when prop is true', () => {
+        const historyMock = { push: jest.fn() };
         const mockStore = configureStore()
-    })
-   
-    test('', () =>{
- 
-    })  
-})
+        const store = mockStore(initialState)
+      const Component = <h1>Test</h1>;
+      const ConditionalHOC = IsAuthorized(Component);
+      const {container, getByText} = render(
+        <Router history={historyMock}>
+        <Provider store={store} >
+              <ConditionalHOC />
+           </Provider>
+           </Router>
+      )
+     expect(getByText(/Test/i)).toBeInTheDocument() 
+    expect(getByText(/TestFail/i)).not.toBeInTheDocument() 
+
+     });
+      
+
+  
+

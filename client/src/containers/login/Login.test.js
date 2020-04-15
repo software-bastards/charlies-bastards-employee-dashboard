@@ -1,13 +1,10 @@
 import React from "react";
 import Login  from "./Login";
 import { Provider} from 'react-redux';
-import Enzyme, { mount, ShallowWrapper,shallow } from "enzyme";
-import EnzymeAdapter from "enzyme-adapter-react-16";
-import {findByTestAttr,initialState,storeFactory, expectTruthy} from "../../../testSetup/testUltil"
+import {initialState, expectTruthy} from "../../../testSetup/testUltil"
 import configureStore from 'redux-mock-store'
 import { render, fireEvent, act, cleanup,screen} from "@testing-library/react";
 import { BrowserRouter as Router}from "react-router-dom"
-  Enzyme.configure({ adapter: new EnzymeAdapter() });
 
   afterEach(cleanup)
 
@@ -16,9 +13,9 @@ import { BrowserRouter as Router}from "react-router-dom"
     const mockStore = configureStore()
       const store = mockStore(initialState)
       const {getByTestId,getAllByTestId} = render(
-        <Router>
+        <Router history={historyMock}>
         <Provider store={store} >
-              <Login history={historyMock}/>
+              <Login />
            </Provider>
            </Router>
       )
@@ -29,20 +26,19 @@ import { BrowserRouter as Router}from "react-router-dom"
      
       });
 
-  test('if onSubmit is called', async()=>{
+  test('"This field is required" should be in the DOM', async()=>{
     const historyMock = { push: jest.fn() };
     const mockStore = configureStore()
       const store = mockStore(initialState)
-      const {getByTestId,getByText,findBy} = render(
+      const {getByTestId,getByText,findBy,container} = render(
         <Router>
         <Provider store={store} >
               <Login history={historyMock} />
            </Provider>
            </Router>
       )
-     const onSubmit = jest.fn(() => Promise.reject({data:"Some data"}))
+    const onSubmit = jest.fn()
     const inputEmail = getByTestId("input-form-email")
-    const inputPassword = getByTestId("input-form-password")
 
     await act(async()=>{
       await fireEvent.change(inputEmail,{target:{value:"test@gmail"}})
@@ -50,12 +46,8 @@ import { BrowserRouter as Router}from "react-router-dom"
       fireEvent.submit(getByTestId("form-component"))
     })
     })
-    const find = screen.findByText("jhgf")
-    
-    console.log(screen.debug())
-
- 
-
-    
+     
+    expect(screen.getByTestId('form-component').textContent).toMatch("This field is required")
+   
 })
-    
+     
