@@ -52,7 +52,7 @@ db.account.hasMany(
 );
 
 // hour conection
-db.hour.belongsTo(db.category);lsof -i:5000
+db.hour.belongsTo(db.category);
 db.hour.hasOne(db.upload);
 
 module.exports = db;
