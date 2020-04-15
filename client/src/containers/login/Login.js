@@ -1,14 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import { useForm } from "react-hook-form";
 import loginHelper from "../../services/loginHelper";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createSession } from "../../reducers/actions/index";
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter} from "react-router-dom";
+
+
 function Login() {
-  const [message, setMessage] = React.useState("");
+  const [message, setMessage] = useState("");
   const { register, errors, handleSubmit } = useForm();
   const dispatch = useDispatch();
-  const history = useHistory();
   /**
    * @function onSuhmit
    * @param {string} data -Values passed in the input
@@ -28,8 +29,24 @@ function Login() {
           )
         )
       )
-       .catch((err) => setMessage(`${err.response.data.message.message}`));
- };
+      .catch((err) => setMessage(`${err.response.data.message.message}`));
+  };
+
+/*   const getGoogleData =(e)=>{
+    e.preventDefault();
+    loginHelper(value.email, value.password)
+      .then((res) =>
+        dispatch(
+          createSession(
+            res.data.message,
+            res.data.token,
+            res.data.firstname,
+            res.data.lastname
+          )
+        )
+      )
+      .catch((err) => setMessage(`${err.response.data.message.message}`))
+  } */
 
   return (
     <main>
@@ -45,18 +62,19 @@ function Login() {
           ref={register({ required: true })}
         />
         {errors.email && "This field is required"}
-        
-         <label  data-testid="test-label" htmlFor="password">Password</label>
+
+        <label data-testid="test-label" htmlFor="password">
+          Password
+        </label>
         <input
           data-testid="input-form-password"
-
           type="password"
           name="password"
           ref={register({ required: true })}
         />
-       {errors.password && "This field is required"}
-        
-         <button data-testid="submit-button" type="submit">
+        {errors.password && "This field is required"}
+
+        <button data-testid="submit-button" type="submit">
           {" "}
           Login{" "}
         </button>
@@ -66,10 +84,8 @@ function Login() {
       >
         {" "}
         Google +
-      </button> 
-      
-      </main>
-
+      </button>
+    </main>
   );
 }
 
