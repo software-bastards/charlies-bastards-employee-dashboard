@@ -12,14 +12,17 @@ const passport = require("passport");
 authrouter.get(
   "/auth/google",
   passport.authenticate("google", {
-    scope:['profile','email']}))
-
+    
+    scope: ['profile','email']
+  })
+);
 
 authrouter.get(
   "/auth/google/callback",
-  passport.authenticate("google"), (req, res) => {
-    res.send(req.user);   
+  passport.authenticate("google",{session:false}),
+  (req, res) => {
+  res.redirect('http://localhost:3000/dashboard')
   }
-); 
+);
 
 module.exports = authrouter;
