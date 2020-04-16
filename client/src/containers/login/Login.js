@@ -32,21 +32,6 @@ function Login() {
       .catch((err) => setMessage(`${err.response.data.message.message}`));
   };
 
-/*   const getGoogleData =(e)=>{
-    e.preventDefault();
-    loginHelper(value.email, value.password)
-      .then((res) =>
-        dispatch(
-          createSession(
-            res.data.message,
-            res.data.token,
-            res.data.firstname,
-            res.data.lastname
-          )
-        )
-      )
-      .catch((err) => setMessage(`${err.response.data.message.message}`))
-  } */
 
   return (
     <main>
