@@ -1,0 +1,19 @@
+@import "./global.scss";
+
+
+.main_login{
+    height:100vh;
+    width:100%;
+    /* background: black; */
+    font-family:$font-family-Login;
+}
+
+.button-login{
+    background:black;
+    color:$white;
+    border:0.2px solid white;
+    padding:3%;
+}
+.input-login{
+    color:white;
+}

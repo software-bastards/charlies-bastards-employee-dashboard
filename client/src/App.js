@@ -3,6 +3,7 @@ import Login from "./containers/login/Login"
 import Dashboard from "./containers/dashboard/Dashboard"
  import {Route, Switch,Redirect} from 'react-router-dom'
 import { connect } from "react-redux";
+
 /* import io from 'socket.io-client'
  */import Callback from "./containers/authenticated/Callback"
 
@@ -15,7 +16,8 @@ function mapToProps(state){
  function App ({isAuthenticated}){
  
  return (
-    <div>
+    <div className='main-app'>
+   
       <Switch>
       <Route exact path ='/'> 
       {isAuthenticated? <Redirect to="/dashboard"/>: <Login/>}
@@ -27,7 +29,7 @@ function mapToProps(state){
        {isAuthenticated? <Redirect to="/dashboard"/>: <Callback />}
        </Route>
       </Switch>
-    
+      
     </div>
   );
 }
