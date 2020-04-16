@@ -5,32 +5,13 @@ import { connect } from "react-redux";
 function Dashboard({ token, firstname }) {
   const [user, setUser] = useState("");
 
-  /*   componentDidUpdate(prevProps) {
-    if (this.props.token !== prevProps.token) {
-      this.getAccountData(this.props.token);
-    }
-  } */
-
   useEffect((prevProps) => {
-    /*  if (token !== prevProps.token) {
-      setUser(firstname);
-    } */
-
     console.log(firstname);
   });
 
-  /*  const getHoursData = (props) => {
-    dashboardHelper(props)
-      .then((res) =>
-        
-      )
-      .catch((err) => console.log(err));
-  }; */
-
-  /* render() { */
   return (
     <div className="dash-container">
-      <h1>Welcome {user} </h1>
+      <h1>Welcome {firstname} </h1>
     </div>
   );
 }
