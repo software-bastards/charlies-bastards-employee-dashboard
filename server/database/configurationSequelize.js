@@ -43,13 +43,9 @@ db.upload.belongsTo(
 //account conection
 
 db.project.belongsTo(db.account);
-db.account.hasMany(
-  db.project /* , { foreignKey: "account_id", sourceKey: "id" } */
-);
+db.account.hasMany(db.project, { foreignKey: "account_id", sourceKey: "id" });
 db.hour.belongsTo(db.account);
-db.account.hasMany(
-  db.hour /* , { foreignKey: "account_id", sourceKey: "id" } */
-);
+db.account.hasMany(db.hour, { foreignKey: "account_id", sourceKey: "id" });
 
 // hour conection
 db.hour.belongsTo(db.category);

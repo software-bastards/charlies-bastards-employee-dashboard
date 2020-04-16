@@ -28,9 +28,10 @@ function Login() {
           )
         )
       )
-      .then(history.push("/dashboard"))
-/*       .catch((err) => setMessage(`${err.response.data.message.message}`));
- */  };
+      .then(history.push("/dashboard"));
+    /*       .catch((err) => setMessage(`${err.response.data.message.message}`));
+     */
+  };
 
   return (
     <main>
@@ -46,18 +47,19 @@ function Login() {
           ref={register({ required: true })}
         />
         {errors.email && "This field is required"}
-        
-         <label  data-testid="test-label" htmlFor="password">Password</label>
+
+        <label data-testid="test-label" htmlFor="password">
+          Password
+        </label>
         <input
           data-testid="input-form-password"
-
           type="password"
           name="password"
           ref={register({ required: true })}
         />
-       {errors.password && "This field is required"}
-        
-         <button data-testid="submit-button" type="submit">
+        {errors.password && "This field is required"}
+
+        <button data-testid="submit-button" type="submit">
           {" "}
           Login{" "}
         </button>
@@ -67,8 +69,8 @@ function Login() {
       >
         {" "}
         Google +
-      </button> 
-      </main>
+      </button>
+    </main>
   );
 }
 
