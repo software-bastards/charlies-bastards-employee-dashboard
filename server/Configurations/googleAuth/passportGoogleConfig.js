@@ -1,17 +1,9 @@
 require("dotenv").config();
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const db = require("../../database/configurationSequelize");
-/* const userData = require ('../../routes/user')
- */const User = db.account;
+ const {findUserOf} = require ('../../routes/user')
+ const User = db.account;
 module.exports = (passport) => {
-  /* passport.serializeUser(function(user, done) {
-    done(null, user);
-  });
-  
-  passport.deserializeUser(function(user, done) {
-    done(null, user);
-  }); */
-  
   passport.use(
     new GoogleStrategy(
       {
@@ -21,28 +13,31 @@ module.exports = (passport) => {
       },
 
       (token, refreshToken, profile, done) => {
-        console.log(JSON.stringify(profile))
-        User.findOne({ where:{email: profile.emails[0].value} }).then((currentUser) => {
-           if (currentUser) { 
-            console.log(`user: ${JSON.stringify(currentUser.dataValues)}`);            
-           return  done(null,{
-             user:currentUser.dataValues, 
-             token:token});
+        User.findOne({ where: { email: profile.emails[0].value } })
+          .then((currentUser) => {
+            if (currentUser) {
+               console.log(JSON.stringify(currentUser.dataValues));
+               findUserOf(currentUser.dataValues)
+               return done(null, {
+                user: JSON.stringify(currentUser.dataValues),
+                token: token,
+              });
             } else {
-            User.create({
-              firstname: profile.name.givenName,
-              lastname: profile.name.familyName,
-              email: profile.emails[0].value,
-            }).then((newUser) => {
-              console.log(`new user was created:${newUser.firstname}`);
-              done(null,{
-                user:currentUser.dataValues, 
-                token:token});
-            })}; 
-          }).catch(err=>console.log(err))
-        
-          
+              User.create({
+                firstname: profile.name.givenName,
+                lastname: profile.name.familyName,
+                email: profile.emails[0].value,
+              }).then((newUser) => {
+                console.log(`new user was created:${newUser.firstname}`);
+                done(null, {
+                  user: currentUser.dataValues,
+                  token: token,
+                });
+              });
+            }
+          })
+          .catch((err) => console.log(err));
       }
     )
-  )}
-  
+  );
+};
