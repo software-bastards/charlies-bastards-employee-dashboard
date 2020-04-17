@@ -3,11 +3,8 @@ require("dotenv").config();
 const JwtStrategy = require("passport-jwt").Strategy;
 const passportJWT = require("passport-jwt");
 const LocalStrategy = require("passport-local").Strategy;
-const ExtractJwt = passportJWT.ExtractJwt;
-
 const bcrypt = require("bcrypt");
-const db = require("../../database/configurationSequelize");
-const account = db.account;
+
 
 //utilities
 const  utilities =require ('../../services/utilities')
