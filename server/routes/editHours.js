@@ -9,7 +9,7 @@ router.post('/myhours',
 /* passport.authenticate("jwt", { session: false }),
  */(req,res)=>{
  const id = req.body.id
- hour.findAll({where:{id:id}})
+ hour.findAll({where:{account_id:id}})
  .then(result=> res.status(200).json(result))
  .catch(err=> {console.error(err), res.status(500)})
 })

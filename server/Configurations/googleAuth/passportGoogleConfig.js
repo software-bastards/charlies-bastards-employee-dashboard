@@ -6,6 +6,7 @@ const db = require("../../database/configurationSequelize");
 const User = db.account;
 
 
+
 module.exports = (passport) => {
   passport.use(
     new GoogleStrategy(
