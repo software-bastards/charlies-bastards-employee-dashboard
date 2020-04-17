@@ -1,4 +1,3 @@
-require("dotenv").config();
 //Dependecies
 const JwtStrategy = require("passport-jwt").Strategy;
 const passportJWT = require("passport-jwt");

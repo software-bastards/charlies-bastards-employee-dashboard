@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const db = require("../database/configurationSequelize");
 const JwtStrategy = require("passport-jwt").Strategy;
 const passportJWT = require("passport-jwt");
@@ -9,7 +11,7 @@ const ExtractJwt = passportJWT.ExtractJwt;
 /**
  * @function findUserByEmail
  * @param {string} email - email passed by the client
- * @returns {obj} 
+ * @returns {obj} -user from the database
  */
 
 function findUserByEmail(email) {
