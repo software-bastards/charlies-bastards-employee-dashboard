@@ -7,11 +7,13 @@ import axios from 'axios'
  * @returns {obj} - with information from the hour table
  */
 
-export default  async function  (id, token){
-    const response = await axios.post("/myhours", {
-        email: email,
-        password:password
-    })
+export default  async function editHours (id){
+    const response = await axios.post("/myhours", /* {
+        headers: { 'Authorization': "Bearer " + token }
+      } */
+      {
+         id:id
+    } )
 
     return  response
 }

@@ -4,11 +4,11 @@ import loginHelper from "../../services/loginHelper";
 import { useDispatch } from "react-redux";
 import { createSession } from "../../reducers/actions/index";
 import { withRouter} from "react-router-dom";
-import { Grid,TextField,FormControl,InputLabel,Input,InputAdornment } from "@material-ui/core";
+import { Grid,TextField,FormControl,Input,InputAdornment } from "@material-ui/core";
  import {AccountCircle} from '@material-ui/icons';
  
- import "../../style/login.scss" 
-
+/*  import "../../style/login.scss" 
+ */
 function Login() {
   const [message, setMessage] = useState("");
   const { register, errors, handleSubmit } = useForm();
@@ -45,29 +45,30 @@ function Login() {
     alignItems="center"
   >
     <main className="main_login">
-      <FormControl  data-testid="form-component" onSubmit={handleSubmit(onSubmit)}>
+      <form  data-testid="form-component" onSubmit={handleSubmit(onSubmit)}>
         <p>{message}</p>
-        <InputLabel  data-testid="test-label" htmlFor="email">
+        <label  data-testid="test-label" htmlFor="email">
           E-mail
-        </InputLabel >
-        <Input
+        </label >
+        <input
           data-testid="input-form-email"
           type="text"
           name="email"
-          color="white"
           ref={register({ required: true })}
+
+       /*    color="white"
            startAdornment={
             <InputAdornment position="start">
               <AccountCircle />
             </InputAdornment>
-          } 
+          }  */
         />
         {errors.email && "This field is required"}
 
-        <InputLabel  data-testid="test-label" htmlFor="password">
+        <label  data-testid="test-label" htmlFor="password">
           Password
-        </InputLabel >
-        <Input
+        </label >
+        <input
         className='input-login'
           data-testid="input-form-password"
           type="password"
@@ -81,7 +82,7 @@ function Login() {
           {" "}
           Login{" "}
         </button>
-      </FormControl >
+      </form >
       <button className='button-login'
         onClick={() => (window.location = "http://localhost:5000/auth/google")}
       >
