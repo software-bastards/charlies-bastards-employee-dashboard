@@ -25,6 +25,7 @@ function Login() {
       .then((res) =>
         dispatch(
           createSession(
+            res.data.id,
             res.data.message,
             res.data.token,
             res.data.firstname,
