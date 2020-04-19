@@ -2,17 +2,24 @@ import axios from 'axios'
 
 /**
  * @function editHours
- * @param {number} id -client id
- * @param {string} token 
- * @returns {obj} - with information from the hour table
+ * @param {number} month 
+ * @param {number} day 
+ * @param {number} hour 
+ * @param {number} id 
+ * @param {number} token
+ * @return {obj} - a message that comes from the server 
  */
 
-export default  async function editHours (id){
-    const response = await axios.post("/myhours", /* {
-        headers: { 'Authorization': "Bearer " + token }
-      } */
-      {
-         id:id
+export default  async function editHours (month,day,hour,token,id){
+   const newLocal = "/myhours/edit"
+    const response = await axios.put(newLocal,  {
+        headers: { 'Authorization': "Bearer " + token },
+        data: {
+            account_id:id,
+            month:month,
+            day:day,
+            hour:hour
+        }
     } )
 
     return  response
