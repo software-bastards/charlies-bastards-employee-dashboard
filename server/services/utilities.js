@@ -15,7 +15,8 @@ const ExtractJwt = passportJWT.ExtractJwt;
  */
 
 function findUserByEmail(email) {
-    account.findOne({ where: { email: email } });
+  return  account.findOne({ where: { email: email } });
+  
   }
 
   /**
@@ -25,7 +26,7 @@ function findUserByEmail(email) {
    */
   
   function handleJSW (playload) {
-    account.findOne({ where: { email: playload.email } })
+   return  account.findOne({ where: { email: playload.email } })
   }
 
 const jwsConfiguration = {

@@ -9,12 +9,11 @@ const googleKeys = {
   callbackURL: "http://localhost:5000/auth/google/callback",
 };
 function findUser(profile) {
-  User.findOne({ where: { email: profile.emails[0].value } });
+ return User.findOne({ where: { email: profile.emails[0].value } });
 }
 
 function createUserGoogle(profile) {
-  User.create({
-
+  return User.create({
     firstname: profile.name.givenName,
     lastname: profile.name.familyName,
     email: profile.emails[0].value,

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import editHours from "../../services/editHours";
+import editHours from "../../services/axios_sev/editHours";
 import { useForm } from "react-hook-form";
 
 function PopUpEdit({ handlePopUp, userToken, userId }) {

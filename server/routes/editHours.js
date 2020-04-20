@@ -6,23 +6,26 @@ const passport = require("passport");
 
 
 router.post('/myhours',
-/* passport.authenticate("jwt", { session: false }),
- */(req,res)=>{
- const id = req.body.id
- hour.findAll({where:{account_id:id}})
- .then(result=> res.status(200).json(result))
- .catch(err=> {console.error(err), res.status(500)})
+/*  passport.authenticate("jwt", { session: false }), */
+ (req,res)=>{
+ const id = req.body.data.account_id
+   hour.findAll({where:{account_id:id}})
+ .then(result=> res.status(200).send(result))
+ .catch(err=> {console.error(err), res.status(500)}) 
 })
 
 
 router.put('/myhours/edit',
-passport.authenticate("jwt", { session: false }),
-(req,res)=>{
-    const idBody = req.body.id
-    const hourBody = req.body.hour
-    hour.update({hour_logged:hourBody},{returning: true, where:{id:idBody}})
+/* passport.authenticate("jwt", { session: false }),
+ */(req,res)=>{
+   const idBody = req.body.data.account_id
+    const monthBody = req.body.data.month
+    const dayBody = req.body.data.day
+    const hourBody = req.body.data.hour 
+
+     hour.update({hour_logged:hourBody},{returning: true, where:{account_id:idBody,month_number:monthBody,day_number:dayBody}})
     .then(result=> res.status(200).json({message:"Your hours were updated"}) )
-    .catch(err=> {console.error(err), res.status(500)})
+    .catch(err=> {console.error(err), res.status(500).json({message:"Something went wrong"})}) 
    })
 
  module.exports = router

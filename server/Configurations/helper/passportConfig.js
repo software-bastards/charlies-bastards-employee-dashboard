@@ -17,17 +17,18 @@ module.exports = function (passport) {
     new LocalStrategy({ usernameField: "email" },  (email, password, done) => {
       findUserByEmail(email)
         .then((user) => {
-          !user &&
-            done(null, false, {
+          if (!user)
+            {done(null, false, {
               message: "This e-mail is not registered",
-            });
-          bcrypt.compare(password, user.password, (err, isMatch) => {
-            isMatch && done(null, user.dataValues);
-            done(null, false, { message: "Password incorrect" });
+            })}
+        else
+          {bcrypt.compare(password, user.password, (err, isMatch) => {
+            if(isMatch){done(null, user.dataValues)}
+            else{done(null, false, { message: "Password incorrect" });}
             }
           );
-        })
-        .catch((err) => console.log(err));
+        }}).catch((err) => console.log(err))
+        
     })
   );
 
