@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import getDataFromHour from "../../services/axios_sev/getDataFromHour";
 import PopUp from "../PopUp/PopUpEdit";
 import { connect, useDispatch } from "react-redux";
-import { months } from "../../services/editHoursSev";
+import { months,filterData } from "../../services/editHoursSev";
 import {monthHours} from "../../reducers/actions/index"
 import UserHours from "./UserHours";
 
@@ -19,22 +19,22 @@ function EditHours({ userToken, userId }) {
     });
   }, []);
 
+const handleId= async(e)=>{
+  const id = await e.target.id;
+  filterMonth(id)
+}
 
-
-  /**
-   * @function filterMonth - filter the data that comes from the server
-   * @param {*} e
-   * @returns -  only the data from the selected month
-   */
-  const filterMonth = async (event) => {
-    //need to get the month by the id
-    const id = await event.target.id;
-    const response = await data.filter((e) => {
-      return 1 === e.month_number;
-    });
-    setMonthData(response);
-    dispatch(monthHours(response));
-    if (monthData.length <= 0) setWorkThisMonth(true);
+  
+  const filterMonth =  (id) => {
+      filterData(data,id).then(response=>
+     { setMonthData(response)
+      dispatch(monthHours(response))}
+      )
+      .catch(err =>
+        console.log(err)
+      )
+    
+      if (monthData.length <= 0) setWorkThisMonth(true)
   };
 
   return (
@@ -42,7 +42,7 @@ function EditHours({ userToken, userId }) {
       <h1>Edit Hours</h1>
       {months.map((item, index) => (
         <div key={index}>
-          <button id={index + 1} onClick={filterMonth}>
+          <button id={index + 1} onClick={handleId}>
             {item}
           </button>
         </div>

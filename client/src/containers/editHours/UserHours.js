@@ -1,13 +1,9 @@
 import React from "react";
 import { getMonthName } from "../../services/editHoursSev";
-import { Route, Link, Redirect } from "react-router-dom";
-import PopUpEdit from "../PopUp/PopUpEdit";
+import { Link } from "react-router-dom";
 export default function UserHours({
   monthData,
-  handlePopUp,
-  popUp,
-  userToken,
-  userId,
+ 
 }) {
   return (
     <div>

@@ -48,3 +48,17 @@ export  const getMonthName = (id) => {
     "November",
     "December",
   ];
+
+/**
+ * @function filterData - filter data from the array of objects with information from the hour table
+ * @param {array} data 
+ * @returns {array} - array of objects with the hours registered on the selected month 
+ */
+  export async function filterData(data,id){
+    console.log(id)
+  const response = await data.filter((e) => {
+    return parseInt(id) === e.month_number;
+  });
+  console.log(response)
+  return response
+}

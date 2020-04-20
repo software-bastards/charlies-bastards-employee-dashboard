@@ -1,7 +1,5 @@
-import React from "react";
 import axios from 'axios'
 import loginHelper from "../axios_sev/loginHelper"
-import { Provider } from 'react-redux';
 
 jest.mock('axios')
 
