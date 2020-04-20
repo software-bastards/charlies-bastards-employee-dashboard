@@ -23,8 +23,9 @@ router.put('/myhours/edit',
     const dayBody = req.body.data.day
     const hourBody = req.body.data.hour 
 
-     hour.update({hour_logged:hourBody},{returning: true, where:{account_id:idBody,month_number:monthBody,day_number:dayBody}})
-    .then(result=> res.status(200).json({message:"Your hours were updated"}) )
+     hour.update({hour_logged:hourBody},{ returning: true, where:{account_id:idBody,month_number:monthBody,day_number:dayBody}})
+    .then(results=> res.status(200).json({
+      message:"Your hours were updated"}) )
     .catch(err=> {console.error(err), res.status(500).json({message:"Something went wrong"})}) 
    })
 

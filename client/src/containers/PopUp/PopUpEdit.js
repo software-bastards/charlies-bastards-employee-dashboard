@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import editHours from "../../services/axios_sev/editHours";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import {connect} from 'react-redux'
 
-function PopUpEdit({ handlePopUp, userToken, userId }) {
+function PopUpEdit({ userToken, userId, monthData }) {
   const { register, errors, handleSubmit } = useForm();
   const [message, setMessage] = useState("");
 
@@ -15,19 +17,15 @@ function PopUpEdit({ handlePopUp, userToken, userId }) {
   const updateData = (value, e) => {
     console.log(value);
     e.preventDefault();
-    editHours(value.month, value.day, value.hour, userToken, userId)
+    editHours(monthData[0].month_number, value.day, value.hour, userToken, userId)
       .then((res) => setMessage(res.data.message))
       .catch((err) => console.log(err));
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit(updateData)}>
+        <form onSubmit={handleSubmit(updateData)}>
         <h2>{message}</h2>
-        <label htmlFor="email">Month</label>
-        <input type="number" name="month" ref={register({ required: true })} />
-        {errors.email && "This field is required"}
-
         <label htmlFor="day">Day</label>
         <input type="number" name="day" ref={register({ required: true })} />
         {errors.password && "This field is required"}
@@ -37,8 +35,18 @@ function PopUpEdit({ handlePopUp, userToken, userId }) {
 
         <button type="submit"> Submit </button>
       </form>
-      <button onClick={handlePopUp}>Close</button>
+      <Link to="/myhours">
+        <button>Back</button>
+      </Link> 
     </div>
   );
 }
-export default PopUpEdit;
+
+function mapStateToPropr(state){
+  return {
+    monthData:state.getMonthData.monthData,
+    userToken: state.authorization.token,
+    userId: state.authorization.id,
+  }
+}
+export default connect(mapStateToPropr)(PopUpEdit);

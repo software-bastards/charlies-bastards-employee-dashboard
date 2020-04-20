@@ -4,9 +4,11 @@ import Dashboard from "./containers/dashboard/Dashboard"
  import {Route, Switch,Redirect} from 'react-router-dom'
 import { connect } from "react-redux";
 import EditHours from "./containers/editHours/EditHours"
+import PopUpEdit from "./containers/PopUp/PopUpEdit"
 /* import io from 'socket.io-client'
- */
 import Callback from "./containers/authenticated/Callback"
+ */
+
 
 function mapToProps(state){
   return(
@@ -26,6 +28,11 @@ function mapToProps(state){
        <Route path="/myhours"> 
        {!isAuthenticated? <Redirect to="/"/>: <EditHours/>}
        </Route>
+       <Route path="/edit"> 
+       {!isAuthenticated? <Redirect to="/"/>: <PopUpEdit/>}
+       </Route>
+        
+        
      {/* Google authentication  
      
      <Route path="/authenticated"> 
