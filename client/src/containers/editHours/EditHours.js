@@ -4,7 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import { months,filterData } from "../../services/editHoursSev";
 import {monthHours} from "../../reducers/actions/index"
 import UserHours from "./UserHours";
-
+import "../../style/editHours.scss"
 function EditHours({ userToken, userId,monthData }) {
   const [data, setData] = useState([]);
   const [workThisMonth, setWorkThisMonth] = useState(false);
@@ -19,7 +19,7 @@ function EditHours({ userToken, userId,monthData }) {
 
 const handleId= async(e)=>{
    const id = await e.target.id;
-     filterMonth(id)  
+    filterMonth(id)  
  
 }
 
@@ -37,7 +37,7 @@ const handleId= async(e)=>{
    }; 
 
   return (
-    <div data-testid='component-editHours'>
+    <div className='main-editHours' data-testid='component-editHours'>
       
        <h1>Edit Hours</h1>
      {months.map((item, index) => (
