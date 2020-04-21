@@ -13,6 +13,7 @@ export default function authorization(state = {}, action) {
         firstname: action.firstname,
         lastname: action.lastname,
         message: action.message,
+        id: action.id,
       };
     default:
       return state;

@@ -24,7 +24,8 @@ function Login() {
             res.data.message,
             res.data.token,
             res.data.firstname,
-            res.data.lastname
+            res.data.lastname,
+            res.data.id
           )
         )
       )

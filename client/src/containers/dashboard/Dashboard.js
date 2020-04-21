@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import dashboardHelper from "../../services/dashboardHelper";
+import hoursHelper from "../../services/hoursHelper";
 import { connect, useSelector } from "react-redux";
-/* import { logoutUser } from "../../reducers/actions/logoutUser"; */
 import { useHistory } from "react-router-dom";
 
 function Dashboard({ token, firstname, lastname }) {
@@ -10,7 +10,17 @@ function Dashboard({ token, firstname, lastname }) {
   const authorization = useSelector((store) => {
     return store.authorization;
   });
+  /**
+  
 
+  /*   const hoursDisplay = (value) => {
+    hoursHelper(value).then((res) => console.log(res));
+  }; */
+  const handleClick = () => {
+    hoursHelper(authorization.token, authorization.id)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  };
   /*   useEffect((prevProps) => {
     console.log(firstname);
   }); */
@@ -30,18 +40,9 @@ function Dashboard({ token, firstname, lastname }) {
       <h1>
         Welcome {authorization.firstname} {authorization.lastname}
       </h1>
-      <button /* onClick={() => onLogOut()} */> Log Out</button>
+      <button onClick={handleClick}> Hours</button>
     </div>
   );
 }
-
-/* function mapStateToProps(state) {
-  return {
-    token: state.authorization.token,
-    firstname: state.authorization.firstname,
-    lastname: state.authorization.lastname,
-    isAuthenticated: state.authorization.token,
-  };
-} */
 
 export default Dashboard;
