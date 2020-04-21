@@ -1,13 +1,12 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import App from './App';
+import React from "react";
+import App from "./App";
+import { Provider} from 'react-redux';
+import {initialState, expectTruthy} from "../testSetup/testUltil"
+import configureStore from 'redux-mock-store'
+import { render} from "@testing-library/react";
+import { BrowserRouter as Router}from "react-router-dom"
 
-configure({ adapter: new Adapter() });
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+  test('full app rendering withou error',  ()=>{
+    
+      });

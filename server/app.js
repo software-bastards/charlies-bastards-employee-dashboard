@@ -1,0 +1,66 @@
+    
+if(process.env.NODE_ENV !== 'production'){
+  require('dotenv').config()
+} 
+//DEPENDECIES
+const path = require('path')
+const http = require('http');  
+const createError = require('http-errors');
+const express = require('express');
+const app = express();
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cors = require('cors');
+const passport = require ('passport');
+/* const socketio = require('socket.io')
+ */
+//Routes
+const registerRouter = require('./routes/register');
+const loginRouter = require('./routes/login');
+const dashboardRouter = require('./routes/dashboard');
+const authrouter = require('./routes/authentication')
+
+//configurations
+const db = require("./database/configurationSequelize")
+require('./Configurations/helper/passportConfig')(passport)
+db.connector.sync();
+require('./Configurations/googleAuth/passportGoogleConfig')(passport)
+
+/* const server = http.createServer(certOptions, app)
+ */
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cookieParser());
+app.use(cors())
+app.use('/', registerRouter);
+app.use('/', loginRouter);
+app.use('/', authrouter);
+app.use('/', dashboardRouter)
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// Connecting sockets to the server and adding them to the request 
+
+/* const io = socketio(server)
+app.set('io', io) */
+
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+console.log(err.message)
+  // render the error page
+  res.status(err.status || 500);
+  res.json('error');
+});
+
+module.exports = app;
