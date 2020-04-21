@@ -16,12 +16,42 @@ authrouter.get(
   })
 );
 
+/* authrouter.get(
+  "/auth/google/callback", (res,req,next)=>{
+    ( passport.authenticate("google", { session: false },
+  (err,user,info) => {
+   res.send(user)
+  }))
+ }
+
+ )  */
+
+ authrouter.get(
+  "/auth/google/callback", (req,res,next) =>{
+    passport.authenticate("google", { session: false },
+    (err,user,info) =>  {
+      console.log('here')
+    if (err) throw res.status(500).send("Something went wrong") 
+    return   res.status(200).json({
+      success: true,
+      id: user.id,
+      firstname:user.firstname,
+      lastname:user.lastname,
+      token:  user.token,
+     })(req,res)
+  })
+  next()
+},(req,res)=>{res.redirect("/auth/google/login")});
+
+
 authrouter.get(
-  "/auth/google/callback",
-  passport.authenticate("google", { session: false }),
+  "/auth/google/login",
+  passport.authenticate("google", { session: false },
   (req, res) => {
-    res.redirect("http://localhost:3000/dashboard");
-  }
-);
+    res.status(200).redirect('http://localhost:3000/authorized');
+  })
+);  
+
+
 
 module.exports = authrouter;
