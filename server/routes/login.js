@@ -21,7 +21,7 @@ router.post("/login", function(req, res, next) {
      id: user.id,
      firstname:user.firstname,
      lastname:user.lastname,
-     token: 'JWT ' + token,
+     token: 'Bearer ' + token,
      message:"you were authenticated"}) 
      
      

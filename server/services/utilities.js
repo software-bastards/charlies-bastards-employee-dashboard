@@ -30,7 +30,7 @@ function findUserByEmail(email) {
   }
 
 const jwtConfiguration = {
-    jwtFromRequest: ExtractJWT.fromAuthHeaderWithScheme("JWT"),
+    jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey: process.env.ACCESS_TOKEN_SECRET}
 
 
