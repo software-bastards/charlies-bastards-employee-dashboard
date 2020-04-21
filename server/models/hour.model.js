@@ -6,10 +6,10 @@ module.exports= (Sequelize,connector) =>{
             primaryKey: true,
             autoIncrement: true,
           },
-          hour: {
+          hour_logged: {
             type: Sequelize.INTEGER,
          },
-          mounth_number: {
+          month_number: {
             type: Sequelize.INTEGER,
           },
            day_number: {

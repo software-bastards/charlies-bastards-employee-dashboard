@@ -18,10 +18,12 @@ router.post("/login", function(req, res, next) {
    const token = jwt.sign(JSON.stringify(user), process.env.ACCESS_TOKEN_SECRET);
    return   res.status(200).json({
      success: true,
+     id: user.id,
      firstname:user.firstname,
      lastname:user.lastname,
-     token: token,
-     message:"you were authenticated"})  
+     token: 'Bearer ' + token,
+     message:"you were authenticated"}) 
+     
      
     })(req, res, next)
 

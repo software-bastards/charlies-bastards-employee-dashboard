@@ -3,8 +3,13 @@ import Login from "./containers/login/Login"
 import Dashboard from "./containers/dashboard/Dashboard"
  import {Route, Switch,Redirect} from 'react-router-dom'
 import { connect } from "react-redux";
+import EditHours from "./containers/editHours/EditHours"
+import PopUpEdit from "./containers/PopUp/PopUpEdit"
+import Callback from "./containers/authenticated/Callback"
+
 /* import io from 'socket.io-client'
- */import Callback from "./containers/authenticated/Callback"
+ */
+
 
 function mapToProps(state){
   return(
@@ -15,19 +20,24 @@ function mapToProps(state){
  function App ({isAuthenticated}){
  
  return (
-    <div>
+    <div className='main-app'>
+   
       <Switch>
       <Route exact path ='/'> 
-      {isAuthenticated? <Redirect to="/dashboard"/>: <Login/>}
+      {isAuthenticated? <Redirect to="/myhours"/>: <Login/>}
       </Route>
-       <Route path="/dashboard"> 
-       {!isAuthenticated? <Redirect to="/"/>: <Dashboard/>}
+       <Route path="/myhours"> 
+       {!isAuthenticated? <Redirect to="/"/>: <EditHours/>}
        </Route>
-       <Route path="/authenticated"> 
+       <Route path="/edit"> 
+       {!isAuthenticated? <Redirect to="/"/>: <PopUpEdit/>}
+       </Route>
+           
+     <Route path="/authenticated"> 
        {isAuthenticated? <Redirect to="/dashboard"/>: <Callback />}
-       </Route>
+       </Route> 
       </Switch>
-    
+      
     </div>
   );
 }

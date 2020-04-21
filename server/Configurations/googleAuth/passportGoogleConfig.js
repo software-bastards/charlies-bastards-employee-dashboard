@@ -1,43 +1,33 @@
-require("dotenv").config();
+
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const db = require("../../database/configurationSequelize");
- const {findUserOf} = require ('../../routes/user')
- const User = db.account;
+const utilities = require("../../services/utilitiesGoogle");
+const createUserGoogle = utilities.createUserGoogle;
+const findUser = utilities.findUser;
+const googleKeys = utilities.googleKeys;
+
 module.exports = (passport) => {
   passport.use(
-    new GoogleStrategy(
-      {
-        clientID: process.env.GOOGLE_AUTH_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_AUTH_CLIENT_SECRET_KEY,
-        callbackURL: "http://localhost:5000/auth/google/callback",
-      },
-
-      (token, refreshToken, profile, done) => {
-        User.findOne({ where: { email: profile.emails[0].value } })
-          .then((currentUser) => {
-            if (currentUser) {
-               console.log(JSON.stringify(currentUser.dataValues));
-               findUserOf(currentUser.dataValues)
-               return done(null, {
-                user: JSON.stringify(currentUser.dataValues),
+    new GoogleStrategy(googleKeys, (token, refreshToken, profile, done) => {
+      findUser(profile)
+        .then((currentUser) => {
+          if (currentUser) {
+            console.log(`user: ${JSON.stringify(currentUser.dataValues)}`);
+            return done(null, {
+              user: currentUser.dataValues,
+              token: token,
+            });
+          } else {
+            createUserGoogle().then((newUser) => {
+              console.log(`new user was created:${newUser.firstname}`);
+              done(null, {
+                user: currentUser.dataValues,
                 token: token,
               });
-            } else {
-              User.create({
-                firstname: profile.name.givenName,
-                lastname: profile.name.familyName,
-                email: profile.emails[0].value,
-              }).then((newUser) => {
-                console.log(`new user was created:${newUser.firstname}`);
-                done(null, {
-                  user: currentUser.dataValues,
-                  token: token,
-                });
-              });
-            }
-          })
-          .catch((err) => console.log(err));
-      }
-    )
+            });
+          }
+        })
+        .catch((err) => console.log(err));
+    })
+
   );
 };

@@ -3,13 +3,13 @@ const authrouter = express.Router();
 const passport = require("passport");
 const { user } = require("./user");
 
-/* authrouter.get(
+ /* authrouter.get(
   "/auth",
   passport.authenticate("jwt", { session: false },
   (req, res) => {
     res.status(200);
   })
-); */
+);  */
 authrouter.get(
   "/auth/google",
   passport.authenticate("google", {
@@ -20,6 +20,7 @@ authrouter.get(
 authrouter.get(
   "/auth/google/callback",
   passport.authenticate("google", { session: false }),
+
   (req, res,next) => {
     res.redirect("http://localhost:3000/authenticated"), next();
   },
@@ -30,6 +31,7 @@ authrouter.get(
       email: user.socket.parser.incoming.user.user.email,
       token: user.socket.parser.incoming.user.token,
     });
+
   }
 );
 
