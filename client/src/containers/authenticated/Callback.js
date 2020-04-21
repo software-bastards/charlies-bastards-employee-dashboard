@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 function Authenticate() {
  const dispatch = useDispatch()
 useEffect(()=>{
-  getGoogleData()})
+  getGoogleData()},[])
 
   const getGoogleData =(e)=>{
     loginGoogleProfile()

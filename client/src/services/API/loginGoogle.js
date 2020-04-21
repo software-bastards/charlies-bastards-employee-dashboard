@@ -6,7 +6,7 @@ import axios from 'axios'
  */
 
 export default  async function  (){
-    const response = await axios.get('/auth/google/callback')
+    const response = await axios.get("http://localhost:5000/auth/google/callback")
 
     return  response
 }
