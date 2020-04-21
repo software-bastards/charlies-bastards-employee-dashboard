@@ -7,8 +7,14 @@ import {BrowserRouter}from "react-router-dom"
 import { createStore } from  'redux';
 import { Provider } from  'react-redux';
 import allReducers from "./reducers/index"
+import throttle from 'lodash/throttle'
+import {loadState, saveState} from './services/loadState'
 const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
+store.subscribe(throttle(()=>{
+  saveState(store.getState())
+}),
+1000)
 
 ReactDOM.render(
   
