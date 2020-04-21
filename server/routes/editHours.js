@@ -5,19 +5,23 @@ const hour = db.hour
 const passport = require("passport");
 
 
-router.post('/myhours',
-/*  passport.authenticate("jwt", { session: false }), */
- (req,res)=>{
- const id = req.body.data.account_id
-   hour.findAll({where:{account_id:id}})
+ router.post('/myhours',
+/*   passport.authenticate("jwt", { session: false },(req,res)=>{}),  
+ */   (req,res)=>{ 
+    console.log('ok')
+     const id = req.body.data.account_id 
+    hour.findAll({where:{account_id:id}})
  .then(result=> res.status(200).send(result))
- .catch(err=> {console.error(err), res.status(500)}) 
-})
+ .catch(err=> {console.error(err), res.status(500)})
+ }
+)
 
 
 router.put('/myhours/edit',
-/* passport.authenticate("jwt", { session: false }),
- */(req,res)=>{
+/* passport.authenticate("jwt", { session: false }, 
+(req,res)=>{ next()}), */
+  (req,res)=>{
+    console.log('ok')
    const idBody = req.body.data.account_id
     const monthBody = req.body.data.month
     const dayBody = req.body.data.day

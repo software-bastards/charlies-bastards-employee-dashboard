@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import getDataFromHour from "../../services/axios_sev/getDataFromHour";
-import PopUp from "../PopUp/PopUpEdit";
 import { connect, useDispatch } from "react-redux";
 import { months,filterData } from "../../services/editHoursSev";
 import {monthHours} from "../../reducers/actions/index"
@@ -8,7 +7,6 @@ import UserHours from "./UserHours";
 
 function EditHours({ userToken, userId }) {
   const [data, setData] = useState([]);
-  const [popUp, setPopUp] = useState(false);
   const [monthData, setMonthData] = useState([]);
   const [workThisMonth, setWorkThisMonth] = useState(false);
   const dispatch = useDispatch();
@@ -38,7 +36,7 @@ const handleId= async(e)=>{
   };
 
   return (
-    <div>
+    <div data-testid='component-editHours'>
       <h1>Edit Hours</h1>
       {months.map((item, index) => (
         <div key={index}>
@@ -66,7 +64,7 @@ const handleId= async(e)=>{
   );
 }
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return {
     userToken: state.authorization.token,
     userId: state.authorization.id,

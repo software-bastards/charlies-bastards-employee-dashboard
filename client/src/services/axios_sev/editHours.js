@@ -13,7 +13,7 @@ import axios from 'axios'
 export default  async function editHours (month,day,hour,token,id){
    const newLocal = "/myhours/edit"
     const response = await axios.put(newLocal,  {
-        headers: { 'Authorization': "Bearer " + token },
+        headers: { 'Authorization': token },
         data: {
             account_id:id,
             month:month,

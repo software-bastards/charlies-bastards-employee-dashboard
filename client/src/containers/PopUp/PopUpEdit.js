@@ -15,11 +15,10 @@ function PopUpEdit({ userToken, userId, monthData }) {
    * @returns {obj} - returns a message that says if the request was sucessful or not
    */
   const updateData = (value, e) => {
-    console.log(value);
     e.preventDefault();
     editHours(monthData[0].month_number, value.day, value.hour, userToken, userId)
       .then((res) => setMessage(res.data.message))
-      .catch((err) => console.log(err));
+      .catch((err) => setMessage(err));
   };
 
   return (

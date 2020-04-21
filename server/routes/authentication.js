@@ -2,13 +2,13 @@ const express = require("express");
 const authrouter = express.Router();
 const passport = require("passport");
 
-/* authrouter.get(
+ /* authrouter.get(
   "/auth",
   passport.authenticate("jwt", { session: false },
   (req, res) => {
     res.status(200);
   })
-); */
+);  */
 authrouter.get(
   "/auth/google",
   passport.authenticate("google", {

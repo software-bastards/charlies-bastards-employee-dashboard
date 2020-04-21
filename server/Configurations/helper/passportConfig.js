@@ -7,9 +7,9 @@ const bcrypt = require("bcrypt");
 
 //utilities
 const  utilities =require ('../../services/utilities')
-const  handleJSW = utilities.handleJSW
+const  handleJWT = utilities.handleJWT
 const  findUserByEmail =utilities.findUserByEmail
-const  jwsConfiguration =utilities.jwsConfiguration
+const  jwtConfiguration =utilities.jwtConfiguration
 
 
 module.exports = function (passport) {
@@ -35,10 +35,11 @@ module.exports = function (passport) {
   
 
 
-  passport.use(
-    new JwtStrategy( jwsConfiguration,
-      (playload, done) => {
-        handleJSW(playload)
+  passport.use( 'jwt',
+    new JwtStrategy( jwtConfiguration,
+      (payload, done) => {
+        console.log(payload)
+        handleJWT(payload)
         .then((user) => done(null, user.dataValues))
         .catch((err) => console.error(err));
       }

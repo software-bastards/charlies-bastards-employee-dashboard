@@ -6,7 +6,7 @@ const passportJWT = require("passport-jwt");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
 const account = db.account;
-const ExtractJwt = passportJWT.ExtractJwt;
+const ExtractJWT = passportJWT.ExtractJwt;
 
 /**
  * @function findUserByEmail
@@ -20,19 +20,19 @@ function findUserByEmail(email) {
   }
 
   /**
-   * @function handleJSW
-   *  @param {obj} playload 
+   * @function handleJWT
+   *  @param {obj} payload 
    *  @returns {obj} 
    */
   
-  function handleJSW (playload) {
-   return  account.findOne({ where: { email: playload.email } })
+  function handleJWT (payload) {
+   return  account.findOne({ where: { email: payload.email } })
   }
 
-const jwsConfiguration = {
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+const jwtConfiguration = {
+    jwtFromRequest: ExtractJWT.fromAuthHeaderWithScheme("JWT"),
     secretOrKey: process.env.ACCESS_TOKEN_SECRET}
 
 
 
-    module.exports ={jwsConfiguration,handleJSW,findUserByEmail}
+    module.exports ={jwtConfiguration,handleJWT,findUserByEmail}

@@ -22,7 +22,7 @@ describe(" axios send data to update", () => {
     expect(axios.put).toHaveBeenCalledTimes(1);
     expect(axios.put).toHaveBeenCalledWith("/myhours/edit", {
       data: { account_id: 'account_id', month: "month", day:"day", hour:  "hour" },
-      headers: { Authorization: "Bearer token" },
+      headers: { Authorization: "token" },
     });
   });
 
