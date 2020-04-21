@@ -5,10 +5,53 @@ import { months,filterData } from "../../services/editHoursSev";
 import {monthHours} from "../../reducers/actions/index"
 import UserHours from "./UserHours";
 import "../../style/editHours.scss"
+import {
+  Typography ,
+  Grid,
+  Paper,
+  Snackbar ,
+  Button,
+  TextField,
+  InputLabel,
+  Input,
+  InputAdornment,
+  
+} from "@material-ui/core"
+import { AccountCircle } from "@material-ui/icons";
+import { makeStyles } from "@material-ui/core/styles";
+
+
+const useStyles = makeStyles({
+  button: {
+    fontStyle: "Space Mono",
+    backgroundColor: "#2D4454",
+    color:'rgb(231, 230, 230)',
+    marginTop: "2%",
+    marginLeft:'5%'
+  },
+  typography:{
+    fontStyle: 'Frank Ruhl Libre',
+    color:'#8E0E06',
+    fontSize:"9vh",
+    marginTop: "5%"
+
+  } ,
+  typographyH2:{
+    fontStyle: 'Space Mono',
+    color:'#8E0E06',
+    fontSize:"5vh",
+    marginTop: "5%"
+
+  } 
+ 
+});
 function EditHours({ userToken, userId,monthData }) {
   const [data, setData] = useState([]);
   const [workThisMonth, setWorkThisMonth] = useState(false);
   const dispatch = useDispatch();
+  const classes = useStyles();
+
+  
   //need to figure out how to call when the component also updates
   useEffect(() => {
     getDataFromHour(userToken, userId).then((res) => {
@@ -19,6 +62,7 @@ function EditHours({ userToken, userId,monthData }) {
 
 const handleId= async(e)=>{
    const id = await e.target.id;
+  
     filterMonth(id)  
  
 }
@@ -37,27 +81,48 @@ const handleId= async(e)=>{
    }; 
 
   return (
-    <div className='main-editHours' data-testid='component-editHours'>
+    <Grid container  data-testid='component-editHours' className="main-editHours" justify="center" alignItems="center" direction="row">
+      <Grid
+        item
+        xs={3}
+        style={{ justifyItems:"center", height: "100%"}}
+      >
+
       
-       <h1>Edit Hours</h1>
+       <Typography className={classes.typography} variant="h1" >Edit Hours</Typography >
      {months.map((item, index) => (
         <div key={index}>
-          <button id={index + 1} onClick={handleId}>
-            {item}
-          </button>
+          <Button 
+          variant="outlined"
+          size="small"
+           color="secondary"
+              className={classes.button}
+              variant="outlined"
+              data-testid="submit-button"
+              type="submit"
+              
+             onClick={handleId}>
+            <li id={index+1}>{item}</li>
+          </Button>
         </div>
       ))}
-
+</Grid>
+ <Grid    
+        item
+        xs={8}
+        style={{height: "50%", justify:"center", alignItems:'flex-end'}}>
       {monthData.length >0 ? (
         <UserHours monthData={monthData} />
       ) : workThisMonth ? (
-        <p>You did not work this month </p>
+        <Typography className={classes.typographyH2} variant="h2">You did not work this month </Typography>
       ) : (
-        <p>Select a Month</p>
+        <Typography  className={classes.typographyH2} variant="h2">Select a Month</Typography>
       )} 
-  
+  </Grid>
        
-    </div>
+    
+    
+    </Grid>
   );
 }
 
