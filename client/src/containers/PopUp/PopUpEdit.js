@@ -1,24 +1,29 @@
 import React, {  useState } from "react";
-import editHours from "../../services/axios_sev/editHours";
+import editHours from "../../services/API/editHours";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux'
+import {connect,useDispatch} from 'react-redux'
+import {monthHours} from "../../reducers/actions/index"
+
 
 function PopUpEdit({ userToken, userId, monthData }) {
   const { register, errors, handleSubmit } = useForm();
   const [message, setMessage] = useState("");
+  const dispatch = useDispatch();
 
   /**
    * @function updateData - send information to the server to  udate the data from the db
    * @param {*} value  - values that comes from the input
    * @param {*} e -event
-   * @returns {obj} - returns a message that says if the request was sucessful or not
+   * @returns {Promise<void>}
    */
   const updateData = (value, e) => {
     e.preventDefault();
     editHours(monthData[0].month_number, value.day, value.hour, userToken, userId)
-      .then((res) => setMessage(res.data.message))
-      .catch((err) => setMessage(err));
+      .then((res) =>{ setMessage(res.data.message) 
+        dispatch(monthHours([])) 
+      })
+      .catch((err) =>  setMessage(err.response.data.message));
   };
 
   return (

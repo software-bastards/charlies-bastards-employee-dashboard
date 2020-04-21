@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios'
-import getDataFromHour from "../axios_sev/getDataFromHour"
+import getDataFromHour from "../API/getDataFromHour"
 
 
 jest.mock('axios')

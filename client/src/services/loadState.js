@@ -13,6 +13,6 @@ export const loadState =()=>{
 export const saveState =(state)=>{
     try{
         const serializedState = JSON.stringfy(state);
-        localStorage.setItem('state',serializedState)
+        return localStorage.setItem('state',serializedState)
     } catch(err){console.log(err)}
 }

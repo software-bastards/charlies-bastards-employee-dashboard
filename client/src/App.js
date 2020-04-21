@@ -5,8 +5,9 @@ import Dashboard from "./containers/dashboard/Dashboard"
 import { connect } from "react-redux";
 import EditHours from "./containers/editHours/EditHours"
 import PopUpEdit from "./containers/PopUp/PopUpEdit"
-/* import io from 'socket.io-client'
 import Callback from "./containers/authenticated/Callback"
+
+/* import io from 'socket.io-client'
  */
 
 
@@ -31,13 +32,10 @@ function mapToProps(state){
        <Route path="/edit"> 
        {!isAuthenticated? <Redirect to="/"/>: <PopUpEdit/>}
        </Route>
-        
-        
-     {/* Google authentication  
-     
+           
      <Route path="/authenticated"> 
        {isAuthenticated? <Redirect to="/dashboard"/>: <Callback />}
-       </Route> */}
+       </Route> 
       </Switch>
       
     </div>

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import loginHelper from "../axios_sev/loginHelper"
+import loginHelper from "../API/loginHelper"
 
 jest.mock('axios')
 

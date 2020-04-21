@@ -1,44 +1,45 @@
 import React, { useEffect, useState } from "react";
-import getDataFromHour from "../../services/axios_sev/getDataFromHour";
+import getDataFromHour from "../../services/API/getDataFromHour";
 import { connect, useDispatch } from "react-redux";
 import { months,filterData } from "../../services/editHoursSev";
 import {monthHours} from "../../reducers/actions/index"
 import UserHours from "./UserHours";
 
-function EditHours({ userToken, userId }) {
+function EditHours({ userToken, userId,monthData }) {
   const [data, setData] = useState([]);
-  const [monthData, setMonthData] = useState([]);
   const [workThisMonth, setWorkThisMonth] = useState(false);
   const dispatch = useDispatch();
   //need to figure out how to call when the component also updates
   useEffect(() => {
     getDataFromHour(userToken, userId).then((res) => {
       setData(res.data);
+      
     });
   }, []);
 
 const handleId= async(e)=>{
-  const id = await e.target.id;
-  filterMonth(id)
+   const id = await e.target.id;
+     filterMonth(id)  
+ 
 }
 
   
-  const filterMonth =  (id) => {
+   const filterMonth =  (id) => {
       filterData(data,id).then(response=>
-     { setMonthData(response)
-      dispatch(monthHours(response))}
-      )
-      .catch(err =>
+     {  dispatch(monthHours(response)) 
+       
+   }
+      ).catch(err =>
         console.log(err)
       )
-    
-      if (monthData.length <= 0) setWorkThisMonth(true)
-  };
+      if(monthData.length>0) setWorkThisMonth(true)
+     
+   }; 
 
   return (
     <div data-testid='component-editHours'>
-      <h1>Edit Hours</h1>
-      {months.map((item, index) => (
+       <h1>Edit Hours</h1>
+     {months.map((item, index) => (
         <div key={index}>
           <button id={index + 1} onClick={handleId}>
             {item}
@@ -46,26 +47,22 @@ const handleId= async(e)=>{
         </div>
       ))}
 
-      {monthData.length > 0 ? (
-        <UserHours
-         
-          monthData={monthData}
-          userToken={userToken}
-          userId={userId}
-        />
+      {monthData.length >0 ? (
+        <UserHours monthData={monthData} />
       ) : workThisMonth ? (
         <p>You did not work this month </p>
       ) : (
         <p>Select a Month</p>
-      )}
-
-      
+      )} 
+  
+       
     </div>
   );
 }
 
 export function mapStateToProps(state) {
   return {
+    monthData:state.getMonthData.monthData,
     userToken: state.authorization.token,
     userId: state.authorization.id,
   };

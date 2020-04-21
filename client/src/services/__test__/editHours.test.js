@@ -1,5 +1,5 @@
 import axios from "axios";
-import editHours from "../axios_sev/editHours";
+import editHours from "../API/editHours";
 
 jest.mock("axios");
 
