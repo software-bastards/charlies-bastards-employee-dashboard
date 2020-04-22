@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 import EditHours from "./containers/editHours/EditHours"
 import PopUpEdit from "./containers/PopUp/PopUpEdit"
 import Callback from "./containers/authenticated/Callback"
-/* import io from 'socket.io-client'
- */
 
 
 
