@@ -16,6 +16,7 @@ const passport = require("passport");
 const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
 const dashboardRouter = require("./routes/dashboard");
+const inserthoursRouter = require("./routes/insert");
 
 //configurations
 const db = require("./database/configurationSequelize");
@@ -33,6 +34,7 @@ app.use(cors());
 app.use("/", registerRouter);
 app.use("/", loginRouter);
 app.use("/", dashboardRouter);
+app.use("/", inserthoursRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
