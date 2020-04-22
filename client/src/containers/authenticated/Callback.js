@@ -1,11 +1,11 @@
 import React,{useEffect} from "react";
 import {createSession} from "../../reducers/actions/index"
-import loginGoogleProfile from "../../services/loginGoogle"
+import loginGoogleProfile from "../../services/API/loginGoogle"
 import { useDispatch } from "react-redux";
 function Authenticate() {
  const dispatch = useDispatch()
 useEffect(()=>{
-  getGoogleData()})
+  getGoogleData()},[])
 
   const getGoogleData =(e)=>{
     loginGoogleProfile()
