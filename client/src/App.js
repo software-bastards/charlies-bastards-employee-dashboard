@@ -2,10 +2,9 @@ import React from "react";
 import Login from "./containers/login/Login";
 import Dashboard from "./containers/dashboard/Dashboard";
 import { Route, Switch } from "react-router-dom";
-/* import { withRouter } from "react-router-dom";
-import Authentication from "./HOC/IsAuthorized"; */
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import Hours from "./containers/hours/Hours";
 
 function App(isAuthenticated) {
   return (
@@ -16,6 +15,13 @@ function App(isAuthenticated) {
         </Route>
         <Route path="/dashboard">
           {!isAuthenticated ? <Redirect to="/" /> : <Dashboard />}
+        </Route>
+        <Route path="/displayhours">
+          {!isAuthenticated ? (
+            <Redirect to="/displayhours" />
+          ) : (
+            <DisplayHours />
+          )}
         </Route>
       </Switch>
     </div>

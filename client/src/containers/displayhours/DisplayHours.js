@@ -1,20 +1,17 @@
 import React from "react";
 
 import hoursHelper from "../../services/hoursHelper";
-import { connect, useDispatch } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { createSession } from "../../reducers/actions/index";
 import { withRouter, useHistory } from "react-router-dom";
 function Hours() {
   const [message, setMessage] = React.useState("");
-  const dispatch = useDispatch();
   const history = useHistory();
+  const authorization = useSelector((store) => {
+    return store.authorization;
+  });
 
-  const onSubmit = (value, e) => {
-    e.preventDefault();
-    hoursHelper(value.hour, value.day_number).then(history.push("/hours"));
-  };
-
-  return <main></main>;
+  return <main> </main>;
 }
 
-export default withRouter(Hours);
+export default Hours;
