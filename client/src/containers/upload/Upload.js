@@ -35,9 +35,9 @@ function Upload({ userId, userToken }) {
       uploadAPI(formData).then((res) => {
         const { fileName, filePath, message } = res.data;
         setImage({ fileName, filePath });
-          dispatch(
+         dispatch(
           setMessage({message})
-        ) 
+        )  
       });
     } catch (err) {
       if (err.response.status === 500) {

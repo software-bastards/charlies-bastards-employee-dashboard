@@ -5,7 +5,7 @@
  * @param {object} action - action to be reduce
  */
 
-export default function displayMessage(state = { message: "hello" }, action) {
+export default function displayMessage(state={message:""}, action) {
   switch (action.type) {
     case "DISPLAY_MESSAGE":
       return { ...state, message: action.message };

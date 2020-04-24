@@ -25,10 +25,9 @@ console.log(file+userId+month)
       month:month,
       account_id:userId
     });
-    res.status(200).send('ok')
-   /*  res.json({fileName:file.name, filePath:`/uploads/${file.name}`, message:"Your image was uploaded"})} ); */
+     res.status(200).json({fileName:file.name, filePath:`/uploads/${file.name}`, message:"Your image was uploaded"})} ); 
   } ); 
-})
+
 
 
 router.post("/upload/images", (req, res) => {

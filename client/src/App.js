@@ -11,7 +11,7 @@ import DisplayImages from './containers/displayImages/DisplayImages'
 function mapToProps(state){
   return(
     {isAuthenticated: state.authorization.token,
-    message:state.displayMessage}
+    message:state.displayMessage.message}
   )
 }
 
@@ -20,6 +20,7 @@ function mapToProps(state){
  
  return (
     <div className='main-app'>
+       {message? <h2>{message.message}</h2>: null} 
     <Switch>
       <Route exact path ='/'> 
       {isAuthenticated? <Redirect to="/dashboard"/>: <Login/>}
@@ -39,7 +40,8 @@ function mapToProps(state){
        <Route path="/display/images"> 
                {!isAuthenticated? <Redirect to="/"/>: <DisplayImages/>} 
        </Route> 
-      </Switch>  
+      </Switch> 
+    
     </div>
   );
 }

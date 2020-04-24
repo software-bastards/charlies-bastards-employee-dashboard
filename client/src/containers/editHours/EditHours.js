@@ -68,10 +68,6 @@ const handleId= async(e)=>{
         <p>Select a Month</p>
       )} 
   
-  <Link to="/upload">
-        <button>Upload</button>
-      </Link>
-
     </div>
   );
 }
