@@ -8,10 +8,20 @@ const googleKeys = {
   clientSecret: process.env.GOOGLE_AUTH_CLIENT_SECRET_KEY,
   callbackURL: "http://localhost:5000/auth/google/callback",
 };
+
+/**
+ * @function findUser - search on database if the e-mail exists 
+ * @param {*} profile -the profile user’s profile
+ */
 async function findUser(profile) {
   const user = await profile
  return User.findOne({ where: { email: user.emails[0].value } });
 }
+
+/**
+ * @function createUserGoogle - creates a new user and insert the data on the account table
+ * @param {*} profile -the profile user’s profile
+ */
 
 async function createUserGoogle (profile) {
   const user = await profile

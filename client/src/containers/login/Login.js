@@ -1,23 +1,20 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import loginHelper from "../../services/API/loginHelper";
 import { useDispatch } from "react-redux";
 import { createSession } from "../../reducers/actions/index";
-import { withRouter} from "react-router-dom";
-import { Grid,TextField,FormControl,Input,InputAdornment } from "@material-ui/core";
- import {AccountCircle} from '@material-ui/icons';
+import secure from "../../icons/locker.svg"
+import "../../style/login.scss";
 
-/*  import "../../style/login.scss" 
- */
 function Login() {
   const [message, setMessage] = useState("");
   const { register, errors, handleSubmit } = useForm();
-  const dispatch = useDispatch()
-
-
+  const dispatch = useDispatch();
 
   /**
-   * @function onSuhmit
+   * @function onSubmit -
+   *  target the values inserted by the user and send it to the server
+   *then send the response to the redux store.
    * @param {string} data -Values passed in the input
    * @param {*} e - event
    */
@@ -39,62 +36,66 @@ function Login() {
       .catch((err) => setMessage(`${err.response.data.message.message}`));
   };
 
-   
   return (
-    <Grid
-    container
-    direction="column"
-    justify="center"
-    alignItems="center"
-  >
     <main className="main_login">
-      <form  data-testid="form-component" onSubmit={handleSubmit(onSubmit)}>
+      <div className='centrilized-content'>
+      <img src={secure} alt="secure"/>
+      <form
+        className="form-login"
+        data-testid="form-component"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <p>{message}</p>
-        <label  data-testid="test-label" htmlFor="email">
+        <div className='input-component'>
+        <label data-testid="test-label" htmlFor="email">
           E-mail
-        </label >
+        </label>
         <input
           data-testid="input-form-email"
           type="text"
           name="email"
           ref={register({ required: true })}
-
-       /*    color="white"
-           startAdornment={
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          }  */
         />
         {errors.email && "This field is required"}
+        </div>
+        <div className='input-component'>
 
-        <label  data-testid="test-label" htmlFor="password">
+        <label data-testid="test-label" htmlFor="password">
           Password
-        </label >
+        </label>
         <input
-        className='input-login'
+          className="input-login"
           data-testid="input-form-password"
           type="password"
           name="password"
           ref={register({ required: true })}
-         
         />
         {errors.password && "This field is required"}
-
-        <button  className='button-login' data-testid="submit-button" type="submit">
-          {" "}
-          Login{" "}
-        </button>
-      </form >
-      <button className='button-login'
-        onClick={() => (window.location = "http://localhost:5000/auth/google")}
-      >
-        {" "}
-        Google +
-      </button>
+        </div>
+        <div className='buttonsDiv-login'>
+          <button
+            className="button-login"
+            data-testid="submit-button"
+            type="submit"
+          >
+            {" "}
+            Login{" "}
+          </button>
+          <button
+            className="button-login"
+            onClick={() =>
+              (window.location = "http://localhost:5000/auth/google")
+            }
+          >
+            {" "}
+            Google +
+          </button>
+        </div>
+      </form>
+      </div>
+      
     </main>
-    </Grid>
   );
 }
 
-export default withRouter(Login);
+export default Login;

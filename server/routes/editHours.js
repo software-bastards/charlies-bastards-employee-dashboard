@@ -32,7 +32,7 @@ router.put(
     next();
   },
   (req, res) => {
-    console.log("ok");
+  
     const idBody = req.body.data.account_id;
     const monthBody = req.body.data.month;
     const dayBody = req.body.data.day;

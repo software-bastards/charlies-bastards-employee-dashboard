@@ -23,8 +23,7 @@ module.exports= (Sequelize,connector) =>{
                   msg: 'Please enter your email'
                 }
           }}, 
-          upload_id: Sequelize.INTEGER, 
-
+        
            acount_type: Sequelize.STRING
         },
          

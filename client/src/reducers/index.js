@@ -1,9 +1,10 @@
 import { combineReducers} from 'redux'
 import authorization from "./authorization"
 import getMonthData from "./getMonthData"
-
+import displayMessage from './displayMessage'
 const allReducers = combineReducers({
 authorization: authorization,
-getMonthData:getMonthData
+getMonthData:getMonthData,
+displayMessage:displayMessage
 })
 export default allReducers

@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 /**
  * @function getDataFromHour
  * @param {number} id -client id

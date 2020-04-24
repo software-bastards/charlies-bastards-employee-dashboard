@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 /**
- * @function loginHelper
- * @param {str ing} email a- e-mail t=_hat comes from the form
+ * @function loginHelper -send data to the server and  get the user information back in case the user already exists in our database 
+ * @param {string} email - e-mail that comes from the form
  * @param {string} password - password that comes from the form
  */
 

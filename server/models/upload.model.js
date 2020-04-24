@@ -8,11 +8,26 @@ module.exports= (Sequelize,connector) =>{
           upload_name:{
               type:Sequelize.STRING,
           },
-          createdAt: Sequelize.DATE,
-          updatedAt: Sequelize.DATE
+          upload_image:{
+           
+              type:Sequelize.BLOB('long')
+            
+          },
+          account_id:{
+           
+            type:Sequelize.INTEGER
+          
+        },  
+        month:{
+           
+            type:Sequelize.INTEGER
+          
+        }
+       
             },
             {underscored: true,
-              freezeTableName: true
+              freezeTableName: true,
+              timestamps:false
               
               })
               

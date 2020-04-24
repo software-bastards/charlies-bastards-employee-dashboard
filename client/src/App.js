@@ -5,39 +5,41 @@ import Dashboard from "./containers/dashboard/Dashboard"
 import { connect } from "react-redux";
 import EditHours from "./containers/editHours/EditHours"
 import PopUpEdit from "./containers/PopUp/PopUpEdit"
-import Callback from "./containers/authenticated/Callback"
-
-/* import io from 'socket.io-client'
- */
-
+import Upload from './containers/upload/Upload'
+import DisplayImages from './containers/displayImages/DisplayImages'
 
 function mapToProps(state){
   return(
-    {isAuthenticated: state.authorization.token}
+    {isAuthenticated: state.authorization.token,
+    message:state.displayMessage}
   )
 }
 
- function App ({isAuthenticated}){
+ function App ({isAuthenticated,message}){
+  
  
  return (
     <div className='main-app'>
-   
-      <Switch>
+    <Switch>
       <Route exact path ='/'> 
-      {isAuthenticated? <Redirect to="/myhours"/>: <Login/>}
+      {isAuthenticated? <Redirect to="/dashboard"/>: <Login/>}
       </Route>
+       <Route path="/dashboard"> 
+       {!isAuthenticated? <Redirect to="/"/>: <Dashboard/>}
+       </Route>
        <Route path="/myhours"> 
        {!isAuthenticated? <Redirect to="/"/>: <EditHours/>}
        </Route>
        <Route path="/edit"> 
        {!isAuthenticated? <Redirect to="/"/>: <PopUpEdit/>}
        </Route>
-           
-     <Route path="/authenticated"> 
-       {isAuthenticated? <Redirect to="/dashboard"/>: <Callback />}
+        <Route path="/upload"> 
+        {!isAuthenticated? <Redirect to="/"/>: <Upload/>} 
        </Route> 
-      </Switch>
-      
+       <Route path="/display/images"> 
+               {!isAuthenticated? <Redirect to="/"/>: <DisplayImages/>} 
+       </Route> 
+      </Switch>  
     </div>
   );
 }
