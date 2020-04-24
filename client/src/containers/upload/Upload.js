@@ -14,18 +14,32 @@ function Upload({ userId, userToken }) {
 
   const dispatch = useDispatch();
 
+  /**
+   * @function onChange target the data from the uploaded image  and set the state
+   * @param {*} e 
+   */
   const onChange = (e) => {
     setFile(e.target.files[0]);
     setFileName(e.target.files[0].name);
   };
+  /**
+   * @function handleOnChange - target the value of the selected month
+   * @param {*} e 
+   */
   const handleOnChange = (e) => {
     setMonth(e.target.value)
   };
-  const onSubmit = async(e) => {
+
+
+  const onSubmit = (e) => {
     e.preventDefault();
     handlerOnSubmit()
   }
 
+/**
+ * @function handlerOnSubmit - creat a new formData and sendo the fiel together with a userId and selected month to the client
+ * It also set the image state and dispatch the message that comes from te server
+ */
   const handlerOnSubmit = async()=>{
     const formData = new FormData();
     const data = [file,userId, month];
@@ -65,6 +79,8 @@ function Upload({ userId, userToken }) {
           
           <label htmlFor="month">Select a month</label>
            <select onChange={handleOnChange} name="month" id="month">
+           <option  value='1'> Select a month </option>
+
         {months.map((e, index) => (
           <option key={index} value={index+1}>{e}</option>
         ))}

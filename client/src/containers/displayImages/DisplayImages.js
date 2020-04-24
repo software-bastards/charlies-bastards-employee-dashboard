@@ -10,9 +10,19 @@ const DisplayImages = ({ userToken, userId }) => {
   const [message, setMessage] = useState("");
   const [month, setMonth] = useState()
 
+  /**
+   * @function handleOnChange - target the number of the month selected on the select input and set the month state
+   * @param {*} e - event
+   *  
+   */
   const handleOnChange = (e) => {
     setMonth(e.target.value)
   };
+ 
+  /**
+   * @function handleImage - store image on the database based on account ID and the selected month
+   * The server sends back the image data and a message saying if your request was succesful or not
+   */
   const handleImage = () => {
     displayImages(userToken, userId, month)
       .then((res) => {
