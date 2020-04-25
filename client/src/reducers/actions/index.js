@@ -1,5 +1,6 @@
 export const actionTypes = {
   CREATE_SESSION: "CREATE_SESSION",
+  DELETE_SESSION: "DELETE_SESSION",
 };
 /**
  * @function createSession
@@ -18,3 +19,14 @@ export const createSession = (message, token, firstname, lastname, id) => ({
   lastname: lastname,
   id: id,
 });
+export const deleteSession = (message, token, firstname, lastname, id) => (
+  console.log("HIII"),
+  {
+    type: actionTypes.DELETE_SESSION,
+    message: message,
+    token: token,
+    firstname: firstname,
+    lastname: lastname,
+    id: id,
+  }
+);

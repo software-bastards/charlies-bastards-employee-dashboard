@@ -1,0 +1,57 @@
+$yellow: #f8dd74;
+$black: #000000;
+$blue: #4a61e3;
+$white: #f5f9f7;
+$page-height: 100vh;
+$font-main: Frank Ruhl Libre;
+$font-secondary: Roboto;
+$header: 30px;
+$btn-size: 24px;
+
+body {
+  background-color: $yellow;
+  font-family: $font-main;
+  text-align: center;
+  height: $page-height;
+}
+.avatar {
+  width: 30px;
+}
+.dashboard-h1 {
+  padding-top: 0;
+  margin-top: 0;
+}
+.dash-container {
+  background-color: $yellow;
+
+  text-align: center;
+  float: none;
+  margin: 0 auto;
+  color: $white;
+  font-size: $header;
+}
+.container {
+  margin-top: 15vh;
+}
+.col-sm {
+  height: 15vh;
+  margin: 5vh;
+  background-color: $black;
+  text-align: center;
+}
+.btn-dash {
+  color: $white;
+  background-color: $black;
+  width: 30vh;
+  font-size: $btn-size;
+  margin: 5vh;
+}
+.btn-logout {
+  color: $white;
+  background-color: $black;
+  width: 30vh;
+  font-size: $btn-size;
+  position: absolute;
+  left: 142vh;
+  top: 92vh;
+}

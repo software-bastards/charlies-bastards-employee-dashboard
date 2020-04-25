@@ -4,7 +4,7 @@ import Dashboard from "./containers/dashboard/Dashboard";
 import { Route, Switch } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import Hours from "./containers/hours/Hours";
+import DisplayHours from "./containers/displayhours/DisplayHours";
 
 function App(isAuthenticated) {
   return (
