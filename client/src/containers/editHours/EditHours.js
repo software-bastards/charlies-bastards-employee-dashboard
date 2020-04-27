@@ -23,8 +23,8 @@ function EditHours({ userToken, userId,monthData }) {
  * @param {*} e 
  */
 
-const handleId= async(e)=>{
-   const id = await e.target.id;
+const handleId= (e)=>{
+   const id =  e.target.id;
      filterMonth(id)  
  
 }

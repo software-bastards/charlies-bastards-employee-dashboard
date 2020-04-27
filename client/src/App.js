@@ -37,7 +37,7 @@ function mapToProps(state){
         <Route path="/upload"> 
         {!isAuthenticated? <Redirect to="/"/>: <Upload/>} 
        </Route> 
-       <Route path="/display/images"> 
+       <Route path="/display-images"> 
                {!isAuthenticated? <Redirect to="/"/>: <DisplayImages/>} 
        </Route> 
       </Switch> 
