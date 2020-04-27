@@ -36,7 +36,7 @@ const DisplayImages = ({ userToken, userId }) => {
   return (
     <main className = 'displayImages-main' >
                              
-       <Link to='/dashboard' id='link-back'> Menu </Link>
+       <Link to='/dashboard' className='link-back'> Menu </Link>
 <div className='wrap-displaImages'>
       
       {message? <h1>{message}</h1>:<h1>My Images</h1>}

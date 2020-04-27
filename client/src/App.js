@@ -7,7 +7,7 @@ import EditHours from "./containers/editHours/EditHours"
 import PopUpEdit from "./containers/PopUp/PopUpEdit"
 import Upload from './containers/upload/Upload'
 import DisplayImages from './containers/displayImages/DisplayImages'
-
+import Clock from './containers/Clock/Clock'
 function mapToProps(state){
   return(
     {isAuthenticated: state.authorization.token,
@@ -20,7 +20,7 @@ function mapToProps(state){
  
  return (
     <div className='main-app'>
-     {/*   {message? <h2>{message.message}</h2>: null}  */}
+     <Clock/>
     <Switch>
       <Route exact path ='/'> 
       {isAuthenticated? <Redirect to="/dashboard"/>: <Login/>}

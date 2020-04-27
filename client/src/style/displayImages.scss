@@ -1,6 +1,6 @@
 @import "./global.scss";
 
-#link-back {
+.link-back {
   text-decoration: none;
   border: 1px solid $blue;
   color: $blue;
@@ -87,17 +87,18 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 100%;
+  max-width: 100%;
   height: 70%;
   max-height: 70%;
+  overflow-x:auto;
 }
 
 .displayImages-image {
   cursor: pointer;
-  width: 20%;
-  height: 20%;
+  width: 15%;
+  height: 25%;
   margin: 5%;
-}
+  }
 
 
 .displayImages-image h3 {
@@ -199,7 +200,7 @@
   .displayImages-image {
 	cursor: pointer;
 	width: 15%;
-	height: 27%;
+	height: 37%;
 	margin: 5%;
 	
   }

@@ -1,12 +1,116 @@
 @import "./global.scss";
 
-.upload-component{
-    background:$yellow;
-    height:100vh;
-    width:100%;
+.upload-component {
+  background: $yellow;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  font-family: $font-family;
+  overflow-y: hidden;
+  max-height: 100vh;
+
 }
 
-#form-upload{
-    background:white;
-    height:
+#form-upload {
+  background: white;
+  height: 60%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+  margin-top: 5%;
+  color: $blue;
+  box-shadow: -10px 6px 15px rgba(0, 0, 0, 0.58);
+}
+
+#form-upload h1 {
+  text-align: center;
+  height: 15%;
+  margin-top: 0;
+  background: $blue;
+  font-size: 6vh;
+  color: white;
+}
+.input-upload {
+  display: flex;
+  flex-direction: column;
+  margin: 5% 0% 5% 3%;
+}
+.custom-file-input {
+  color: transparent;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "Select some file(s)";
+  color: $yellow;
+  display: inline-block;
+  background: $blue;
+  border: 1px solid $yellow;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-size: 100%;
+  padding: 3%;
+}
+
+.submit-input {
+  border: 1px solid $yellow;
+  color: $yellow;
+  background: $blue;
+  box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.58);
+  width: 50%;
+  height: 8%;
+  margin-top: 7%;
+  align-self: center;
+  cursor:pointer;
+
+}
+
+@media only screen and (min-width: 700px) {
+    .upload-component {
+    font-size:3vh;
+    }
+  .input-upload {
+    width: 70%;
+    margin-top:5%;
+   
+  }
+ 
+  #form-upload h1 {
+width:100%;  
+}
+  #form-upload {
+    margin:10%;
+    width: 50%;
+    height: 80%;
+    display: flex;
+    align-items:center;
+  }
+}
+
+@media only screen and (orientation:landscape) {
+    .upload-component {
+    font-size:3vh;
+    }
+  .input-upload {
+    width: 70%;
+    margin-top:5%;
+   
+  }
+ 
+  #form-upload h1 {
+width:100%;  
+}
+  #form-upload {
+    margin:10%;
+    width: 50%;
+    height: 80%;
+    display: flex;
+    align-items:center;
+  }
 }
