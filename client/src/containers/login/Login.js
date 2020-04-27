@@ -39,7 +39,7 @@ function Login() {
   return (
     <main className="main_login">
       <div className='centrilized-content'>
-      <img src={secure} alt="secure"/>
+      <img src={secure} alt="secure" id="image-login-secure"/>
       <form
         className="form-login"
         data-testid="form-component"
@@ -57,14 +57,12 @@ function Login() {
           ref={register({ required: true })}
         />
         {errors.email && "This field is required"}
-        </div>
-        <div className='input-component'>
+        
 
         <label data-testid="test-label" htmlFor="password">
           Password
         </label>
         <input
-          className="input-login"
           data-testid="input-form-password"
           type="password"
           name="password"
@@ -74,7 +72,6 @@ function Login() {
         </div>
         <div className='buttonsDiv-login'>
           <button
-            className="button-login"
             data-testid="submit-button"
             type="submit"
           >
@@ -82,7 +79,6 @@ function Login() {
             Login{" "}
           </button>
           <button
-            className="button-login"
             onClick={() =>
               (window.location = "http://localhost:5000/auth/google")
             }

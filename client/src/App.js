@@ -20,7 +20,7 @@ function mapToProps(state){
  
  return (
     <div className='main-app'>
-       {message? <h2>{message.message}</h2>: null} 
+     {/*   {message? <h2>{message.message}</h2>: null}  */}
     <Switch>
       <Route exact path ='/'> 
       {isAuthenticated? <Redirect to="/dashboard"/>: <Login/>}

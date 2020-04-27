@@ -1,38 +1,186 @@
 @import "./global.scss";
 
+.main_login {
+  font-family: $font-family;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+.centrilized-content {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-login {
+  width: 90%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
 
-.main_login{
-    font-family:$font-family-Login;
-    position:absolute;
+.input-component {
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom:10%;
+  font-size:$font-size;
+  color:$yellow;
+
+}
+
+.buttonsDiv-login {
+
+  display: flex;
+  width: 90%;
+  height: 20%;
+  justify-content: space-evenly;
+}
+
+#image-login-secure {
+  width: 30%;
+  height: 20%;
+}
+
+.input-component input {
+    border: 1px solid $yellow; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(246, 238, 199, 0.1),
+            0 0 16px rgba(246, 238, 199, 0.1); 
+    -moz-box-shadow: 
+      inset 0 08px  rgba(246, 238, 199, 0.1),
+            0 0 16px rgba(246, 238, 199, 0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(246, 238, 199, 0.1),
+            0 0 16px rgba(246, 238, 199, 0.1); 
+    background: rgba(0, 0, 0, 0.5);
+    padding:5%;
+    color:$yellow;
+    font-size:100%;
+
+}
+.input-component input:focus {
+    border: 1px solid $yellow; 
+    -webkit-box-shadow: 
+      inset 0 0 100px  rgba(246, 238, 199, 0.1),
+            0 0 100px rgba(246, 238, 199, 0.1); 
+    -moz-box-shadow: 
+      inset 0 0 100px  rgba(246, 238, 199, 0.1),
+            0 0 100px rgba(246, 238, 199, 0.1); 
+    box-shadow: 
+      inset 0 0 100px  rgba(246, 238, 199, 0.1),
+            0 0 100px rgba(246, 238, 199, 0.1);
+   
+    background: rgba(0, 0, 0, 0.5);
+    padding:5%;
+    color:$yellow;
+    font-size:100%;
+
+}
+.buttonsDiv-login button{
+    background:black;
+    color:$yellow;
+    border: 1px solid $yellow;
+    text-justify: center;
+    height:100%;
+    font-size:$font-size;
+    cursor:pointer;
+
+}
+.buttonsDiv-login button:hover{
+    box-shadow: 
+    inset 0 0 80px  rgba(246, 238, 199, 0.1),
+          0 0 80px rgba(246, 238, 199, 0.1);}
+
+@media only screen and  (orientation:landscape){
+    .input-component {
+        width:100%;
+        height:80%;
+        font-size:5vh;
+        margin-bottom:0;
+ 
+}
+.input-component input{
+    padding:0%;
     height:100%;
     width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background: conic-gradient(from -48deg, rgb(26, 25, 25),black 175deg,rgb(26, 25, 25));
-}
-.centrilized-content{
-    background:white;
-    width:50%;
-    height:70%;
-    
-}
-.form-login{
-    background:blue;
-    width:75%;
-    height:50%;
-   
+    align-self:center;
+    font-size:100%;
+  
 }
 
-.input-component{
-    background:purple;
-    flex-direction:column;
+.buttonsDiv-login button{
+   width:50%;
+   margin:2%;
+   height:100%;
+   font-size:100%;
+
 }
 
-.buttonsDiv-login{
-    background:red;
-    width:40%;
-    height:20%;
-    
-    
+}
+@media only screen and (min-width: 700px) and (orientation:portrait) {
+    .form-login {
+        height:90%;
+        
+         
+       }
+    .input-component {
+             width:90%;
+            
+      
+    }
+  
+    .buttonsDiv-login button{
+        width:50%;
+        margin:2%;
+        height:70%;
+       
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .form-login {
+     height:90%;
+     
+      
+    }
+    .input-component {
+     width:80%;
+     height:70%;
+    font-size:3vh;
+    margin-bottom:0;
+  
+      
+    }
+  
+    .input-component input{
+        padding:0%;
+        height:25%;
+        width:100%;
+        align-self:center;
+      
+    }
+    .input-component input:focus {
+        padding:0%;
+        height:25%;
+        width:100%;
+        align-self:center;
+    }
+  
+    .buttonsDiv-login button{
+        width:50%;
+        margin:2%;
+        height:70%;
+        font-size:3vh;
+       padding:0;       
+    }
 }

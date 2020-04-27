@@ -34,32 +34,43 @@ const DisplayImages = ({ userToken, userId }) => {
 
   
   return (
-    <div>
-            <Link to='/dashboard'> Back</Link>
-            {message? <h1>{message}</h1>:<h1>Select a month</h1>}
-      <select onChange={handleOnChange} name="month" id="month">
+    <main className = 'displayImages-main' >
+                             
+       <Link to='/dashboard' id='link-back'> Menu </Link>
+<div className='wrap-displaImages'>
+      
+      {message? <h1>{message}</h1>:<h1>My Images</h1>}
+
+        <section className='select-image'>
+      <select className='select-css' onChange={handleOnChange} name="month" id="month">
+      <option  value={1}>Select a Month</option>
         {months.map((e, index) => (
           <option key={index} value={index+1}>{e}</option>
         ))}
        
       </select>
-      <button onClick={handleImage}>click</button>
+      <button onClick={handleImage}>Select</button>
+      </section>
 
+
+      <div className='displayImages-content'> 
       {uploadFile.length > 0 ? (
       uploadFile.map((item, index) => (
-            <div key={index}>
+            <section className='displayImages-image' key={index}>
               <h3>{item.fileName}</h3>
-              <img
+             
+             <a href={item.filePath} ><img
                 className="image-display"
                 src={item.filePath}
                 alt={item.fileName}
-              />
-            </div>
+              /></a> 
+            </section>
           ))
         
       ) : null}
-     
-    </div>
+      </div>
+      </div>
+    </main>
   );
 };
 export function mapStateToProps(state) {

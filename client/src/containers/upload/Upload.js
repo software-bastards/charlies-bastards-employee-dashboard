@@ -6,7 +6,7 @@ import "../../style/upload.scss"
 import {setMessage} from "../../reducers/actions/index"
 import { Link } from "react-router-dom";
 
-function Upload({ userId, userToken }) {
+function Upload({ userId, userToken,message }) {
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState('Select your file(s)');
   const [image, setImage] = useState({});
@@ -33,47 +33,35 @@ function Upload({ userId, userToken }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    handlerOnSubmit()
-  }
+    console.log('ok')
+    handlerOnSubmit().then( dispatch(setMessage('Success'))  ).catch(  err =>{ dispatch(setMessage('something went wrong'))} )
+   }
 
 /**
  * @function handlerOnSubmit - creat a new formData and sendo the fiel together with a userId and selected month to the client
  * It also set the image state and dispatch the message that comes from te server
  */
   const handlerOnSubmit = async()=>{
-    const formData = new FormData();
+      const formData = new FormData();
     const data = [file,userId, month];
     data.forEach((e) => formData.append("file", e));
 
-    try {
-      uploadAPI(formData).then((res) => {
-        const { fileName, filePath, message } = res.data;
-        setImage({ fileName, filePath });
-         dispatch(
-          setMessage({message})
-        )  
+   try {
+      uploadAPI(formData).then((res) => { 
+       const { fileName, filePath, message } = res.data;
+        setImage({ fileName, filePath,message }); 
+          
       });
-    } catch (err) {
-      if (err.response.status === 500) {
-         dispatch(
-          setMessage("There was a problem with the server")
-        ) 
-        ;
-      } else {
-         dispatch(
-          setMessage("Something went wrong. Your image was not updated")
-        )  
-        console.log(err.data.response.message);
-      }
-    } 
-  }
+    } catch (err) {  console.log(err)  
+  }}
 
   return (
-    <div>
+    <main className= 'upload-component'>
             <Link to='/dashboard'> Back</Link>
 
-      <h1> Upload </h1>
+      
       <form  id='form-upload'onSubmit={onSubmit}>
+      <h1> Upload </h1>
       <label htmlFor="customFile">{fileName}</label>
           <input type="file" onChange={onChange} multiple />
           
@@ -87,7 +75,10 @@ function Upload({ userId, userToken }) {
       </select>
       <input type="submit" value="Upload" />      
       </form>
-       </div>
+
+
+
+       </main>
   );
 }
 
@@ -95,6 +86,7 @@ function mapStateToProps(state) {
   return {
     userToken: state.authorization.token,
     userId: state.authorization.id,
+    message:state.displayMessage.message
   };
 }
-export default connect(mapStateToProps)(Upload);
+export default connect(mapStateToProps)(Upload)
