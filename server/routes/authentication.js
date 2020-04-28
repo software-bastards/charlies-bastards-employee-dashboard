@@ -3,13 +3,7 @@ const authrouter = express.Router();
 const passport = require("passport");
 const { user } = require("./user");
 
- /* authrouter.get(
-  "/auth",
-  passport.authenticate("jwt", { session: false },
-  (req, res) => {
-    res.status(200);
-  })
-);  */
+
 authrouter.get(
   "/auth/google",
   passport.authenticate("google", {
@@ -17,23 +11,41 @@ authrouter.get(
   })
 );
 
+/* authrouter.get(
+  "/auth/google/callback", (res,req,next)=>{
+    ( passport.authenticate("google", { session: false },
+  (err,user,info) => {
+   res.send(user)
+  }))
+ }
+
+ )  */
+
+ authrouter.get(
+  "/auth/google/callback", (req,res,next) =>{
+    passport.authenticate("google", { session: false },
+    (err,user,info) =>  {
+      console.log(user)
+    /* if (err) throw res.status(500).send("Something went wrong") 
+    return   res.status(200).json({
+      success: true,
+      id: user.id,
+      firstname:user.firstname,
+      lastname:user.lastname,
+      token:  user.token,
+     })(req,res) */
+  })
+  next()
+},(req,res)=>{});
+
+
 authrouter.get(
-  "/auth/google/callback",
-  passport.authenticate("google", { session: false }),
-
-  (req, res,next) => {
-    res.redirect("http://localhost:3000/authenticated"), next();
-  },
-  (req, res ) => {
-    res.json({
-      lastname: user.socket.parser.incoming.user.user.firstname,
-      firstname: user.socket.parser.incoming.user.user.lastname,
-      email: user.socket.parser.incoming.user.user.email,
-      token: user.socket.parser.incoming.user.token,
-    });
-
-  }
-);
+  "/auth/google/login",
+  passport.authenticate("google", { session: false },
+  (req, res) => {
+    res.status(200).redirect('http://localhost:3000/authorized');
+  })
+);  
 
 /* authrouter.get(
   '/auth/google/authenticating',(req,res)=>{

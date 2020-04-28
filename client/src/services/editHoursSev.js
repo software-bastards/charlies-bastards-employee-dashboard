@@ -1,6 +1,6 @@
 /**
  * @function getMonthName
- * @param {number} number
+ * @param {number} id
  * @returns {string} - the name of the monh base on the number 
  */
 export  const getMonthName = (id) => {
@@ -30,7 +30,7 @@ export  const getMonthName = (id) => {
       case 12:
         return "December";
       default:
-        return "Not Valide";
+        return "Not Valid";
     }
   };
 

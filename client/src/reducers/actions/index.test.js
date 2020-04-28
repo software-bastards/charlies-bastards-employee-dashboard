@@ -1,4 +1,4 @@
-import {createSession,actionTypes} from "./index"
+import {createSession,monthHours,setMessage} from "./index"
 
 describe('createSession',()=>{
     
@@ -6,4 +6,16 @@ describe('createSession',()=>{
        const action = createSession ();
        expect(action).toHaveProperty("type","firstname","lastname","message","token")
     })
+    test('returns an action with type `DISPLAY_MESSAGE`',()=>{
+        const action = setMessage ();
+        expect(action).toHaveProperty("type","DISPLAY_MESSAGE")
+         expect(action).toHaveProperty("message",undefined)
+
+     })
+     test('returns an action with type `MONTH_HOURS`',()=>{
+        const action = monthHours ();
+        expect(action).toHaveProperty("type","MONTH_HOURS")
+        expect(action).toHaveProperty("month",undefined)
+
+     })
 })

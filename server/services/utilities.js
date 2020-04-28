@@ -9,7 +9,7 @@ const account = db.account;
 const ExtractJWT = passportJWT.ExtractJwt;
 
 /**
- * @function findUserByEmail
+ * @function findUserByEmail -search on database if the e-mail exists
  * @param {string} email - email passed by the client
  * @returns {obj} -user from the database
  */

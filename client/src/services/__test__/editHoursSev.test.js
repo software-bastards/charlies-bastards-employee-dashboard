@@ -46,7 +46,7 @@ describe("test the helper functions", () => {
         expect(getMonthName(numbers[11])).toMatch("December");
       }
       if (el === 13) {
-        expect(getMonthName(numbers[12])).toMatch("Not Valide");
+        expect(getMonthName(numbers[12])).toMatch("Not Valid");
       }
     });
   });

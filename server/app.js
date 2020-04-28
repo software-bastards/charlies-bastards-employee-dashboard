@@ -12,6 +12,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const passport = require ('passport');
+const fileUpload = require ('express-fileupload')
 
 //Routes
 const registerRouter = require('./routes/register');
@@ -19,14 +20,16 @@ const loginRouter = require('./routes/login');
 const dashboardRouter = require('./routes/dashboard');
 const authrouter = require('./routes/authentication')
 const editHours = require('./routes/editHours')
+const uploadImage = require ('./routes/uploadImage')
 //configurations
 const db = require("./database/configurationSequelize")
 require('./Configurations/helper/passportConfig')(passport)
 db.connector.sync();
 require('./Configurations/googleAuth/passportGoogleConfig')(passport)
 
-/* const server = http.createServer(certOptions, app)
- */
+
+app.use(express.static('public'))
+app.use(fileUpload())
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -37,11 +40,10 @@ app.use(cookieParser());
 app.use(cors())
 app.use('/', registerRouter);
 app.use('/', loginRouter);
-app.use('/', authrouter);
 app.use('/', dashboardRouter);
 app.use('/', editHours);
-
-
+app.use('/',authrouter)
+app.use('/', uploadImage)
 
 
 

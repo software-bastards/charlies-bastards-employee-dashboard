@@ -4,26 +4,37 @@ import { connect, useDispatch } from "react-redux";
 import { months,filterData } from "../../services/editHoursSev";
 import {monthHours} from "../../reducers/actions/index"
 import UserHours from "./UserHours";
+import { Link } from "react-router-dom";
 
 function EditHours({ userToken, userId,monthData }) {
   const [data, setData] = useState([]);
   const [workThisMonth, setWorkThisMonth] = useState(false);
   const dispatch = useDispatch();
-  //need to figure out how to call when the component also updates
+ 
+  
   useEffect(() => {
     getDataFromHour(userToken, userId).then((res) => {
       setData(res.data);
       
     });
   }, []);
+/**
+ * @function handleId - target the button id and call filterMonth function
+ * @param {*} e 
+ */
 
-const handleId= async(e)=>{
-   const id = await e.target.id;
+const handleId= (e)=>{
+   const id =  e.target.id;
      filterMonth(id)  
  
 }
 
-  
+  /**
+   * @function filterMonth -  call the helper function and send it to the
+   * redux store in case the promise is resolved. After this process it settle 
+   * the flag to true in case the length of the response is 0  
+   * @param {number} id 
+   */
    const filterMonth =  (id) => {
       filterData(data,id).then(response=>
      {  dispatch(monthHours(response)) 
@@ -38,6 +49,8 @@ const handleId= async(e)=>{
 
   return (
     <div data-testid='component-editHours'>
+            <Link to='/dashboard'> Back</Link>
+
        <h1>Edit Hours</h1>
      {months.map((item, index) => (
         <div key={index}>
@@ -55,7 +68,6 @@ const handleId= async(e)=>{
         <p>Select a Month</p>
       )} 
   
-       
     </div>
   );
 }

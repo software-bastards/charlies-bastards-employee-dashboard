@@ -7,7 +7,7 @@ const passport = require("passport");
 router.post(
   "/myhours",
   (req, res, next) => {
-    passport.authenticate("jwt", { session: false }, (err, user, infor) => {
+    passport.authenticate("jwt", { session: false }, (err, user, info) => {
       if (err) console.log(err);
     });
     next();
@@ -32,7 +32,7 @@ router.put(
     next();
   },
   (req, res) => {
-    console.log("ok");
+  
     const idBody = req.body.data.account_id;
     const monthBody = req.body.data.month;
     const dayBody = req.body.data.day;
