@@ -1,6 +1,7 @@
 const express = require("express");
 const authrouter = express.Router();
 const passport = require("passport");
+const { user } = require("./user");
 
 
 authrouter.get(
@@ -46,6 +47,14 @@ authrouter.get(
   })
 );  
 
-
-
+/* authrouter.get(
+  '/auth/google/authenticating',(req,res)=>{
+res.json({
+  lastname:user.firstname,
+  firstname:user.lastname,
+  email:user.email,
+  token:user.token
+  }) 
+  }
+) */
 module.exports = authrouter;

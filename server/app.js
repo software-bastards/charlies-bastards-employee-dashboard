@@ -3,7 +3,7 @@ if(process.env.NODE_ENV !== 'production'){
   require('dotenv').config()
 } 
 //DEPENDECIES
-
+const path = require('path')
 const http = require('http');  
 const createError = require('http-errors');
 const express = require('express');
@@ -12,7 +12,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const passport = require ('passport');
- const fileUpload = require ('express-fileupload')
+const fileUpload = require ('express-fileupload')
+
 //Routes
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
@@ -26,8 +27,10 @@ require('./Configurations/helper/passportConfig')(passport)
 db.connector.sync();
 require('./Configurations/googleAuth/passportGoogleConfig')(passport)
 
+
 app.use(express.static('public'))
 app.use(fileUpload())
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -49,7 +52,10 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+// Connecting sockets to the server and adding them to the request 
 
+/* const io = socketio(server)
+app.set('io', io) */
 
 
 // error handler
