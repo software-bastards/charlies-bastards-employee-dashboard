@@ -6,7 +6,8 @@
     "server": "nodemon ./bin/www",
     "client": "cd .. && cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
-    "test": "jest"
+    "test": "jest",
+    "jest": "24.9.0"
   },
   "jest": {
     "testEnvironment": "node",
@@ -42,7 +43,6 @@
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "jest": "^25.3.0",
     "supertest": "^4.0.2"
   }
 }

@@ -18,11 +18,11 @@ export default function authorization(state = {}, action) {
     case "DELETE_SESSION":
       return {
         ...state,
-        token: action.token,
-        firstname: action.firstname,
-        lastname: action.lastname,
-        message: action.message,
-        id: action.id,
+        token: "",
+        firstname: "",
+        lastname: "",
+        message: "",
+        id: "",
       };
     default:
       return state;
