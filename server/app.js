@@ -18,14 +18,12 @@ const fileUpload = require ('express-fileupload')
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const dashboardRouter = require('./routes/dashboard');
-const authrouter = require('./routes/authentication')
 const editHours = require('./routes/editHours')
 const uploadImage = require ('./routes/uploadImage')
 //configurations
 const db = require("./database/configurationSequelize")
 require('./Configurations/helper/passportConfig')(passport)
 db.connector.sync();
-require('./Configurations/googleAuth/passportGoogleConfig')(passport)
 
 
 app.use(express.static('public'))
@@ -42,7 +40,6 @@ app.use('/', registerRouter);
 app.use('/', loginRouter);
 app.use('/', dashboardRouter);
 app.use('/', editHours);
-app.use('/',authrouter)
 app.use('/', uploadImage)
 
 

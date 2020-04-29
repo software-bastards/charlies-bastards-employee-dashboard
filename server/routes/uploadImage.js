@@ -30,9 +30,15 @@ console.log(file+userId+month)
 
 
 
-router.post("/upload/images", (req, res) => {
-  const userId =req.body.data.userId
-  const month =req.body.data.month
+router.get(`/upload/images`, 
+  (req, res, next) => {
+    passport.authenticate("jwt", { session: false }, (err, user, info) => {
+      if (err) console.log(err);
+    });
+    next();
+  },(req, res) => {
+  const userId =req.query.user
+  const month =req.query.month
   upload
     .findAll({ where: { account_id: userId, month:month } })
     .then(async (user) => {
@@ -47,7 +53,9 @@ router.post("/upload/images", (req, res) => {
            res.status(200).send({message:"There is no image avaible"})
          }
        }
-    ).catch( err => console.log(err)/* res.status(404).json({message:"something went wrong"}) */)
+    ).catch( err => {
+      console.log(err)
+       res.status(404).json({message:"something went wrong"})} ) 
 });
 
 module.exports = router;
