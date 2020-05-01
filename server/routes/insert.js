@@ -6,18 +6,11 @@ const router = express.Router();
 const db = require("../database/configurationSequelize");
 const hour = db.hour;
 const account = db.account;
-
-//need to add jwt token
+const passport = require("passport");
 
 router.post(
   "/inserthours",
-  (req, res, next) => {
-    passport.authenticate("jwt", { session: false }, (err, user, infor) => {
-      if (err) console.log(err);
-    });
-    next();
-  },
-
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     hour
       .create({
@@ -26,8 +19,13 @@ router.post(
         day_number: req.body.day_number,
         account_id: req.body.account_id,
       })
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+      .then((response) => res.status(200).send(response.dataValues))
+      .catch((error) =>
+        res.status(500).send({
+          message:
+            "Sorry! We are currently having server difficulties. Try again later",
+        })
+      );
   }
 );
 
