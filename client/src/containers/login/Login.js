@@ -18,16 +18,18 @@ function Login() {
   const onSubmit = (value, e) => {
     e.preventDefault();
     loginHelper(value.email, value.password)
-      .then((res) =>
+      .then((res) => {
+        console.log(res);
         dispatch(
           createSession(
             res.data.message,
             res.data.token,
             res.data.firstname,
-            res.data.lastname
+            res.data.lastname,
+            res.data.account_id
           )
-        )
-      )
+        );
+      })
       .then(history.push("/dashboard"));
     /*       .catch((err) => setMessage(`${err.response.data.message.message}`));
      */

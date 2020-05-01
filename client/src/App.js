@@ -6,6 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import Authentication from "./HOC/IsAuthorized"; */
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import Insert from "./containers/insert/Insert";
 
 function App(isAuthenticated) {
   return (
@@ -16,6 +17,9 @@ function App(isAuthenticated) {
         </Route>
         <Route path="/dashboard">
           {!isAuthenticated ? <Redirect to="/" /> : <Dashboard />}
+        </Route>
+        <Route path="/insert">
+          {!isAuthenticated ? <Redirect to="/" /> : <Insert />}>
         </Route>
       </Switch>
     </div>
