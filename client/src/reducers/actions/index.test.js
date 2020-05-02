@@ -25,3 +25,22 @@ describe("deleteSession", () => {
     );
   });
 });
+test("calls history.push correctly", () => {
+  const dummyMsg = "";
+  const dummyToken = "";
+  const dummyFirstname = "";
+  const dummyLastname = "";
+  const dummyId = "";
+
+  const expectedAction = {
+    type: actionTypes.DELETE_SESSION,
+    message: dummyMsg,
+    token: dummyMsg,
+    firstname: dummyFirstname,
+    lastname: dummyLastname,
+    id: dummyId,
+  };
+  expect(
+    deleteSession(dummyMsg, dummyToken, dummyFirstname, dummyLastname, dummyId)
+  ).toEqual(expectedAction);
+});

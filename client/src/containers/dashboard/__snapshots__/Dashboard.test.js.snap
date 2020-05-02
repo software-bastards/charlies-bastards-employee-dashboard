@@ -9,6 +9,620 @@ initialize {
     },
     "children": Array [
       Object {
+        "attribs": Object {},
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "clock",
+            },
+            "children": Array [
+              Object {
+                "data": "8:43:42 PM",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "container",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "class": "row",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "col-sm",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Welcome, sth ",
+                      "next": Object {
+                        "attribs": Object {
+                          "alt": "dymion",
+                          "class": "avatar",
+                          "src": "https://frontendbastards.nl/images/fe/team/dymion.svg",
+                        },
+                        "children": Array [],
+                        "name": "img",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "alt": undefined,
+                          "class": undefined,
+                          "src": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "alt": undefined,
+                          "class": undefined,
+                          "src": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                    Object {
+                      "attribs": Object {
+                        "alt": "dymion",
+                        "class": "avatar",
+                        "src": "https://frontendbastards.nl/images/fe/team/dymion.svg",
+                      },
+                      "children": Array [],
+                      "name": "img",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Object {
+                        "data": "Welcome, sth ",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "col-sm",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": " Worked  hours last month",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "class": "col-sm",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "I have no idea",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "col-sm",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": " Worked  hours last month",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "col-sm",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "I have no idea",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "col-sm",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "Welcome, sth ",
+                        "next": Object {
+                          "attribs": Object {
+                            "alt": "dymion",
+                            "class": "avatar",
+                            "src": "https://frontendbastards.nl/images/fe/team/dymion.svg",
+                          },
+                          "children": Array [],
+                          "name": "img",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "alt": undefined,
+                            "class": undefined,
+                            "src": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "alt": undefined,
+                            "class": undefined,
+                            "src": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                      Object {
+                        "attribs": Object {
+                          "alt": "dymion",
+                          "class": "avatar",
+                          "src": "https://frontendbastards.nl/images/fe/team/dymion.svg",
+                        },
+                        "children": Array [],
+                        "name": "img",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": Object {
+                          "data": "Welcome, sth ",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "alt": undefined,
+                          "class": undefined,
+                          "src": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "alt": undefined,
+                          "class": undefined,
+                          "src": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "col-sm",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "I have no idea",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "col-sm",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": " Worked  hours last month",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "class": "col-sm",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "Welcome, sth ",
+                          "next": Object {
+                            "attribs": Object {
+                              "alt": "dymion",
+                              "class": "avatar",
+                              "src": "https://frontendbastards.nl/images/fe/team/dymion.svg",
+                            },
+                            "children": Array [],
+                            "name": "img",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "alt": undefined,
+                              "class": undefined,
+                              "src": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "alt": undefined,
+                              "class": undefined,
+                              "src": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                        Object {
+                          "attribs": Object {
+                            "alt": "dymion",
+                            "class": "avatar",
+                            "src": "https://frontendbastards.nl/images/fe/team/dymion.svg",
+                          },
+                          "children": Array [],
+                          "name": "img",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": Object {
+                            "data": "Welcome, sth ",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "alt": undefined,
+                            "class": undefined,
+                            "src": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "alt": undefined,
+                            "class": undefined,
+                            "src": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Object {
+            "attribs": Object {
+              "class": "btn-dash",
+              "data-testid": "test-display-router",
+            },
+            "children": Array [
+              Object {
+                "data": "Display Your Hours",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "btn-dash",
+                "data-testid": "test-insert-router",
+              },
+              "children": Array [
+                Object {
+                  "data": "Insert New Log",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "btn-dash",
+                  "data-testid": "test-edit-router",
+                },
+                "children": Array [
+                  Object {
+                    "data": "Edit Your Hours",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "btn-dash",
+                    "data-testid": "test-upload-router",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "Upload Image",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {},
+                    "children": Array [],
+                    "name": "br",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "class": "btn-logout",
+                        "data-testid": "test-logout",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": " Log Out",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "data-testid": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "data-testid": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "data-testid": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "data-testid": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "data-testid": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "data-testid": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "data-testid": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "data-testid": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "data-testid": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "data-testid": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {},
+        "x-attribsPrefix": Object {},
+      },
+      Object {
         "attribs": Object {
           "class": "container",
         },
@@ -425,7 +1039,7 @@ initialize {
         "next": Object {
           "attribs": Object {
             "class": "btn-dash",
-            "test-id": "",
+            "data-testid": "test-display-router",
           },
           "children": Array [
             Object {
@@ -441,6 +1055,7 @@ initialize {
           "next": Object {
             "attribs": Object {
               "class": "btn-dash",
+              "data-testid": "test-insert-router",
             },
             "children": Array [
               Object {
@@ -456,6 +1071,7 @@ initialize {
             "next": Object {
               "attribs": Object {
                 "class": "btn-dash",
+                "data-testid": "test-edit-router",
               },
               "children": Array [
                 Object {
@@ -471,6 +1087,7 @@ initialize {
               "next": Object {
                 "attribs": Object {
                   "class": "btn-dash",
+                  "data-testid": "test-upload-router",
                 },
                 "children": Array [
                   Object {
@@ -491,6 +1108,7 @@ initialize {
                   "next": Object {
                     "attribs": Object {
                       "class": "btn-logout",
+                      "data-testid": "test-logout",
                     },
                     "children": Array [
                       Object {
@@ -509,9 +1127,11 @@ initialize {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "data-testid": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "data-testid": undefined,
                     },
                   },
                   "parent": [Circular],
@@ -525,13 +1145,71 @@ initialize {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "data-testid": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "data-testid": undefined,
                 },
               },
               "parent": [Circular],
               "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "data-testid": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "data-testid": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "data-testid": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "data-testid": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "data-testid": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "data-testid": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {},
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "class": "clock",
+              },
+              "children": Array [
+                Object {
+                  "data": "8:43:42 PM",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -540,30 +1218,16 @@ initialize {
                 "class": undefined,
               },
             },
-            "parent": [Circular],
-            "prev": [Circular],
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-            },
-          },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
           "parent": [Circular],
-          "prev": [Circular],
+          "prev": null,
           "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "test-id": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "test-id": undefined,
-          },
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
         },
-        "parent": [Circular],
-        "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
@@ -575,7 +1239,7 @@ initialize {
       Object {
         "attribs": Object {
           "class": "btn-dash",
-          "test-id": "",
+          "data-testid": "test-display-router",
         },
         "children": Array [
           Object {
@@ -591,6 +1255,7 @@ initialize {
         "next": Object {
           "attribs": Object {
             "class": "btn-dash",
+            "data-testid": "test-insert-router",
           },
           "children": Array [
             Object {
@@ -606,6 +1271,7 @@ initialize {
           "next": Object {
             "attribs": Object {
               "class": "btn-dash",
+              "data-testid": "test-edit-router",
             },
             "children": Array [
               Object {
@@ -621,6 +1287,7 @@ initialize {
             "next": Object {
               "attribs": Object {
                 "class": "btn-dash",
+                "data-testid": "test-upload-router",
               },
               "children": Array [
                 Object {
@@ -641,6 +1308,7 @@ initialize {
                 "next": Object {
                   "attribs": Object {
                     "class": "btn-logout",
+                    "data-testid": "test-logout",
                   },
                   "children": Array [
                     Object {
@@ -659,9 +1327,11 @@ initialize {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
+                    "data-testid": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
+                    "data-testid": undefined,
                   },
                 },
                 "parent": [Circular],
@@ -675,9 +1345,11 @@ initialize {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-testid": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-testid": undefined,
               },
             },
             "parent": [Circular],
@@ -685,9 +1357,11 @@ initialize {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
           },
           "parent": [Circular],
@@ -695,9 +1369,11 @@ initialize {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
         },
         "parent": [Circular],
@@ -1117,7 +1793,45 @@ initialize {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": [Circular],
           "parent": [Circular],
-          "prev": null,
+          "prev": Object {
+            "attribs": Object {},
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "clock",
+                },
+                "children": Array [
+                  Object {
+                    "data": "8:43:42 PM",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
@@ -1129,16 +1843,17 @@ initialize {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
-          "test-id": undefined,
+          "data-testid": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
-          "test-id": undefined,
+          "data-testid": undefined,
         },
       },
       Object {
         "attribs": Object {
           "class": "btn-dash",
+          "data-testid": "test-insert-router",
         },
         "children": Array [
           Object {
@@ -1154,6 +1869,7 @@ initialize {
         "next": Object {
           "attribs": Object {
             "class": "btn-dash",
+            "data-testid": "test-edit-router",
           },
           "children": Array [
             Object {
@@ -1169,6 +1885,7 @@ initialize {
           "next": Object {
             "attribs": Object {
               "class": "btn-dash",
+              "data-testid": "test-upload-router",
             },
             "children": Array [
               Object {
@@ -1189,6 +1906,7 @@ initialize {
               "next": Object {
                 "attribs": Object {
                   "class": "btn-logout",
+                  "data-testid": "test-logout",
                 },
                 "children": Array [
                   Object {
@@ -1207,9 +1925,11 @@ initialize {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "data-testid": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "data-testid": undefined,
                 },
               },
               "parent": [Circular],
@@ -1223,9 +1943,11 @@ initialize {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
           },
           "parent": [Circular],
@@ -1233,16 +1955,18 @@ initialize {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
         },
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
             "class": "btn-dash",
-            "test-id": "",
+            "data-testid": "test-display-router",
           },
           "children": Array [
             Object {
@@ -1673,7 +2397,45 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": [Circular],
             "parent": [Circular],
-            "prev": null,
+            "prev": Object {
+              "attribs": Object {},
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "clock",
+                  },
+                  "children": Array [
+                    Object {
+                      "data": "8:43:42 PM",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
@@ -1685,24 +2447,27 @@ initialize {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
-            "test-id": undefined,
+            "data-testid": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
-            "test-id": undefined,
+            "data-testid": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-testid": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-testid": undefined,
         },
       },
       Object {
         "attribs": Object {
           "class": "btn-dash",
+          "data-testid": "test-edit-router",
         },
         "children": Array [
           Object {
@@ -1718,6 +2483,7 @@ initialize {
         "next": Object {
           "attribs": Object {
             "class": "btn-dash",
+            "data-testid": "test-upload-router",
           },
           "children": Array [
             Object {
@@ -1738,6 +2504,7 @@ initialize {
             "next": Object {
               "attribs": Object {
                 "class": "btn-logout",
+                "data-testid": "test-logout",
               },
               "children": Array [
                 Object {
@@ -1756,9 +2523,11 @@ initialize {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-testid": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-testid": undefined,
               },
             },
             "parent": [Circular],
@@ -1772,15 +2541,18 @@ initialize {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
         },
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
             "class": "btn-dash",
+            "data-testid": "test-insert-router",
           },
           "children": Array [
             Object {
@@ -1798,7 +2570,7 @@ initialize {
           "prev": Object {
             "attribs": Object {
               "class": "btn-dash",
-              "test-id": "",
+              "data-testid": "test-display-router",
             },
             "children": Array [
               Object {
@@ -2229,7 +3001,45 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": [Circular],
               "parent": [Circular],
-              "prev": null,
+              "prev": Object {
+                "attribs": Object {},
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "clock",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "8:43:42 PM",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -2241,32 +3051,37 @@ initialize {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
-              "test-id": undefined,
+              "data-testid": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
-              "test-id": undefined,
+              "data-testid": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-testid": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-testid": undefined,
         },
       },
       Object {
         "attribs": Object {
           "class": "btn-dash",
+          "data-testid": "test-upload-router",
         },
         "children": Array [
           Object {
@@ -2287,6 +3102,7 @@ initialize {
           "next": Object {
             "attribs": Object {
               "class": "btn-logout",
+              "data-testid": "test-logout",
             },
             "children": Array [
               Object {
@@ -2305,9 +3121,11 @@ initialize {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
           },
           "parent": [Circular],
@@ -2320,6 +3138,7 @@ initialize {
         "prev": Object {
           "attribs": Object {
             "class": "btn-dash",
+            "data-testid": "test-edit-router",
           },
           "children": Array [
             Object {
@@ -2337,6 +3156,7 @@ initialize {
           "prev": Object {
             "attribs": Object {
               "class": "btn-dash",
+              "data-testid": "test-insert-router",
             },
             "children": Array [
               Object {
@@ -2354,7 +3174,7 @@ initialize {
             "prev": Object {
               "attribs": Object {
                 "class": "btn-dash",
-                "test-id": "",
+                "data-testid": "test-display-router",
               },
               "children": Array [
                 Object {
@@ -2785,7 +3605,45 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": [Circular],
                 "parent": [Circular],
-                "prev": null,
+                "prev": Object {
+                  "attribs": Object {},
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "clock",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "8:43:42 PM",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {},
+                  "x-attribsPrefix": Object {},
+                },
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
@@ -2797,35 +3655,41 @@ initialize {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
-                "test-id": undefined,
+                "data-testid": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
-                "test-id": undefined,
+                "data-testid": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-testid": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-testid": undefined,
         },
       },
       Object {
@@ -2836,6 +3700,7 @@ initialize {
         "next": Object {
           "attribs": Object {
             "class": "btn-logout",
+            "data-testid": "test-logout",
           },
           "children": Array [
             Object {
@@ -2854,15 +3719,18 @@ initialize {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
         },
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
             "class": "btn-dash",
+            "data-testid": "test-upload-router",
           },
           "children": Array [
             Object {
@@ -2880,6 +3748,7 @@ initialize {
           "prev": Object {
             "attribs": Object {
               "class": "btn-dash",
+              "data-testid": "test-edit-router",
             },
             "children": Array [
               Object {
@@ -2897,6 +3766,7 @@ initialize {
             "prev": Object {
               "attribs": Object {
                 "class": "btn-dash",
+                "data-testid": "test-insert-router",
               },
               "children": Array [
                 Object {
@@ -2914,7 +3784,7 @@ initialize {
               "prev": Object {
                 "attribs": Object {
                   "class": "btn-dash",
-                  "test-id": "",
+                  "data-testid": "test-display-router",
                 },
                 "children": Array [
                   Object {
@@ -3345,7 +4215,45 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": [Circular],
                   "parent": [Circular],
-                  "prev": null,
+                  "prev": Object {
+                    "attribs": Object {},
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "clock",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "8:43:42 PM",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {},
+                    "x-attribsPrefix": Object {},
+                  },
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
@@ -3357,35 +4265,41 @@ initialize {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
-                  "test-id": undefined,
+                  "data-testid": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
-                  "test-id": undefined,
+                  "data-testid": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-testid": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-testid": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-testid": undefined,
           },
         },
         "type": "tag",
@@ -3395,6 +4309,7 @@ initialize {
       Object {
         "attribs": Object {
           "class": "btn-logout",
+          "data-testid": "test-logout",
         },
         "children": Array [
           Object {
@@ -3419,6 +4334,7 @@ initialize {
           "prev": Object {
             "attribs": Object {
               "class": "btn-dash",
+              "data-testid": "test-upload-router",
             },
             "children": Array [
               Object {
@@ -3436,6 +4352,7 @@ initialize {
             "prev": Object {
               "attribs": Object {
                 "class": "btn-dash",
+                "data-testid": "test-edit-router",
               },
               "children": Array [
                 Object {
@@ -3453,6 +4370,7 @@ initialize {
               "prev": Object {
                 "attribs": Object {
                   "class": "btn-dash",
+                  "data-testid": "test-insert-router",
                 },
                 "children": Array [
                   Object {
@@ -3470,7 +4388,7 @@ initialize {
                 "prev": Object {
                   "attribs": Object {
                     "class": "btn-dash",
-                    "test-id": "",
+                    "data-testid": "test-display-router",
                   },
                   "children": Array [
                     Object {
@@ -3901,7 +4819,45 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": [Circular],
                     "parent": [Circular],
-                    "prev": null,
+                    "prev": Object {
+                      "attribs": Object {},
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "clock",
+                          },
+                          "children": Array [
+                            Object {
+                              "data": "8:43:42 PM",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "div",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {},
+                      "x-attribsPrefix": Object {},
+                    },
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
@@ -3913,35 +4869,41 @@ initialize {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
-                    "test-id": undefined,
+                    "data-testid": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
-                    "test-id": undefined,
+                    "data-testid": undefined,
                   },
                 },
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "data-testid": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "data-testid": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-testid": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-testid": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-testid": undefined,
             },
           },
           "type": "tag",
@@ -3951,9 +4913,11 @@ initialize {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-testid": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-testid": undefined,
         },
       },
     ],

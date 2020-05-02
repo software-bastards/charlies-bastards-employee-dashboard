@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import hoursHelper from "../../services/hoursHelper";
 import { useSelector } from "react-redux";
-import { createSession } from "../../reducers/actions/index";
 import { useHistory } from "react-router-dom";
-import "./displayhours.scss";
+import "../../stylesheets/displayhours.scss";
 import { useSpring, animated } from "react-spring";
 import Clock from "../clock/Clock";
 
 function DisplayHours() {
   const history = useHistory();
   const [data, setData] = useState({});
-  const [date, setDate] = useState(new Date());
+
   const props = useSpring({
-    config: { duration: 2000 },
+    config: { duration: 1000 },
     opacity: 1,
     from: { opacity: 0 },
   });
@@ -31,7 +30,11 @@ function DisplayHours() {
     <div className="displayhours-main">
       <Clock />
       <animated.div style={props}>
-        <button className="btn-dash" onClick={handleClick}>
+        <button
+          data-testid="test-hours"
+          className="btn-dash"
+          onClick={handleClick}
+        >
           show the table
         </button>
         <animated.div style={props}>
@@ -45,7 +48,11 @@ function DisplayHours() {
             </thead>
             {data.length > 0
               ? data.map((item, index) => (
-                  <tbody className="table-hours-body" key={index}>
+                  <tbody
+                    data-testid="test-tav"
+                    className="table-hours-body"
+                    key={index}
+                  >
                     <tr>
                       <td className="table-cell">{item.mounth_number}</td>
                       <td className="table-cell">{item.day_number}</td>
@@ -59,6 +66,7 @@ function DisplayHours() {
           </table>
         </animated.div>
         <button
+          data-testid="test-dashboard-router"
           className="btn-logout"
           onClick={() => history.push("/dashboard")}
         >

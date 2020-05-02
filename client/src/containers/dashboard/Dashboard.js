@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { deleteSession } from "../../reducers/actions/index";
 import Clock from "../clock/Clock";
-import "./dashboard.scss";
+import "../../stylesheets/dashboard.scss";
 
 import { useSpring, animated } from "react-spring";
 
@@ -11,7 +11,7 @@ function Dashboard() {
   const history = useHistory();
   const dispatch = useDispatch();
   const props = useSpring({
-    config: { duration: 2000 },
+    config: { duration: 1000 },
     opacity: 1,
     from: { opacity: 0 },
   });
@@ -19,10 +19,6 @@ function Dashboard() {
     return store.authorization;
   });
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    history.push("/displayhours");
-  };
   const handleLogOut = (e) => {
     e.preventDefault();
     dispatch(deleteSession());
@@ -31,7 +27,7 @@ function Dashboard() {
 
   return (
     <animated.div style={props} className="dash-container">
-      {/*    <Clock /> */}
+      <Clock />
       <div className="container">
         <div className="row">
           <div className="col-sm">
@@ -43,25 +39,45 @@ function Dashboard() {
             />
           </div>
           <div className="col-sm"> Worked {} hours last month</div>
-          <div className="col-sm">I have no idea</div>
+          <div className="col-sm">Why even </div>
         </div>
       </div>
 
-      <button test-id="" className="btn-dash" onClick={handleClick}>
+      <button
+        data-testid="test-display-router"
+        className="btn-dash"
+        onClick={() => history.push("/displayhours")}
+      >
         Display Your Hours
       </button>
 
-      <button className="btn-dash" onClick={() => history.push("/insert")}>
+      <button
+        data-testid="test-insert-router"
+        className="btn-dash"
+        onClick={() => history.push("/insert")}
+      >
         Insert New Log
       </button>
-      <button className="btn-dash" onClick={() => history.push("/edit")}>
+      <button
+        data-testid="test-edit-router"
+        className="btn-dash"
+        onClick={() => history.push("/edit")}
+      >
         Edit Your Hours
       </button>
-      <button className="btn-dash" onClick={() => history.push("/upload")}>
+      <button
+        data-testid="test-upload-router"
+        className="btn-dash"
+        onClick={() => history.push("/upload")}
+      >
         Upload Image
       </button>
       <br />
-      <button className="btn-logout" onClick={handleLogOut}>
+      <button
+        data-testid="test-logout"
+        className="btn-logout"
+        onClick={handleLogOut}
+      >
         {" "}
         Log Out
       </button>
