@@ -19,11 +19,11 @@ export const createSession = (message, token, firstname, lastname, id) => ({
   lastname: lastname,
   id: id,
 });
-export const deleteSession = (message, token, firstname, lastname, id) => ({
+export const deleteSession = () => ({
   type: actionTypes.DELETE_SESSION,
-  message: message,
-  token: token,
-  firstname: firstname,
-  lastname: lastname,
-  id: id,
+  message: "",
+  token: "",
+  firstname: "",
+  lastname: "",
+  id: "",
 });

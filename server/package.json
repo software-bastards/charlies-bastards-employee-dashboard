@@ -6,8 +6,7 @@
     "server": "nodemon ./bin/www",
     "client": "cd .. && cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
-    "test": "jest",
-    "jest": "24.9.0"
+    "test": "jest"
   },
   "jest": {
     "testEnvironment": "node",

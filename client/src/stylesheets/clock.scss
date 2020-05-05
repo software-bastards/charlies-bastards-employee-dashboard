@@ -1,0 +1,9 @@
+@import "./global.scss";
+
+.clock {
+  color: $blue;
+  font-family: $font-main;
+  font-size: 34pt;
+  position: absolute;
+  left: 160vh;
+}

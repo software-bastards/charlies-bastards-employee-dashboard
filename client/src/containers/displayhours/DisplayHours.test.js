@@ -1,5 +1,4 @@
 import React from "react";
-import { initialState, expectTruthy } from "../../../testSetup/testUltil";
 import configureStore from "redux-mock-store";
 import { BrowserRouter as Router } from "react-router-dom";
 import EnzymeAdapter from "enzyme-adapter-react-16";
@@ -44,7 +43,7 @@ jest.mock("react-router-dom", () => ({
     push: mockHistoryPush,
   }),
 }));
-test(" render", () => {
+test(" The Go Back button works", () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(state);
@@ -63,7 +62,7 @@ test(" render", () => {
   expect(mockHistoryPush).toHaveBeenCalledWith("/dashboard");
 });
 
-test(" render", () => {
+test(" The display hours button works", () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(state);
@@ -84,24 +83,3 @@ test(" render", () => {
   hoursButton.simulate("click");
   expect(handleClick).toBeCalled();
 });
-
-/* test("it renders the table if the data is there", () => {
-  const historyMock = { push: jest.fn() };
-  const mockStore = configureStore();
-  const store = mockStore(state);
-  const mountComponent = () =>
-    mount(
-      <Router>
-        <Provider store={store}>
-          <DisplayHours history={historyMock} />
-        </Provider>
-      </Router>
-    );
-  const wrapper = mountComponent();
-
-  // Renders the form
-  expect(wrapper.find("test-table")).toBe();
-
-  // Doesn't render the tag anymore
-  /* expect(wrapper.find('test-table')).toHaveLength(0); 
-}); */
