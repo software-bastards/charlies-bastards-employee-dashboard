@@ -10,7 +10,7 @@ function Login() {
   const dispatch = useDispatch();
   const history = useHistory();
   /**
-   * @function onSuhmit
+   * @function onSubmit
    * @param {string} data -Values passed in the input
    * @param {*} e - event
    */

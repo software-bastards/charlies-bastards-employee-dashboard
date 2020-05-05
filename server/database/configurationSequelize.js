@@ -36,9 +36,7 @@ db.hour = require("../models/hour.model")(Sequelize, connector);
 db.category = require("../models/category.model")(Sequelize, connector);
 
 //upload conection
-db.upload.belongsTo(
-  db.account /* , {foreignKey: 'id', targetKey: 'upload_id'} */
-);
+db.upload.belongsTo(db.account);
 
 //account conection
 
