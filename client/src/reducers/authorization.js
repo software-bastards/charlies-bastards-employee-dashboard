@@ -1,5 +1,5 @@
 /**
- * @function authorization -in case the action is CREATE SESSION 
+ * @function authorization -in case the action is CREATE SESSION
  * it changes the initial state (id,token,firstname...) to the user's information
  * @param {object} state  -current success  state
  * @param {object} action - action to be reduce

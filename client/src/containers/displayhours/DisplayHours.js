@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import hoursHelper from "../../services/hoursHelper";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import "../../stylesheets/displayhours.scss";
+import "../../style/displayhours.scss";
 import { useSpring, animated } from "react-spring";
 import Clock from "../clock/Clock";
 

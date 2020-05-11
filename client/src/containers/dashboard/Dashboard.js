@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { deleteSession } from "../../reducers/actions/index";
-import Clock from "../clock/Clock";
-import "../../stylesheets/dashboard.scss";
+import Clock from "../Clock/Clock";
+import "../../style/dashboard.scss";
 
 import { useSpring, animated } from "react-spring";
 
