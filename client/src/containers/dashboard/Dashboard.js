@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import dashboardHelper from "../../services/dashboardHelper";
 import { connect, useSelector } from "react-redux";
 /* import { logoutUser } from "../../reducers/actions/logoutUser"; */
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 function Dashboard({ token, firstname, lastname }) {
   const [user, setUser] = useState("");
@@ -31,6 +31,7 @@ function Dashboard({ token, firstname, lastname }) {
         Welcome {authorization.firstname} {authorization.lastname}
       </h1>
       <button /* onClick={() => onLogOut()} */> Log Out</button>
+      <Link to="/insert">go to insert page</Link>
     </div>
   );
 }
