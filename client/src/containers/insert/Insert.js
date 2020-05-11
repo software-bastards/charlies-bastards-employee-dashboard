@@ -3,6 +3,8 @@ import { withRouter, useHistory, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import insertHelper from "../../services/insertHelper";
 import { useSelector } from "react-redux";
+import "../../stylesheets/insert.scss";
+import "../../stylesheets/global.scss";
 
 function Insert() {
   const authorization = useSelector((store) => {
@@ -19,8 +21,10 @@ function Insert() {
   }
 
   return (
-    <div>
+    <div className="insert">
+      <h1>Hey, Insert your hours here!</h1>
       <form
+        className="insert-form"
         onSubmit={handleSubmit(onSubmit)}
         data-testid="insert-form-component"
       >
