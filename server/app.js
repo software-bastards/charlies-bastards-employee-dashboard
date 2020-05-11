@@ -21,6 +21,8 @@ const authrouter = require('./routes/authentication')
 const editHours = require('./routes/editHours')
 const uploadImage = require ('./routes/uploadImage')
 const displayhoursRouter = require("./routes/displayhours");
+const inserthoursRouter = require("./routes/insert");
+
 
 //configurations
 const db = require("./database/configurationSequelize");
@@ -46,6 +48,7 @@ app.use('/', editHours);
 app.use('/',authrouter)
 app.use('/', uploadImage)
 app.use("/", displayhoursRouter);
+app.use("/", inserthoursRouter);
 
 
 

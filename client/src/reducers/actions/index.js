@@ -1,39 +1,15 @@
-<<<<<<< HEAD
-export const actionTypes = {
-  CREATE_SESSION: "CREATE_SESSION",
-  DELETE_SESSION: "DELETE_SESSION",
-};
+export const actionTypes =  {
+  CREATE_SESSION:"CREATE_SESSION",
+  MONTH_HOURS: "MONTH_HOURS",
+  DISPLAY_MESSAGE :"DISPLAY_MESSAGE"
+}
 /**
  * @function createSession
  * @param {string} message
  * @param {string} token
  * @param {string} firstname
- * @param {string} lastname
- * @param {int} id
- * @returns {object}  - Action object tipe CREATE_SESSION
- */
-export const createSession = (message, token, firstname, lastname, id) => ({
-  type: actionTypes.CREATE_SESSION,
-  message: message,
-  token: token,
-  firstname: firstname,
-  lastname: lastname,
-  id: id,
-});
-export const deleteSession = () => ({
-  type: actionTypes.DELETE_SESSION,
-  message: "",
-  token: "",
-  firstname: "",
-  lastname: "",
-  id: "",
-});
-=======
-export const actionTypes =  {
-    CREATE_SESSION:"CREATE_SESSION",
-    MONTH_HOURS: "MONTH_HOURS",
-    DISPLAY_MESSAGE :"DISPLAY_MESSAGE"
-}
+
+
 /**
  * @function createSession -build an action that store al the user’s  information
  * @param {number} id
@@ -75,4 +51,3 @@ export const setMessage = (message) => ({
     message:message
     
 });
->>>>>>> development

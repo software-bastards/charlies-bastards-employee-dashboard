@@ -8,7 +8,6 @@
 export default function authorization(state = {}, action) {
   switch (action.type) {
     case "CREATE_SESSION":
-<<<<<<< HEAD
       return {
         ...state,
         token: action.token,
@@ -30,9 +29,3 @@ export default function authorization(state = {}, action) {
       return state;
   }
 }
-=======
-    return {...state, id:action.id, token:action.token, firstname:action.firstname,lastname:action.lastname,message:action.message}
-    default: 
-    return state;
-}}
->>>>>>> development
