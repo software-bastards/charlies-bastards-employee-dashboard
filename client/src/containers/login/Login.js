@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import loginHelper from "../../services/loginHelper";
-import { connect, useDispatch } from "react-redux";
+import loginHelper from "../../services/API/loginHelper";
+import { useDispatch } from "react-redux";
 import { createSession } from "../../reducers/actions/index";
-import { withRouter, useHistory } from "react-router-dom";
+import secure from "../../icons/locker.svg"
+import "../../style/login.scss";
+
 function Login() {
-  const [message, setMessage] = React.useState("");
+  const [message, setMessage] = useState("");
   const { register, errors, handleSubmit } = useForm();
   const dispatch = useDispatch();
-  const history = useHistory();
+
   /**
+<<<<<<< HEAD
    * @function onSubmit
+=======
+   * @function onSubmit -
+   *  target the values inserted by the user and send it to the server
+   *then send the response to the redux store.
+>>>>>>> development
    * @param {string} data -Values passed in the input
    * @param {*} e - event
    */
@@ -21,6 +29,7 @@ function Login() {
       .then((res) =>
         dispatch(
           createSession(
+            res.data.account_id,
             res.data.message,
             res.data.token,
             res.data.firstname,
@@ -29,15 +38,26 @@ function Login() {
           )
         )
       )
+<<<<<<< HEAD
       .then(history.push("/dashboard"));
     /*       .catch((err) => setMessage(`${err.response.data.message.message}`));
      */
+=======
+      .catch((err) => setMessage(`${err.response.data.message.message}`));
+>>>>>>> development
   };
 
   return (
-    <main>
-      <form data-testid="form-component" onSubmit={handleSubmit(onSubmit)}>
+    <main className="main_login">
+      <div className='centrilized-content'>
+      <img src={secure} alt="secure" id="image-login-secure"/>
+      <form
+        className="form-login"
+        data-testid="form-component"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <p>{message}</p>
+        <div className='input-component'>
         <label data-testid="test-label" htmlFor="email">
           E-mail
         </label>
@@ -48,6 +68,10 @@ function Login() {
           ref={register({ required: true })}
         />
         {errors.email && "This field is required"}
+<<<<<<< HEAD
+=======
+        
+>>>>>>> development
 
         <label data-testid="test-label" htmlFor="password">
           Password
@@ -59,6 +83,7 @@ function Login() {
           ref={register({ required: true })}
         />
         {errors.password && "This field is required"}
+<<<<<<< HEAD
 
         <button data-testid="submit-button" type="submit">
           {" "}
@@ -71,8 +96,31 @@ function Login() {
         {" "}
         Google +
       </button>
+=======
+        </div>
+        <div className='buttonsDiv-login'>
+          <button
+            data-testid="submit-button"
+            type="submit"
+          >
+            {" "}
+            Login{" "}
+          </button>
+          <button
+            onClick={() =>
+              (window.location = "http://localhost:5000/auth/google")
+            }
+          >
+            {" "}
+            Google +
+          </button>
+        </div>
+      </form>
+      </div>
+      
+>>>>>>> development
     </main>
   );
 }
 
-export default withRouter(Login);
+export default Login;
