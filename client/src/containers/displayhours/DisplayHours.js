@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "../../style/displayhours.scss";
 import { useSpring, animated } from "react-spring";
-import Clock from "../clock/Clock";
+import Clock from "../Clock/Clock";
 
 function DisplayHours() {
   const history = useHistory();

@@ -2,11 +2,7 @@ import React from "react";
 import { getMonthName } from "../../services/editHoursSev";
 import { Link } from "react-router-dom";
 
-
-function UserHours({
-  monthData,
- 
-}) {
+function UserHours({ monthData }) {
   return (
     <div>
       <h2>{getMonthName(monthData[0].month_number)}</h2>
@@ -33,6 +29,4 @@ function UserHours({
   );
 }
 
-
-
-export default (UserHours)
+export default UserHours;
