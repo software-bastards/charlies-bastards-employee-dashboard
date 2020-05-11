@@ -17,17 +17,30 @@ router.post("/login", function (req, res, next) {
       process.env.ACCESS_TOKEN_SECRET
     );
 
-    console.log(user);
+   const token = jwt.sign(JSON.stringify(user), process.env.ACCESS_TOKEN_SECRET);
+   return   res.status(200).json({
+     success: true,
+     account_id: user.id,
+     firstname:user.firstname,
+     lastname:user.lastname,
+     token: 'Bearer ' + token,
+     message:"you were authenticated"}) 
+     
+     
+    })(req, res, next)
 
+    const token = jwt.sign(
+      JSON.stringify(user),
+      process.env.ACCESS_TOKEN_SECRET
+    );
     return res.status(200).json({
       success: true,
+      id: user.id,
       firstname: user.firstname,
       lastname: user.lastname,
-      account_id: user.id,
       token: token,
       message: "you were authenticated",
     });
   })(req, res, next);
-});
 
 module.exports = router;

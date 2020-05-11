@@ -1,14 +1,8 @@
 import React from "react";
+<<<<<<< HEAD
 import Login from "./Login";
 import { Provider } from "react-redux";
-import Enzyme, { mount, ShallowWrapper, shallow } from "enzyme";
-import EnzymeAdapter from "enzyme-adapter-react-16";
-import {
-  findByTestAttr,
-  initialState,
-  storeFactory,
-  expectTruthy,
-} from "../../../testSetup/testUltil";
+import { initialState, expectTruthy } from "../../../testSetup/testUltil";
 import configureStore from "redux-mock-store";
 import {
   render,
@@ -18,18 +12,26 @@ import {
   screen,
 } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-Enzyme.configure({ adapter: new EnzymeAdapter() });
+=======
+import Login  from "./Login";
+import { Provider} from 'react-redux';
+import {initialState, expectTruthy} from "../../../testSetup/testUltil"
+import configureStore from 'redux-mock-store'
+import { render, fireEvent, act, cleanup,screen} from "@testing-library/react";
+import { BrowserRouter as Router}from "react-router-dom"
+>>>>>>> development
 
 afterEach(cleanup);
 
+<<<<<<< HEAD
 test("if component renders without an error", () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(initialState);
   const { getByTestId, getAllByTestId } = render(
-    <Router>
+    <Router history={historyMock}>
       <Provider store={store}>
-        <Login history={historyMock} />
+        <Login />
       </Provider>
     </Router>
   );
@@ -39,20 +41,19 @@ test("if component renders without an error", () => {
   expectTruthy(getByTestId("submit-button"));
 });
 
-test("if onSubmit is called", async () => {
+test('"This field is required" should be in the DOM', async () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(initialState);
-  const { getByTestId, getByText, findBy } = render(
+  const { getByTestId, getByText, findBy, container } = render(
     <Router>
       <Provider store={store}>
         <Login history={historyMock} />
       </Provider>
     </Router>
   );
-  const onSubmit = jest.fn(() => Promise.reject({ data: "Some data" }));
+  const onSubmit = jest.fn();
   const inputEmail = getByTestId("input-form-email");
-  const inputPassword = getByTestId("input-form-password");
 
   await act(async () => {
     await fireEvent.change(inputEmail, { target: { value: "test@gmail" } });
@@ -60,7 +61,53 @@ test("if onSubmit is called", async () => {
       fireEvent.submit(getByTestId("form-component"));
     });
   });
-  const find = screen.findByText("jhgf");
 
-  console.log(screen.debug());
+  expect(screen.getByTestId("form-component").textContent).toMatch(
+    "This field is required"
+  );
 });
+=======
+  test('if component renders without an error',  ()=>{
+    const historyMock = { push: jest.fn() };
+    const mockStore = configureStore()
+      const store = mockStore(initialState)
+      const {getByTestId,getAllByTestId} = render(
+        <Router history={historyMock}>
+        <Provider store={store} >
+              <Login />
+           </Provider>
+           </Router>
+      )
+      expectTruthy(getByTestId("input-form-email"));
+      expectTruthy(getByTestId("form-component"));
+      expectTruthy(getAllByTestId("test-label"));
+      expectTruthy(getByTestId("submit-button"));
+     
+      });
+
+  test('"This field is required" should be in the DOM', async()=>{
+    const historyMock = { push: jest.fn() };
+    const mockStore = configureStore()
+      const store = mockStore(initialState)
+      const {getByTestId,getByText,findBy,container} = render(
+        <Router>
+        <Provider store={store} >
+              <Login history={historyMock} />
+           </Provider>
+           </Router>
+      )
+    const onSubmit = jest.fn()
+    const inputEmail = getByTestId("input-form-email")
+
+    await act(async()=>{
+      await fireEvent.change(inputEmail,{target:{value:"test@gmail"}})
+    await act(async ()=>{
+      fireEvent.submit(getByTestId("form-component"))
+    })
+    })
+     
+    expect(screen.getByTestId('form-component').textContent).toMatch("This field is required")
+   
+})
+     
+>>>>>>> development

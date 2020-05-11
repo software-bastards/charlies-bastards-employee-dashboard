@@ -35,12 +35,14 @@ db.project = require("../models/project.model")(Sequelize, connector);
 db.hour = require("../models/hour.model")(Sequelize, connector);
 db.category = require("../models/category.model")(Sequelize, connector);
 
-//upload conection
-db.upload.belongsTo(
-  db.account /* , {foreignKey: 'id', targetKey: 'upload_id'} */
-);
+// put alies
 
-//account conection
+
+
+//account conection 
+db.account.hasMany(db.project, {foreignKey: 'account_id', sourceKey: 'id'}) 
+db.account.hasMany(db.hour, {foreignKey: 'account_id', sourceKey: 'id'}) 
+db.account.hasMany(db.upload, {foreignKey: 'account_id', sourceKey: 'id'}) 
 
 db.project.belongsTo(db.account);
 db.account.hasMany(db.project, { foreignKey: "account_id", sourceKey: "id" });
