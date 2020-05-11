@@ -46,23 +46,22 @@ function DisplayHours() {
                 <td className="table-cell">Hour</td>
               </tr>
             </thead>
-            {data.length > 0
-              ? data.map((item, index) => (
-                  <tbody
-                    data-testid="test-tav"
-                    className="table-hours-body"
-                    key={index}
-                  >
-                    <tr>
-                      <td className="table-cell">{item.mounth_number}</td>
-                      <td className="table-cell">{item.day_number}</td>
-                      <td className="table-cell" s>
-                        {item.hour}
-                      </td>
-                    </tr>
-                  </tbody>
-                ))
-              : ""}
+            {data.length > 0 &&
+              data.map((item, index) => (
+                <tbody
+                  data-testid="test-tav"
+                  className="table-hours-body"
+                  key={index}
+                >
+                  <tr>
+                    <td className="table-cell">{item.mounth_number}</td>
+                    <td className="table-cell">{item.day_number}</td>
+                    <td className="table-cell" s>
+                      {item.hour}
+                    </td>
+                  </tr>
+                </tbody>
+              ))}
           </table>
         </animated.div>
         <button

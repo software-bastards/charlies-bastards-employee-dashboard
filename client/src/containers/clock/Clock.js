@@ -1,7 +1,7 @@
-
 import React, {useState,useEffect} from 'react'
+import { useEffect } from "react";
+import "../../stylesheets/clock.scss";
 
-import "../../style/clock.scss"
 export default function Clock (){
 const [time, setTime] = useState(new Date())
 

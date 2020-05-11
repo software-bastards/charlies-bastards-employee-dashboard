@@ -6,7 +6,7 @@ import React from "react";
 import configureStore from "redux-mock-store";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import { deleteSession, actionTypes } from "../../reducers/actions/index";
+import { deleteSession } from "../../reducers/actions/index";
 
 afterEach(cleanup);
 Enzyme.configure({ adapter: new EnzymeAdapter() });
@@ -20,7 +20,7 @@ const state = {
   },
   data: "2:41:16 PM",
 };
-test(" render", () => {
+test("if component renders without an error", () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(state);
@@ -35,7 +35,7 @@ test(" render", () => {
   const wrapper = renderComponent();
   expect(wrapper).toMatchSnapshot();
 });
-test(" render", () => {
+test("if the logout button dispatches and redirects to main page", () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(state);
@@ -65,7 +65,7 @@ jest.mock("react-router-dom", () => ({
   }),
 }));
 
-test(" render", () => {
+test(" if the display hours button redirects to displayhours page", () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(state);
@@ -83,7 +83,7 @@ test(" render", () => {
   displayButton.simulate("click");
   expect(mockHistoryPush).toHaveBeenCalledWith("/displayhours");
 });
-test(" render", () => {
+test(" if the insert button redirects to insert page", () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(state);
@@ -119,7 +119,7 @@ test(" render", () => {
   editButton.simulate("click");
   expect(mockHistoryPush).toHaveBeenCalledWith("/edit");
 });
-test(" render", () => {
+test(" if the upload button redirects to upload page", () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(state);
@@ -137,25 +137,3 @@ test(" render", () => {
   uploadButton.simulate("click");
   expect(mockHistoryPush).toHaveBeenCalledWith("/upload");
 });
-/* const handleLogout = jest.fn();
-test("logout function deletes session", () => {});*/
-
-/* test("calls history.push correctly", () => {
-  const dummyMsg = "";
-  const dummyToken = "";
-  const dummyFirstname = "";
-  const dummyLastname = "";
-  const dummyId = "";
-
-  const expectedAction = {
-    type: actionTypes.DELETE_SESSION,
-    message: dummyMsg,
-    token: dummyMsg,
-    firstname: dummyFirstname,
-    lastname: dummyLastname,
-    id: dummyId,
-  };
-  expect(
-    deleteSession(dummyMsg, dummyToken, dummyFirstname, dummyLastname, dummyId)
-  ).toEqual(expectedAction);
-}); */

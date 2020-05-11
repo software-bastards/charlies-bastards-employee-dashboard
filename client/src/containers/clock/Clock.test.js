@@ -1,13 +1,11 @@
 import React from "react";
-import { initialState, expectTruthy } from "../../../testSetup/testUltil";
 import configureStore from "redux-mock-store";
 import { BrowserRouter as Router } from "react-router-dom";
 import EnzymeAdapter from "enzyme-adapter-react-16";
-import Enzyme, { render } from "enzyme";
+import Enzyme from "enzyme";
 import { cleanup } from "@testing-library/react";
 import { Provider } from "react-redux";
 import Clock from "./Clock";
-import hoursHelper from "../../services/hoursHelper";
 import { mount } from "enzyme";
 
 afterEach(cleanup);
