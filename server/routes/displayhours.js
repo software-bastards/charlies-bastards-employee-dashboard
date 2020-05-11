@@ -12,17 +12,17 @@ router.post(
     });
     next();
   },
-  function (req, res) {
-    const id = req.body.id;
+  (req, res) => {
     console.log(req.body);
+    const id = req.body.data.account_id;
     hour
-      .findAll(/* { attributes: ["hour"] },  */ { where: { account_id: id } })
+      .findAll({ where: { account_id: id } })
       .then((response) => {
         let hourList = response.map((element) => {
           return element.dataValues;
         });
 
-        res.send(hourList);
+        res.status(200).send(hourList);
       })
       .catch((err) => console.log(err));
   }
