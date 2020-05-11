@@ -12,9 +12,13 @@ function Login() {
   const dispatch = useDispatch();
 
   /**
+<<<<<<< HEAD
+   * @function onSubmit
+=======
    * @function onSubmit -
    *  target the values inserted by the user and send it to the server
    *then send the response to the redux store.
+>>>>>>> development
    * @param {string} data -Values passed in the input
    * @param {*} e - event
    */
@@ -29,11 +33,18 @@ function Login() {
             res.data.message,
             res.data.token,
             res.data.firstname,
-            res.data.lastname
+            res.data.lastname,
+            res.data.id
           )
         )
       )
+<<<<<<< HEAD
+      .then(history.push("/dashboard"));
+    /*       .catch((err) => setMessage(`${err.response.data.message.message}`));
+     */
+=======
       .catch((err) => setMessage(`${err.response.data.message.message}`));
+>>>>>>> development
   };
 
   return (
@@ -57,7 +68,10 @@ function Login() {
           ref={register({ required: true })}
         />
         {errors.email && "This field is required"}
+<<<<<<< HEAD
+=======
         
+>>>>>>> development
 
         <label data-testid="test-label" htmlFor="password">
           Password
@@ -69,6 +83,20 @@ function Login() {
           ref={register({ required: true })}
         />
         {errors.password && "This field is required"}
+<<<<<<< HEAD
+
+        <button data-testid="submit-button" type="submit">
+          {" "}
+          Login{" "}
+        </button>
+      </form>
+      <button
+        onClick={() => (window.location = "http://localhost:5000/auth/google")}
+      >
+        {" "}
+        Google +
+      </button>
+=======
         </div>
         <div className='buttonsDiv-login'>
           <button
@@ -90,6 +118,7 @@ function Login() {
       </form>
       </div>
       
+>>>>>>> development
     </main>
   );
 }

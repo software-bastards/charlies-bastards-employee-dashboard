@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/styles": "^4.9.10",
     "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
     "@stimulus/mutation-observers": "^1.1.1",
@@ -12,11 +13,10 @@
     "axios": "^0.19.2",
     "axios-mock-adapter": "^1.18.1",
     "cors": "^2.8.5",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "loadash": "^1.0.0",
-    "lodash": "^4.17.15",
     "mutationobserver-shim": "^0.3.5",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -25,6 +25,7 @@
     "react-router-dom": "^5.1.2",
     "react-router-redux": "^4.0.8",
     "react-scripts": "3.4.1",
+    "react-spring": "^8.0.27",
     "redux": "^4.0.5",
     "socket.io-client": "^2.3.0"
   },
@@ -33,7 +34,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:ci": "react-scripts test -- --watchAll=false",
+    "test:ci": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -68,6 +69,7 @@
   },
   "devDependencies": {
     "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "moxios": "^0.4.0",
     "redux-mock-store": "^1.5.4"
   }

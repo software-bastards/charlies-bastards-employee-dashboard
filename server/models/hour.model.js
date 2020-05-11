@@ -1,4 +1,3 @@
-
 module.exports= (Sequelize,connector) =>{
     const Hour = connector.define('hour',  {
         id: {
@@ -20,9 +19,8 @@ module.exports= (Sequelize,connector) =>{
          
      
     },
-    { underscored: true, freezeTableName: true}) 
-     
-  
+    { underscored: true, freezeTableName: true }
+  );
 
-    return Hour
-}
+  return Hour;
+};
