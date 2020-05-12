@@ -19,6 +19,7 @@ import PopUpEdit from "./containers/PopUp/PopUpEdit";
 import Upload from "./containers/upload/Upload";
 import DisplayImages from "./containers/displayImages/DisplayImages";
 import DisplayHours from "./containers/displayhours/DisplayHours";
+import Insert from "./containers/insert/Insert";
 
 function mapToProps(state) {
   return {
@@ -37,6 +38,9 @@ function App({ isAuthenticated, message }) {
         </Route>
         <Route path="/dashboard">
           {!isAuthenticated ? <Redirect to="/" /> : <Dashboard />}
+        </Route>
+        <Route path="/insert">
+          {!isAuthenticated ? <Redirect to="/" /> : <Insert />}
         </Route>
         <Route path="/myhours">
           {!isAuthenticated ? <Redirect to="/" /> : <EditHours />}
