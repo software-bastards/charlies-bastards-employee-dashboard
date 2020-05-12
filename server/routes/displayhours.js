@@ -14,7 +14,7 @@ router.post(
   },
   (req, res) => {
     console.log(req.body);
-    const id = req.body.data.account_id;
+    const id = req.body.id;
     hour
       .findAll({ where: { account_id: id } })
       .then((response) => {
