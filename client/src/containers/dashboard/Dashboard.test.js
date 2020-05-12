@@ -99,7 +99,7 @@ test(" if the insert button redirects to insert page", () => {
 
   const insertButton = wrapper.find('[data-testid="test-insert-router"]');
   insertButton.simulate("click");
-  expect(mockHistoryPush).toHaveBeenCalledWith("/insert");
+  expect(mockHistoryPush).toHaveBeenCalledWith("/inserthours");
 });
 test(" render", () => {
   const historyMock = { push: jest.fn() };

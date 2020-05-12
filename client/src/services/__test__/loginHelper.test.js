@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import loginHelper from "../../services/loginHelper";
+import loginHelper from "../../services/API/loginHelper";
 
 jest.mock("axios");
 

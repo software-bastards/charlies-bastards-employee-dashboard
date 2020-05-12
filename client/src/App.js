@@ -13,7 +13,7 @@ import Insert from "./containers/insert/Insert";
 function mapToProps(state) {
   return {
     isAuthenticated: state.authorization.token,
-    message: state.displayMessage.message,
+    message: state.authorization.message,
   };
 }
 

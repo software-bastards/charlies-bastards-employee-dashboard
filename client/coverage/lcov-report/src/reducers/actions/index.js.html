@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -114,10 +114,7 @@
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
+<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,7 +136,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,7 +150,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,14 +160,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,7 +194,7 @@
  * @param {string} lastname
  * @returns {object}  - Action object CREATE_SESSION
  */
-export const createSession = <span class="fstat-no" title="function not covered" >(i</span>d, message, token, firstname, lastname) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+export const createSession = (id, message, token, firstname, lastname) =&gt; ({
   type: actionTypes.CREATE_SESSION,
   id: id,
   message: message,
@@ -214,7 +208,7 @@ export const createSession = <span class="fstat-no" title="function not covered"
  * @param {array} monthData - data related only for the selected month
  * @returns {object} - Action object  MONTH_HOURS
  */
-export const monthHours = <span class="fstat-no" title="function not covered" >(m</span>onthData) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+export const monthHours = (monthData) =&gt; ({
   type: actionTypes.MONTH_HOURS,
   monthData: monthData,
 });
@@ -224,21 +218,18 @@ export const monthHours = <span class="fstat-no" title="function not covered" >(
  * @param {string} message - message that will be dispatched
  * @returns {object} - Action object  DISPLAY_MESSAGE
  */
-export const setMessage = <span class="fstat-no" title="function not covered" >(m</span>essage) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+export const setMessage = (message) =&gt; ({
   type: actionTypes.DISPLAY_MESSAGE,
   message: message,
 });
-export const deleteSession = (message, token, firstname, lastname, id) =&gt; (
-  console.log("HIII"),
-  {
-    type: actionTypes.DELETE_SESSION,
-    message: "",
-    token: "",
-    firstname: "",
-    lastname: "",
-    id: "",
-  }
-);
+export const deleteSession = () =&gt; ({
+  type: actionTypes.DELETE_SESSION,
+  message: "",
+  token: "",
+  firstname: "",
+  lastname: "",
+  id: "",
+});
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -246,7 +237,7 @@ export const deleteSession = (message, token, firstname, lastname, id) =&gt; (
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue May 12 2020 16:37:28 GMT+0200 (Central European Summer Time)
+                at Tue May 12 2020 17:48:38 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

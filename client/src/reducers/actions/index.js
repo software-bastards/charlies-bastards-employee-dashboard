@@ -48,14 +48,11 @@ export const setMessage = (message) => ({
   type: actionTypes.DISPLAY_MESSAGE,
   message: message,
 });
-export const deleteSession = (message, token, firstname, lastname, id) => (
-  console.log("HIII"),
-  {
-    type: actionTypes.DELETE_SESSION,
-    message: "",
-    token: "",
-    firstname: "",
-    lastname: "",
-    id: "",
-  }
-);
+export const deleteSession = () => ({
+  type: actionTypes.DELETE_SESSION,
+  message: "",
+  token: "",
+  firstname: "",
+  lastname: "",
+  id: "",
+});
