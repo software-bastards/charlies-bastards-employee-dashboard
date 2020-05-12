@@ -4,6 +4,17 @@ import Dashboard from "./containers/dashboard/Dashboard";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import EditHours from "./containers/editHours/EditHours";
+<<<<<<< HEAD
+import PopUpEdit from "./containers/PopUp/PopUpEdit"
+import Upload from './containers/upload/Upload'
+import DisplayImages from './containers/displayImages/DisplayImages'
+import Clock from './containers/Clock/Clock'
+function mapToProps(state){
+  return(
+    {isAuthenticated: state.authorization.token,
+    message:state.displayMessage.message}
+  )
+=======
 import PopUpEdit from "./containers/PopUp/PopUpEdit";
 import Upload from "./containers/upload/Upload";
 import DisplayImages from "./containers/displayImages/DisplayImages";
@@ -14,6 +25,7 @@ function mapToProps(state) {
     isAuthenticated: state.authorization.token,
     message: state.displayMessage.message,
   };
+>>>>>>> dfaffa5c834bcc3f514c92cff10774e6986c76b9
 }
 
 function App({ isAuthenticated, message }) {
