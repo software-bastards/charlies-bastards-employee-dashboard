@@ -22,21 +22,6 @@ module.exports = (Sequelize, connector) => {
           notNull: {
             msg: "Please enter your email",
           },
-           password: {
-            type: Sequelize.STRING,
-            allowNull: true,
-         },
-          email: {
-            type: Sequelize.STRING,
-            unique:true,
-            allowNull: false,
-            validate: {
-                notNull: {
-                  msg: 'Please enter your email'
-                }
-          }}, 
-        
-           acount_type: Sequelize.STRING
         },
       },
       upload_id: Sequelize.INTEGER,
