@@ -5,6 +5,8 @@ import { months, filterData } from "../../services/editHoursSev";
 import { monthHours } from "../../reducers/actions/index";
 import UserHours from "./UserHours";
 import { Link } from "react-router-dom";
+import "../../style/EditHours.scss"; 
+
 
 function EditHours({ userToken, userId, monthData }) {
   const [data, setData] = useState([]);
@@ -42,25 +44,29 @@ function EditHours({ userToken, userId, monthData }) {
   };
 
   return (
-    <div data-testid="component-editHours">
-      <Link to="/dashboard"> Back</Link>
+    <div className='edit_main' data-testid='component-editHours'>
+            <Link className='back_button' to='/dashboard'> Back</Link>
 
-      <h1>Edit Hours</h1>
-      {months.map((item, index) => (
-        <div key={index}>
+       <h1 className='edit_header'>Edit Hours</h1>
+       
+     {months.map((item, index) => (
+        <div className='month-edit' key={index}>
           <button id={index + 1} onClick={handleId}>
             {item}
           </button>
         </div>
+        
       ))}
+     
 
       {monthData.length > 0 ? (
         <UserHours monthData={monthData} />
       ) : workThisMonth ? (
-        <p>You did not work this month </p>
+        <p className='no-work'>You did not work this month </p>
       ) : (
-        <p>Select a Month</p>
-      )}
+        <p className='select-month'>Select a Month</p>
+      )} 
+  
     </div>
   );
 }

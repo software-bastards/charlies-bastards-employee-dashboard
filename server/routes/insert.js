@@ -12,9 +12,10 @@ router.post(
   "/inserthours",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    console.log(req.body);
     hour
       .create({
-        hour: req.body.hour,
+        hour_logged: req.body.hour,
         month_number: req.body.month_number,
         day_number: req.body.day_number,
         account_id: req.body.account_id,
