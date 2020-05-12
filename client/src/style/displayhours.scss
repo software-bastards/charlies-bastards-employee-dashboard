@@ -1,0 +1,40 @@
+@import "./global.scss";
+
+.displayhours-main {
+}
+.table-hours {
+  text-align: center;
+  padding-top: 300px;
+  align-items: center;
+  margin: auto;
+  background-color: $white;
+}
+.table-hours-head {
+  background-color: $blue;
+  font-family: $font-main;
+  font-size: 22pt;
+  color: $white;
+}
+.table-hours-body {
+  font-family: $font-secondary;
+  font-size: 20pt;
+  padding-top: 30px;
+  margin-top: 20px;
+}
+.table-cell {
+  width: 200px;
+}
+.hidden-p {
+  opacity: 0;
+}
+.hidden-table {
+  opacity: 0;
+}
+.btn-dash {
+  color: $white;
+  background-color: $black;
+  width: 30vh;
+  font-size: $btn-size;
+  margin: 5vh;
+  font-family: $font-main;
+}

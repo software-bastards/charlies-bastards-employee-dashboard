@@ -33,6 +33,5 @@ module.exports= (Sequelize,connector) =>{
               
                  
 
-    return Upload}
-   
-     
+  return Upload;
+};
