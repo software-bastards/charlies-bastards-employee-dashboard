@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`if component renders without an error 1`] = `ReactWrapper {}`;

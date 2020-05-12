@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1589284618550" clover="3.2.0">
-  <project timestamp="1589284618551" name="All files">
-    <metrics statements="215" coveredstatements="80" conditionals="61" coveredconditionals="23" methods="92" coveredmethods="29" elements="368" coveredelements="132" complexity="0" loc="215" ncloc="215" packages="16" files="29" classes="29"/>
+<coverage generated="1589294249160" clover="3.2.0">
+  <project timestamp="1589294249160" name="All files">
+    <metrics statements="213" coveredstatements="80" conditionals="63" coveredconditionals="23" methods="91" coveredmethods="29" elements="367" coveredelements="132" complexity="0" loc="213" ncloc="213" packages="16" files="28" classes="28"/>
     <package name="src">
-      <metrics statements="2" coveredstatements="1" conditionals="14" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="2" coveredstatements="1" conditionals="16" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="App.js" path="/Users/seyma/Desktop/WS/Projects/Employee_Dashboard/charlies-bastards-employee-dashboard/client/src/App.js">
-        <metrics statements="2" coveredstatements="1" conditionals="14" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
+        <metrics statements="2" coveredstatements="1" conditionals="16" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.containers.Clock">
@@ -118,23 +118,23 @@
       <metrics statements="19" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="11" coveredmethods="0"/>
       <file name="EditHours.js" path="/Users/seyma/Desktop/WS/Projects/Employee_Dashboard/charlies-bastards-employee-dashboard/client/src/containers/editHours/EditHours.js">
         <metrics statements="17" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="0"/>
-        <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
       </file>
       <file name="UserHours.js" path="/Users/seyma/Desktop/WS/Projects/Employee_Dashboard/charlies-bastards-employee-dashboard/client/src/containers/editHours/UserHours.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -259,12 +259,7 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="39" coveredstatements="21" conditionals="15" coveredconditionals="13" methods="8" coveredmethods="4"/>
-      <file name="dashboardHelper.js" path="/Users/seyma/Desktop/WS/Projects/Employee_Dashboard/charlies-bastards-employee-dashboard/client/src/services/dashboardHelper.js">
-        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-      </file>
+      <metrics statements="37" coveredstatements="21" conditionals="15" coveredconditionals="13" methods="7" coveredmethods="4"/>
       <file name="editHoursSev.js" path="/Users/seyma/Desktop/WS/Projects/Employee_Dashboard/charlies-bastards-employee-dashboard/client/src/services/editHoursSev.js">
         <metrics statements="19" coveredstatements="19" conditionals="13" coveredconditionals="13" methods="3" coveredmethods="3"/>
         <line num="6" count="3" type="stmt"/>
@@ -296,7 +291,7 @@
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
       </file>
       <file name="loadState.js" path="/Users/seyma/Desktop/WS/Projects/Employee_Dashboard/charlies-bastards-employee-dashboard/client/src/services/loadState.js">
         <metrics statements="13" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
