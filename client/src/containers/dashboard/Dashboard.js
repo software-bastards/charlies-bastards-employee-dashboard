@@ -61,7 +61,7 @@ function Dashboard() {
       <button
         data-testid="test-edit-router"
         className="btn-dash"
-        onClick={() => history.push("/edit")}
+        onClick={() => history.push("/myhours")}
       >
         Edit Your Hours
       </button>
