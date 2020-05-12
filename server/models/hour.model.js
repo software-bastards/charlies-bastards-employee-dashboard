@@ -18,7 +18,9 @@ module.exports = (Sequelize, connector) => {
       },
 
       upload_id: Sequelize.INTEGER,
+      account_id: Sequelize.INTEGER,
     },
+
     { underscored: true, freezeTableName: true }
   );
 
