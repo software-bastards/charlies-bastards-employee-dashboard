@@ -27,7 +27,7 @@ function App({ isAuthenticated, message }) {
         <Route path="/dashboard">
           {!isAuthenticated ? <Redirect to="/" /> : <Dashboard />}
         </Route>
-        <Route path="/insert">
+        <Route path="/inserthours">
           {!isAuthenticated ? <Redirect to="/" /> : <Insert />}
         </Route>
         <Route path="/myhours">
