@@ -17,15 +17,14 @@ store.subscribe(throttle(()=>{
 1000)
 
 ReactDOM.render(
-  
   <Provider store={store}>
-  <BrowserRouter>
-   <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  </BrowserRouter>
- </Provider>,
-  document.getElementById('root')
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

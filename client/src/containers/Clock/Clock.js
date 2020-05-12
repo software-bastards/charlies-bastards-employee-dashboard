@@ -1,25 +1,24 @@
+import React, { useState } from "react";
+import { useEffect } from "react";
+import "../../style/clock.scss";
 
-import React, {useState,useEffect} from 'react'
+function Clock() {
+  const [date, setDate] = useState(new Date());
+  useEffect(() => {
+    var timerID = setInterval(() => tick(), 1000);
+    return function cleanup() {
+      clearInterval(timerID);
+    };
+  });
 
-import "../../style/clock.scss"
-export default function Clock (){
-const [time, setTime] = useState(new Date())
-
-const currentTime =()=>{
-    setTime(
-        new Date()
-    )
-}
-
- useEffect(()=>{
-    const timer = setTimeout(() => {
-        currentTime()
-      }, 1000);
-      return () => clearTimeout(timer);})
-
-return(
-    <div className="clock-component">
-        <h1 >{time.toLocaleTimeString()}</h1>
+  function tick() {
+    setDate(new Date());
+  }
+  return (
+    <div>
+      <div className="clock">{date.toLocaleTimeString()}</div>
     </div>
-)
+  );
 }
+
+export default Clock;
