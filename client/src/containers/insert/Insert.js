@@ -35,7 +35,7 @@ function Insert() {
         <label> Month</label>
         <input
           ref={register}
-          name="mounth_number"
+          name="month_number"
           className="insert-month_number"
           data-testid="insert-month_number"
         />
