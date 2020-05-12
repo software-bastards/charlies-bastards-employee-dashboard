@@ -3,7 +3,7 @@ import Login from "./containers/login/Login"
 import Dashboard from "./containers/dashboard/Dashboard"
  import {Route, Switch,Redirect} from 'react-router-dom'
 import { connect } from "react-redux";
-import EditHours from "./containers/editHours/EditHours"
+import EditHours from "./containers/editHours/EditHours";
 import PopUpEdit from "./containers/PopUp/PopUpEdit"
 import Upload from './containers/upload/Upload'
 import DisplayImages from './containers/displayImages/DisplayImages'
