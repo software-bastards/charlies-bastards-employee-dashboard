@@ -6,97 +6,165 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        data-test="component-app"
+        class="main-app"
       >
-        <main>
-          <form
-            data-testid="form-component"
+        <div
+          class="dash-container"
+          style="opacity: 0;"
+        >
+          <div>
+            <div
+              class="clock"
+            >
+              11:04:11 AM
+            </div>
+          </div>
+          <div
+            class="container"
           >
-            <p />
-            <label
-              data-testid="test-label"
-              for="email"
+            <div
+              class="row"
             >
-              E-mail
-            </label>
-            <input
-              data-testid="input-form-email"
-              name="email"
-              type="text"
-            />
-            <label
-              data-testid="test-label"
-              for="password"
-            >
-              Password
-            </label>
-            <input
-              data-testid="input-form-password"
-              name="password"
-              type="password"
-            />
-            <button
-              data-testid="submit-button"
-              type="submit"
-            >
-               
-              Login
-               
-            </button>
-          </form>
-          <button>
-             
-            Google +
+              <div
+                class="col-sm"
+              >
+                Welcome, 
+                sth
+                 
+                <img
+                  alt="dymion"
+                  class="avatar"
+                  src="https://frontendbastards.nl/images/fe/team/dymion.svg"
+                />
+              </div>
+              <div
+                class="col-sm"
+              >
+                 Worked 
+                 hours last month
+              </div>
+              <div
+                class="col-sm"
+              >
+                Why even 
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn-dash"
+            data-testid="test-display-router"
+          >
+            Display Your Hours
           </button>
-        </main>
+          <button
+            class="btn-dash"
+            data-testid="test-insert-router"
+          >
+            Insert New Log
+          </button>
+          <button
+            class="btn-dash"
+            data-testid="test-edit-router"
+          >
+            Edit Your Hours
+          </button>
+          <button
+            class="btn-dash"
+            data-testid="test-upload-router"
+          >
+            Upload Image
+          </button>
+          <br />
+          <button
+            class="btn-logout"
+            data-testid="test-logout"
+          >
+             
+            Log Out
+          </button>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      data-test="component-app"
+      class="main-app"
     >
-      <main>
-        <form
-          data-testid="form-component"
+      <div
+        class="dash-container"
+        style="opacity: 0;"
+      >
+        <div>
+          <div
+            class="clock"
+          >
+            11:04:11 AM
+          </div>
+        </div>
+        <div
+          class="container"
         >
-          <p />
-          <label
-            data-testid="test-label"
-            for="email"
+          <div
+            class="row"
           >
-            E-mail
-          </label>
-          <input
-            data-testid="input-form-email"
-            name="email"
-            type="text"
-          />
-          <label
-            data-testid="test-label"
-            for="password"
-          >
-            Password
-          </label>
-          <input
-            data-testid="input-form-password"
-            name="password"
-            type="password"
-          />
-          <button
-            data-testid="submit-button"
-            type="submit"
-          >
-             
-            Login
-             
-          </button>
-        </form>
-        <button>
-           
-          Google +
+            <div
+              class="col-sm"
+            >
+              Welcome, 
+              sth
+               
+              <img
+                alt="dymion"
+                class="avatar"
+                src="https://frontendbastards.nl/images/fe/team/dymion.svg"
+              />
+            </div>
+            <div
+              class="col-sm"
+            >
+               Worked 
+               hours last month
+            </div>
+            <div
+              class="col-sm"
+            >
+              Why even 
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn-dash"
+          data-testid="test-display-router"
+        >
+          Display Your Hours
         </button>
-      </main>
+        <button
+          class="btn-dash"
+          data-testid="test-insert-router"
+        >
+          Insert New Log
+        </button>
+        <button
+          class="btn-dash"
+          data-testid="test-edit-router"
+        >
+          Edit Your Hours
+        </button>
+        <button
+          class="btn-dash"
+          data-testid="test-upload-router"
+        >
+          Upload Image
+        </button>
+        <br />
+        <button
+          class="btn-logout"
+          data-testid="test-logout"
+        >
+           
+          Log Out
+        </button>
+      </div>
     </div>
   </div>,
   "debug": [Function],

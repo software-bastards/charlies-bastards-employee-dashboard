@@ -20,6 +20,7 @@ const state = {
     firstname: "name",
     lastname: "last name",
   },
+  data: "2:41:16 PM",
 };
 test("Insert render is okay", () => {
   const historyMock = { push: jest.fn() };

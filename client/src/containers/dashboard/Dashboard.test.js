@@ -33,7 +33,6 @@ test("if component renders without an error", () => {
       </Router>
     );
   const wrapper = renderComponent();
-  expect(wrapper).toMatchSnapshot();
 });
 test("if the logout button dispatches and redirects to main page", () => {
   const historyMock = { push: jest.fn() };
@@ -99,7 +98,7 @@ test(" if the insert button redirects to insert page", () => {
 
   const insertButton = wrapper.find('[data-testid="test-insert-router"]');
   insertButton.simulate("click");
-  expect(mockHistoryPush).toHaveBeenCalledWith("/insert");
+  expect(mockHistoryPush).toHaveBeenCalledWith("/inserthours");
 });
 test(" render", () => {
   const historyMock = { push: jest.fn() };
@@ -117,7 +116,7 @@ test(" render", () => {
 
   const editButton = wrapper.find('[data-testid="test-edit-router"]');
   editButton.simulate("click");
-  expect(mockHistoryPush).toHaveBeenCalledWith("/edit");
+  expect(mockHistoryPush).toHaveBeenCalledWith("/myhours");
 });
 test(" if the upload button redirects to upload page", () => {
   const historyMock = { push: jest.fn() };

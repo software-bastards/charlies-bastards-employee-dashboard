@@ -54,10 +54,10 @@ function DisplayHours() {
                   key={index}
                 >
                   <tr>
-                    <td className="table-cell">{item.mounth_number}</td>
+                    <td className="table-cell">{item.month_number}</td>
                     <td className="table-cell">{item.day_number}</td>
                     <td className="table-cell" s>
-                      {item.hour}
+                      {item.hour_logged}
                     </td>
                   </tr>
                 </tbody>

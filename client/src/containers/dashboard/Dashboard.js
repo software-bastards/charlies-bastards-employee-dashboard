@@ -54,7 +54,7 @@ function Dashboard() {
       <button
         data-testid="test-insert-router"
         className="btn-dash"
-        onClick={() => history.push("/insert")}
+        onClick={() => history.push("/inserthours")}
       >
         Insert New Log
       </button>

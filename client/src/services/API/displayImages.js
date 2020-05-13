@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios";
 
 /**
  * @function displayImages - select the images from the upload table base on the user ID and the selected month
@@ -8,18 +8,11 @@ import axios from 'axios'
  * @returns {array} - an array of objects
  */
 
-
-
-
-
-export default  async function displayImages (token,userId,month){
- 
-    const newLocal = "/upload/images"
-    const response = await axios.post(newLocal,  {
-        headers: { 'Authorization':  token },
-        data:{userId:userId, month: month}
-       
-    } )
-     return  response
-     }
- 
+export default async function displayImages(token, userId, month) {
+  const newLocal = "http://localhost:5000/upload/images";
+  const response = await axios.post(newLocal, {
+    headers: { Authorization: token },
+    data: { userId: userId, month: month },
+  });
+  return response;
+}
