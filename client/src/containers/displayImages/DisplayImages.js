@@ -29,7 +29,7 @@ const DisplayImages = ({ userToken, userId }) => {
         {setUploadFile(res.data);
           setMessage(res.data.message)}
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setMessage(err.response.data.message));
   };
 
   

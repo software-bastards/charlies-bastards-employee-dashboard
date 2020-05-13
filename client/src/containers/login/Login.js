@@ -22,7 +22,6 @@ function Login() {
     e.preventDefault();
     loginHelper(value.email, value.password)
       .then((res) => {
-        console.log(res);
         dispatch(
           createSession(
             res.data.id,

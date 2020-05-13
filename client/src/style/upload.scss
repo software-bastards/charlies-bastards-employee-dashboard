@@ -42,7 +42,7 @@
   color: transparent;
 }
 .custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
+  color: $blue;
 }
 .custom-file-input::before {
   content: "Select some file(s)";
