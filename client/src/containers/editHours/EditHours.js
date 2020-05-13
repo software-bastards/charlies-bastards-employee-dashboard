@@ -7,7 +7,7 @@ import UserHours from "./UserHours";
 import { Link } from "react-router-dom";
 import "../../style/EditHours.scss";
 
-function EditHours({ userToken, userId, monthData }) {
+export function EditHours({ userToken, userId, monthData }) {
   const [data, setData] = useState([]);
   const [workThisMonth, setWorkThisMonth] = useState(false);
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function EditHours({ userToken, userId, monthData }) {
    * @param {*} e
    */
 
-  const handleId = (e) => {
+   const handleId = (e) => {
     const id = e.target.id;
     filterMonth(id);
   };
@@ -44,16 +44,16 @@ function EditHours({ userToken, userId, monthData }) {
 
   return (
     <div className="edit_main" data-testid="component-editHours">
-      <Link className="back_button" to="/dashboard">
+      <Link data-testid="backbutton-editHours" className="back_button" to="/dashboard">
         {" "}
         Back
       </Link>
 
-      <h1 className="edit_header">Edit Hours</h1>
+      <h1 data-testid="h1-editHours" className="edit_header">Edit Hours</h1>
 
       {months.map((item, index) => (
         <div className="month-edit" key={index}>
-          <button id={index + 1} onClick={handleId}>
+          <button  data-testid="button-editHours" id={index + 1} onClick={handleId}>
             {item}
           </button>
         </div>
@@ -62,9 +62,9 @@ function EditHours({ userToken, userId, monthData }) {
       {monthData.length > 0 ? (
         <UserHours monthData={monthData} />
       ) : workThisMonth ? (
-        <p className="no-work">You did not work this month </p>
+        <p  data-testid="noWork-editHours" className="no-work">You did not work this month </p>
       ) : (
-        <p className="select-month">Select a Month</p>
+        <p  data-testid="work-editHours" className="select-month">Select a Month</p>
       )}
     </div>
   );
