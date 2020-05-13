@@ -33,7 +33,7 @@ function Login() {
           )
         );
       })
-      .catch((err) => setMessage(`${err.response.data.message}`));
+      .catch((err) => console.log(`${err.response.data.message}`));
   };
 
   return (

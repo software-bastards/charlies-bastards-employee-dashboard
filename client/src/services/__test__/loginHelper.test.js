@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import loginHelper from "../../services/loginHelper";
+import loginHelper from "../../services/API/loginHelper";
 
 jest.mock("axios");
 
@@ -13,7 +13,7 @@ describe(" axios call in the component login", () => {
     await expect(loginHelper("ligia@gmail", "ligia")).resolves.toEqual(data);
     expect(axios.post).toHaveBeenCalledTimes(1);
     expect(axios.post).toHaveBeenCalledWith(
-      "http://localhost:5000/login",
+      "/login",
       data
     );
   });
