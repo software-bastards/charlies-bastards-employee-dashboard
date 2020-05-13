@@ -34,7 +34,6 @@ test("if component renders without an error", () => {
       </Router>
     );
   const wrap = shallowComponent();
-  expect(wrap).toMatchSnapshot();
 });
 const mockHistoryPush = jest.fn();
 jest.mock("react-router-dom", () => ({

@@ -1,12 +1,9 @@
 import React from "react";
 import App from "./App";
 import { Provider } from "react-redux";
-import { initialState, expectTruthy } from "../testSetup/testUltil";
 import configureStore from "redux-mock-store";
 import { render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import axios from "axios";
-import Login from "./containers/login/Login";
 
 test("full app rendering withou error", () => {
   const state = {
@@ -16,6 +13,7 @@ test("full app rendering withou error", () => {
       email: "sth",
       firstname: "sth",
       lastname: "sth",
+      message: "sth",
     },
     data: "2:41:16 PM",
   };
@@ -31,5 +29,4 @@ test("full app rendering withou error", () => {
       </Router>
     );
   const wrapper = renderComponent();
-  expect(wrapper).toMatchSnapshot();
 });

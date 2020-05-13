@@ -17,7 +17,7 @@ describe(" axios call when component mounts", () => {
       "http://localhost:5000/displayhours",
       { id: 1 },
       {
-        headers: { Authorization: "Bearer test" },
+        headers: { Authorization: "test" },
       }
     );
   });
