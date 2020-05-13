@@ -74,14 +74,6 @@ function Login() {
               {" "}
               Login{" "}
             </button>
-            <button
-              onClick={() =>
-                (window.location = "http://localhost:5000/auth/google")
-              }
-            >
-              {" "}
-              Google +
-            </button>
           </div>
         </form>
       </div>

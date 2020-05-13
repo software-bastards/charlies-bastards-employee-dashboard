@@ -6,7 +6,7 @@ import axios from "axios";
  * @param {string} password - password that comes from the form
  */
 export default async function loginHelper(email, password) {
-  const response = await axios.post("http://localhost:5000/login", {
+  const response = await axios.post("/login", {
     email: email,
     password: password,
   });
