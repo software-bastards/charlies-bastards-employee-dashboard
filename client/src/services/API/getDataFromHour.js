@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios";
 /**
  * @function getDataFromHour
  * @param {number} id -client id
@@ -6,12 +6,12 @@ import axios from 'axios'
  * @returns {obj} - with information from the hour table
  */
 
-export default  async function getDataFromHour (token, id){
-    const newLocal = "/myhours"
-    const response = await axios.post(newLocal,  {
-        headers: { 'Authorization':  token },
-        data: {account_id:id}
-    } )
+export default async function getDataFromHour(token, id) {
+  const newLocal = "http://localhost:5000/myhours";
+  const response = await axios.post(newLocal, {
+    headers: { Authorization: token },
+    data: { account_id: id },
+  });
 
-    return  response
+  return response;
 }

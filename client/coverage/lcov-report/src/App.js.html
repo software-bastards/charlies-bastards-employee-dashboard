@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>8/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,14 +122,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,37 +177,37 @@ import Insert from "./containers/insert/Insert";
 function mapToProps(state) {
   return {
     isAuthenticated: state.authorization.token,
-    message: state.displayMessage.message,
+    message: state.authorization.message,
   };
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >App(</span>{ isAuthenticated, message }) {
-<span class="cstat-no" title="statement not covered" >  return (</span>
+function App({ isAuthenticated, message }) {
+  return (
     &lt;div className="main-app"&gt;
       &lt;Switch&gt;
         &lt;Route exact path="/"&gt;
-          {isAuthenticated ? &lt;Redirect to="/dashboard" /&gt; : &lt;Login /&gt;}
+          {isAuthenticated ? &lt;Redirect to="/dashboard" /&gt; : <span class="branch-1 cbranch-no" title="branch not covered" >&lt;Login /&gt;}</span>
         &lt;/Route&gt;
         &lt;Route path="/dashboard"&gt;
-          {!isAuthenticated ? &lt;Redirect to="/" /&gt; : &lt;Dashboard /&gt;}
+          {!isAuthenticated ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Redirect to="/" /&gt; </span>: &lt;Dashboard /&gt;}
         &lt;/Route&gt;
         &lt;Route path="/inserthours"&gt;
-          {!isAuthenticated ? &lt;Redirect to="/" /&gt; : &lt;Insert /&gt;}
+          {!isAuthenticated ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Redirect to="/" /&gt; </span>: &lt;Insert /&gt;}
         &lt;/Route&gt;
         &lt;Route path="/myhours"&gt;
-          {!isAuthenticated ? &lt;Redirect to="/" /&gt; : &lt;EditHours /&gt;}
+          {!isAuthenticated ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Redirect to="/" /&gt; </span>: &lt;EditHours /&gt;}
         &lt;/Route&gt;
         &lt;Route path="/edit"&gt;
-          {!isAuthenticated ? &lt;Redirect to="/" /&gt; : &lt;PopUpEdit /&gt;}
+          {!isAuthenticated ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Redirect to="/" /&gt; </span>: &lt;PopUpEdit /&gt;}
         &lt;/Route&gt;
         &lt;Route path="/upload"&gt;
-          {!isAuthenticated ? &lt;Redirect to="/" /&gt; : &lt;Upload /&gt;}
+          {!isAuthenticated ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Redirect to="/" /&gt; </span>: &lt;Upload /&gt;}
         &lt;/Route&gt;
         &lt;Route path="/display-images"&gt;
-          {!isAuthenticated ? &lt;Redirect to="/" /&gt; : &lt;DisplayImages /&gt;}
+          {!isAuthenticated ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Redirect to="/" /&gt; </span>: &lt;DisplayImages /&gt;}
         &lt;/Route&gt;
         &lt;Route path="/displayhours"&gt;
-          {!isAuthenticated ? &lt;Redirect to="/" /&gt; : &lt;DisplayHours /&gt;}
+          {!isAuthenticated ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Redirect to="/" /&gt; </span>: &lt;DisplayHours /&gt;}
         &lt;/Route&gt;
       &lt;/Switch&gt;
     &lt;/div&gt;
@@ -222,7 +222,7 @@ export default connect(mapToProps)(App);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue May 12 2020 17:48:38 GMT+0200 (Central European Summer Time)
+                at Wed May 13 2020 11:23:20 GMT+0200 (Central European Summer Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
