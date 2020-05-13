@@ -3,6 +3,8 @@ const router = express.Router();
 const db = require("../database/configurationSequelize");
 const upload = db.upload;
 const path = require("path");
+const passport = require("passport");
+const jwt = require("jsonwebtoken");
 
 router.post("/upload", (req, res, next) => {
   passport.authenticate("jwt", { session: false }, (err, user, info) => {

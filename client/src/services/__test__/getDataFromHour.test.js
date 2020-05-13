@@ -12,14 +12,14 @@ describe(" axios call when component mounts", ()=>{
     const error = 'Something went wrong';
 
     test(" request successfull, retrieve the response",async ()=>{
-      axios.post.mockImplementationOnce(() => Promise.resolve(object));
+      axios.get.mockImplementationOnce(() => Promise.resolve(object));
       await expect(getDataFromHour(data.token,data.id)).resolves.toEqual(object);
-      expect(axios.post).toHaveBeenCalledTimes(1);
-      expect(axios.post).toHaveBeenCalledWith("http://localhost:5000/myhours",{"data": {"account_id": 1}, "headers": {"Authorization": "test"}});
+      expect(axios.get).toHaveBeenCalledTimes(1);
+      expect(axios.get).toHaveBeenCalledWith("http://localhost:5000/myhours",{"params": {"account_id": 1}, "headers": {"Authorization": "test"}});
     })
   
       test(" request failure, retrieve an error", async () =>{
-          axios.post.mockImplementation(() => Promise.reject(new Error(error)));
+          axios.get.mockImplementation(() => Promise.reject(new Error(error)));
         await expect(getDataFromHour()).rejects.toThrow(error);
        
       }) 
