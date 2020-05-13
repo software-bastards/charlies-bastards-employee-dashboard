@@ -8,9 +8,9 @@ import axios from "axios";
 
 export default async function getDataFromHour(token, id) {
   const newLocal = "http://localhost:5000/myhours";
-  const response = await axios.post(newLocal, {
+  const response = await axios.get(newLocal, {
     headers: { Authorization: token },
-    data: { account_id: id },
+    params: { account_id: id },
   });
 
   return response;

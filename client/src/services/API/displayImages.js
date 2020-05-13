@@ -10,9 +10,9 @@ import axios from "axios";
 
 export default async function displayImages(token, userId, month) {
   const newLocal = "http://localhost:5000/upload/images";
-  const response = await axios.post(newLocal, {
+  const response = await axios.get(newLocal, {
     headers: { Authorization: token },
-    data: { userId: userId, month: month },
+    params: { userId: userId, month: month },
   });
   return response;
 }

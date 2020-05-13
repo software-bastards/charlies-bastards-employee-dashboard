@@ -33,7 +33,7 @@ function Login() {
           )
         );
       })
-      .catch((err) => console.log(`${err.response.data.message}`));
+      .catch((err) => setMessage(`${err.response.data.message}`));
   };
 
   return (
@@ -45,7 +45,7 @@ function Login() {
           data-testid="form-component"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <p>{message}</p>
+          <h1>{message}</h1>
           <div className="input-component">
             <label data-testid="test-label" htmlFor="email">
               E-mail
