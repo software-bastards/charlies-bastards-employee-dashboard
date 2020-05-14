@@ -8,8 +8,6 @@ import { Provider } from "react-redux";
 import Clock from "./Clock";
 import { mount } from "enzyme";
 
-import testHook from "../../../testSetup/_test-hook";
-
 afterEach(cleanup);
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 const state = { data: "2:41:16 PM" };

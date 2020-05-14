@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import hoursHelper from "../../services/hoursHelper";
+import hoursHelper from "../../services/API/hoursHelper";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "../../style/displayhours.scss";

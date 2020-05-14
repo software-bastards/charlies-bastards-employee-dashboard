@@ -27,9 +27,4 @@ describe(" axios call when component mounts", () => {
       { headers: { Authorization: "test" } }
     );
   });
-
-  /*   test(" request failure, retrieve an error", async () => {
-    axios.post.mockImplementation(() => Promise.reject(new Error(error)));
-    await expect(insertHelper()).rejects.toThrow(error);
-  }); */
 });

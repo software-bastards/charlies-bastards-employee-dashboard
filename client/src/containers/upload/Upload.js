@@ -32,7 +32,7 @@ function Upload({ userId, userToken, message }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("ok");
+
     handlerOnSubmit()
       .then(dispatch(setMessage("You uploaded your image")))
       .catch((err) => {
@@ -69,12 +69,22 @@ function Upload({ userId, userToken, message }) {
       <form id="form-upload" onSubmit={onSubmit}>
         <h1> Upload </h1>
         <div className="input-upload">
-  <h2>{message}</h2>
-          <label htmlFor="customFile" >{fileName}</label>
-          <input className='custom-file-input'type="file" onChange={onChange} multiple />
-       
+          <h2>{message}</h2>
+          <label htmlFor="customFile">{fileName}</label>
+          <input
+            className="custom-file-input"
+            type="file"
+            onChange={onChange}
+            multiple
+          />
+
           <label htmlFor="month">Select a month</label>
-          <select className='select-css' onChange={handleOnChange} name="month" id="month">
+          <select
+            className="select-css"
+            onChange={handleOnChange}
+            name="month"
+            id="month"
+          >
             <option value="1"> Select a month </option>
 
             {months.map((e, index) => (

@@ -64,29 +64,6 @@ test(" The displayImage button works", () => {
   expect(handleClick).toBeCalled();
 });
 
-/* test(" The display hours button works", () => {
-  const historyMock = { push: jest.fn() };
-  const mockStore = configureStore();
-  const store = mockStore(state);
-  const mountComponent = () =>
-    mount(
-      <Router>
-        <Provider store={store}>
-          <DisplayImages history={historyMock} />
-        </Provider>
-      </Router>
-    );
-  const wrapper = mountComponent();
-
-  const handleClick = jest.fn();
-  handleClick(displayImages);
-
-  const hoursButton = wrapper.find('[data-testid="test-displayimage-router"]');
-  hoursButton.props().onClick;
-
-  expect(handleClick).toBeCalled();
-}); */
-
 describe("<DisplayImage />", () => {
   let wrapper;
   const setUploadFile = jest.fn();
