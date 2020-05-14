@@ -136,3 +136,21 @@ test(" if the upload button redirects to upload page", () => {
   uploadButton.simulate("click");
   expect(mockHistoryPush).toHaveBeenCalledWith("/upload");
 });
+test(" if the display image button redirects to display-image page", () => {
+  const historyMock = { push: jest.fn() };
+  const mockStore = configureStore();
+  const store = mockStore(state);
+  const mountComponent = () =>
+    mount(
+      <Router>
+        <Provider store={store}>
+          <Dashboard history={historyMock} />
+        </Provider>
+      </Router>
+    );
+  const wrapper = mountComponent();
+
+  const imageButton = wrapper.find('[data-testid="test-image-router"]');
+  imageButton.simulate("click");
+  expect(mockHistoryPush).toHaveBeenCalledWith("/upload");
+});

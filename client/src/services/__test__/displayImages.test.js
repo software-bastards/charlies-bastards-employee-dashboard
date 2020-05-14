@@ -15,7 +15,7 @@ describe(" axios call when component mounts", () => {
       displayImages(data.token, data.id, data.month)
     ).resolves.toEqual(object);
     expect(axios.get).toHaveBeenCalledTimes(1);
-    expect(axios.get).toHaveBeenCalledWith("/upload/images", {
+    expect(axios.get).toHaveBeenCalledWith("/upload/images?", {
       params: { userId: 1, month: "month" },
       headers: { Authorization: "test" },
     });
