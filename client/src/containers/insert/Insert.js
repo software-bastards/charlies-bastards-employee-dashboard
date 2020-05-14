@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import insertHelper from "../../services/insertHelper";
+import insertHelper from "../../services/API/insertHelper";
 import { useSelector } from "react-redux";
 
 function Insert() {
