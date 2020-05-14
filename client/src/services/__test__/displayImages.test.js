@@ -10,19 +10,19 @@ describe(" axios call when component mounts", () => {
   const error = "Something went wrong";
 
   test(" request successfull, retrieve the response", async () => {
-    axios.post.mockImplementationOnce(() => Promise.resolve(object));
+    axios.get.mockImplementationOnce(() => Promise.resolve(object));
     await expect(
       displayImages(data.token, data.id, data.month)
     ).resolves.toEqual(object);
-    expect(axios.post).toHaveBeenCalledTimes(1);
-    expect(axios.post).toHaveBeenCalledWith("/upload/images", {
-      data: { userId: 1, month: "month" },
+    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(axios.get).toHaveBeenCalledWith("/upload/images", {
+      params: { userId: 1, month: "month" },
       headers: { Authorization: "test" },
     });
   });
 
   test(" request failure, retrieve an error", async () => {
-    axios.post.mockImplementation(() => Promise.reject(new Error(error)));
+    axios.get.mockImplementation(() => Promise.reject(new Error(error)));
     await expect(displayImages()).rejects.toThrow(error);
   });
 });
