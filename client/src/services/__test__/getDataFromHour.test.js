@@ -13,7 +13,7 @@ describe(" axios call when component mounts", () => {
     axios.post.mockImplementationOnce(() => Promise.resolve(object));
     await expect(getDataFromHour(data.token, data.id)).resolves.toEqual(object);
     expect(axios.post).toHaveBeenCalledTimes(1);
-    expect(axios.post).toHaveBeenCalledWith("http://localhost:5000/myhours", {
+    expect(axios.post).toHaveBeenCalledWith("/myhours", {
       data: { account_id: 1 },
       headers: { Authorization: "test" },
     });

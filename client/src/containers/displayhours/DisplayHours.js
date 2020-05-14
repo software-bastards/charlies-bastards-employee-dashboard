@@ -20,8 +20,7 @@ function DisplayHours() {
     return store.authorization;
   });
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = () => {
     hoursHelper(authorization.token, authorization.id)
       .then((response) => setData(response.data))
       .catch((err) => console.log(err));

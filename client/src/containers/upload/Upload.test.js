@@ -1,38 +1,38 @@
-import Enzyme, { render } from "enzyme";
+import Enzyme, { render, mount } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
-import Insert from "./Insert";
+import Upload from "./Upload";
 import { cleanup } from "@testing-library/react";
 import React from "react";
 import configureStore from "redux-mock-store";
-//import { initialState } from "../../../testSetup/testUltil";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-//import { shallow } from "enzyme";
 
 afterEach(cleanup);
-
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 const state = {
   authorization: {
-    token: "token",
-    id: "id",
-    email: "email",
-    firstname: "name",
-    lastname: "last name",
+    token: "something",
+    id: "someth",
+    email: "sth",
+    firstname: "sth",
+    lastname: "sth",
   },
+  displayMessage: {
+    message: "msg",
+  },
+  data: "2:41:16 PM",
 };
-test("Insert render is okay", () => {
+test("if component renders without an error", () => {
   const historyMock = { push: jest.fn() };
   const mockStore = configureStore();
   const store = mockStore(state);
-  const shallowComponent = () =>
+  const renderComponent = () =>
     render(
       <Router>
         <Provider store={store}>
-          <Insert history={historyMock} />
+          <Upload history={historyMock} />
         </Provider>
       </Router>
     );
-  const wrapper = shallowComponent();
-  expect(wrapper).toMatchSnapshot();
+  const wrapper = renderComponent();
 });
