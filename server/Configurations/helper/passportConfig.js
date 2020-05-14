@@ -35,7 +35,6 @@ module.exports = function (passport) {
   passport.use(
     "jwt",
     new JwtStrategy(jwtConfiguration, (payload, done) => {
-      console.log(payload);
       handleJWT(payload)
         .then((user) => done(null, user.dataValues))
         .catch((err) => console.error(err));

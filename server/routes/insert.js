@@ -12,7 +12,6 @@ router.post(
   "/inserthours",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req.body);
     hour
       .create({
         hour_logged: req.body.hour,

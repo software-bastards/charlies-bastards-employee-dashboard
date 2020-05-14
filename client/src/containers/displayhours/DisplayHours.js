@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import hoursHelper from "../../services/hoursHelper";
+import hoursHelper from "../../services/API/hoursHelper";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "../../style/displayhours.scss";
@@ -20,8 +20,7 @@ function DisplayHours() {
     return store.authorization;
   });
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = () => {
     hoursHelper(authorization.token, authorization.id)
       .then((response) => setData(response.data))
       .catch((err) => console.log(err));

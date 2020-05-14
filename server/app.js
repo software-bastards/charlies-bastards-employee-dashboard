@@ -52,9 +52,6 @@ app.use(function (req, res, next) {
 
 // Connecting sockets to the server and adding them to the request
 
-/* const io = socketio(server)
-app.set('io', io) */
-
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development

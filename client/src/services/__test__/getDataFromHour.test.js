@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import getDataFromHour from "../API/getDataFromHour";
 
+
 describe(" axios call when component mounts", ()=>{
     const data = {token:"test", id:1}
     const object = {id: 1, hour:1}
@@ -20,3 +21,4 @@ describe(" axios call when component mounts", ()=>{
        
       }) 
   })
+

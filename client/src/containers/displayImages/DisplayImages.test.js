@@ -55,31 +55,26 @@ test(" The displayImage button works", () => {
       </Router>
     );
   const wrapper = mountComponent();
-
+  const handleClick = jest.fn();
+  handleClick(displayImages);
   const displayButton = wrapper.find(
     '[data-testid="test-displayimage-router"]'
   );
-  displayButton.simulate("click");
+  displayButton.props().onClick;
+  expect(handleClick).toBeCalled();
 });
 
-/* test(" The display hours button works", () => {
-  const historyMock = { push: jest.fn() };
-  const mockStore = configureStore();
-  const store = mockStore(state);
-  const mountComponent = () =>
-    mount(
-      <Router>
-        <Provider store={store}>
-          <DisplayHours history={historyMock} />
-        </Provider>
-      </Router>
-    );
-  const wrapper = mountComponent();
+describe("<DisplayImage />", () => {
+  let wrapper;
+  const setUploadFile = jest.fn();
+  const useStateSpy = jest.spyOn(React, "useState");
+  useStateSpy.mockImplementation((init) => [init, setUploadFile]);
 
-  const handleClick = jest.fn();
-  handleClick(hoursHelper);
+  beforeEach(() => {
+    wrapper = Enzyme.mount(Enzyme.shallow(<DisplayImages />).get(0));
+  });
 
-  const hoursButton = wrapper.find('[data-testid="test-hours"]');
-  hoursButton.simulate("click");
-  expect(handleClick).toBeCalled();
-}); */
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+});
