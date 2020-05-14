@@ -31,6 +31,9 @@
 .no-work {
 
     font-family: $font-family;
+    $font-size: 4vw;
+    color: $blue;
+
 }
 
 .select-month {
@@ -61,5 +64,13 @@
 #component-editHours {
     background-color: $yellow;
 
+
+}
+
+.month-data{
+    
+    font-family: $font-family;
+    $font-size: 4vw;
+    color: $blue;
 
 }

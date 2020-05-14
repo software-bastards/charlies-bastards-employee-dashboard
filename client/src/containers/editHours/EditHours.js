@@ -60,7 +60,7 @@ export function EditHours({ userToken, userId, monthData }) {
       ))}
 
       {monthData.length > 0 ? (
-        <UserHours monthData={monthData} />
+        <UserHours className='month-data' monthData={monthData} />
       ) : workThisMonth ? (
         <p  data-testid="noWork-editHours" className="no-work">You did not work this month </p>
       ) : (
