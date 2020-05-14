@@ -11,7 +11,7 @@ import axios from "axios";
  */
 
 export default async function editHours(month, day, hour, token, id) {
-  const newLocal = "http://localhost:5000/myhours/edit";
+  const newLocal = "/myhours/edit";
   const response = await axios.put(newLocal, {
     headers: { Authorization: token },
     data: {
