@@ -72,6 +72,13 @@ function Dashboard() {
       >
         Upload Image
       </button>
+      <button
+        data-testid="test-upload-router"
+        className="btn-dash"
+        onClick={() => history.push("/display-images")}
+      >
+        Display Image
+      </button>
       <br />
       <button
         data-testid="test-logout"

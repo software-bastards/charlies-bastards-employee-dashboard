@@ -22,7 +22,7 @@ export function EditHours({ userToken, userId, monthData }) {
    * @param {*} e
    */
 
-   const handleId = (e) => {
+  const handleId = (e) => {
     const id = e.target.id;
     filterMonth(id);
   };
@@ -44,27 +44,42 @@ export function EditHours({ userToken, userId, monthData }) {
 
   return (
     <div className="edit_main" data-testid="component-editHours">
-      <Link data-testid="backbutton-editHours" className="back_button" to="/dashboard">
+      <Link
+        data-testid="backbutton-editHours"
+        className="btn-goback"
+        to="/dashboard"
+      >
         {" "}
-        Back
+        Go Back
       </Link>
 
-      <h1 data-testid="h1-editHours" className="edit_header">Edit Hours</h1>
+      <h1 data-testid="h1-editHours" className="edit_header">
+        Edit Hours
+      </h1>
 
       {months.map((item, index) => (
         <div className="month-edit" key={index}>
-          <button  data-testid="button-editHours" id={index + 1} onClick={handleId}>
+          <button
+            className="btn-edit"
+            data-testid="button-editHours"
+            id={index + 1}
+            onClick={handleId}
+          >
             {item}
           </button>
         </div>
       ))}
 
       {monthData.length > 0 ? (
-        <UserHours className='month-data' monthData={monthData} />
+        <UserHours monthData={monthData} />
       ) : workThisMonth ? (
-        <p  data-testid="noWork-editHours" className="no-work">You did not work this month </p>
+        <p data-testid="noWork-editHours" className="no-work">
+          You did not work this month{" "}
+        </p>
       ) : (
-        <p  data-testid="work-editHours" className="select-month">Select a Month</p>
+        <p data-testid="work-editHours" className="select-month">
+          Select a Month
+        </p>
       )}
     </div>
   );

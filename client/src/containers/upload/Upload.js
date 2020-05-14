@@ -3,15 +3,15 @@ import uploadAPI from "../../services/API/upload";
 import { connect, useDispatch } from "react-redux";
 import { months } from "../../services/editHoursSev";
 import "../../style/upload.scss";
-import { setMessage } from "../../reducers/actions/index";
+
 import { Link } from "react-router-dom";
 
-function Upload({ userId, userToken, message }) {
+function Upload({ userId, userToken }) {
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState("Select your file(s)");
   const [image, setImage] = useState({});
   const [month, setMonth] = useState();
-
+  const [message, setMessage] = useState("");
   const dispatch = useDispatch();
 
   /**
@@ -34,7 +34,7 @@ function Upload({ userId, userToken, message }) {
     e.preventDefault();
 
     handlerOnSubmit()
-      .then(dispatch(setMessage("You uploaded your image")))
+      .then(setMessage("You uploaded your image"))
       .catch((err) => {
         dispatch(setMessage("something went wrong"));
       });
@@ -104,7 +104,6 @@ function mapStateToProps(state) {
   return {
     userToken: state.authorization.token,
     userId: state.authorization.id,
-    message: state.displayMessage.message,
   };
 }
 export default connect(mapStateToProps)(Upload);
