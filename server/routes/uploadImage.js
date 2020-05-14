@@ -44,7 +44,7 @@ router.post("/upload", (req, res, next) => {
     });
     next();
   },(req, res) => {
-    const userId =req.query.user
+    const userId =req.query.userId
     const month =req.query.month
   upload
     .findAll({ where: { account_id: userId, month:month } })

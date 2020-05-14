@@ -12,7 +12,12 @@ describe(" axios call in the component login", () => {
     axios.post.mockImplementationOnce(() => Promise.resolve(data));
     await expect(loginHelper("ligia@gmail", "ligia")).resolves.toEqual(data);
     expect(axios.post).toHaveBeenCalledTimes(1);
-    expect(axios.post).toHaveBeenCalledWith("/login", data);
+
+    expect(axios.post).toHaveBeenCalledWith(
+      "/login",
+      data
+    );
+
   });
 
   test(" request failure, retrieve an error", async () => {
