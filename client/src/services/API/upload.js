@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default async function uploadAPI(formData) {
   const newLocal = "/upload";
-  const response = await axios.post(newLocal, formData, {
+  const response = await axios.gte(newLocal, formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
   return response;
