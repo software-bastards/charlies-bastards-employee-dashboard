@@ -48,7 +48,7 @@ function Dashboard() {
         className="btn-dash"
         onClick={() => history.push("/displayhours")}
       >
-        Display Your Hours
+        Display Hours
       </button>
 
       <button
