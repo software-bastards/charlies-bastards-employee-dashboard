@@ -15,7 +15,7 @@ describe(" axios post uplaod", ()=>{
       axios.post.mockImplementationOnce(() => Promise.resolve(message));
       await expect(upload(formData.data)).resolves.toEqual(message);
       expect(axios.post).toHaveBeenCalledTimes(1);
-      expect(axios.post).toHaveBeenCalledWith("http://localhost:5000/upload",formData.data, {"headers": {"Content-Type": "multipart/form-data"}});
+      expect(axios.post).toHaveBeenCalledWith("/upload",formData.data, {"headers": {"Content-Type": "multipart/form-data"}});
     })
   
       test(" request failure, retrieve an error", async () =>{

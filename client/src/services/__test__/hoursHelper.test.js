@@ -14,7 +14,7 @@ describe(" axios call when component mounts", () => {
     await expect(hoursHelper(data.token, data.id)).resolves.toEqual(object);
     expect(axios.post).toHaveBeenCalledTimes(1);
     expect(axios.post).toHaveBeenCalledWith(
-      "http://localhost:5000/displayhours",
+      "/displayhours",
       { id: 1 },
       {
         headers: { Authorization: "test" },

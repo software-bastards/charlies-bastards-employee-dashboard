@@ -13,7 +13,7 @@ describe(" axios call in the component login", () => {
     await expect(loginHelper("ligia@gmail", "ligia")).resolves.toEqual(data);
     expect(axios.post).toHaveBeenCalledTimes(1);
     expect(axios.post).toHaveBeenCalledWith(
-      "http://localhost:5000/login",
+      "/login",
       data
     );
   });

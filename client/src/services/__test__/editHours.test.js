@@ -14,7 +14,7 @@ describe(" axios send data to update", () => {
     ).resolves.toEqual(message);
     expect(axios.put).toHaveBeenCalledTimes(1);
     expect(axios.put).toHaveBeenCalledWith(
-      "http://localhost:5000/myhours/edit",
+      "/myhours/edit",
       {
         data: {
           account_id: "account_id",
