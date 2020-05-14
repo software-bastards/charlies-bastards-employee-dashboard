@@ -34,7 +34,7 @@ function Upload({ userId, userToken, message }) {
     e.preventDefault();
     console.log("ok");
     handlerOnSubmit()
-      .then(dispatch(setMessage("Success")))
+      .then(dispatch(setMessage("You uploaded your image")))
       .catch((err) => {
         dispatch(setMessage("something went wrong"));
       });
@@ -69,7 +69,8 @@ function Upload({ userId, userToken, message }) {
       <form id="form-upload" onSubmit={onSubmit}>
         <h1> Upload </h1>
         <div className="input-upload">
-          <label htmlFor="customFile">{fileName}</label>
+  <h2>{message}</h2>
+          <label htmlFor="customFile" >{fileName}</label>
           <input className='custom-file-input'type="file" onChange={onChange} multiple />
        
           <label htmlFor="month">Select a month</label>

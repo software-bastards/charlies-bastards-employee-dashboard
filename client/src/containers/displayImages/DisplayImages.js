@@ -31,7 +31,7 @@ const DisplayImages = ({ userToken, userId }) => {
           setMessage(res.data.message);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setMessage(err.response.data.message));
   };
 
   return (

@@ -4,22 +4,24 @@ const db = require("../database/configurationSequelize");
 const hour = db.hour;
 const passport = require("passport");
 
-router.post(
-  "/myhours",
+router.get(
+  "/myhours?:account_id",
   (req, res, next) => {
-    passport.authenticate("jwt", { session: false }, (err, user, info) => {
+    const id = req.query.account_id;
+
+     passport.authenticate("jwt", { session: false }, (err, user, info) => {
       if (err) console.log(err);
     });
     next();
   },
   (req, res) => {
-     const id = req.body.data.account_id;
+     const id = req.query.account_id;
     hour
       .findAll({ where: { account_id: id } })
       .then((result) => res.status(200).send(result))
       .catch((err) => {
         console.error(err), res.status(500);
-      });
+      }); 
   }
 );
 

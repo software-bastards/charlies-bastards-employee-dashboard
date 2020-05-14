@@ -22,7 +22,6 @@ function Login() {
     e.preventDefault();
     loginHelper(value.email, value.password)
       .then((res) => {
-        console.log(res);
         dispatch(
           createSession(
             res.data.id,
@@ -45,7 +44,7 @@ function Login() {
           data-testid="form-component"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <p>{message}</p>
+          <h1>{message}</h1>
           <div className="input-component">
             <label data-testid="test-label" htmlFor="email">
               E-mail

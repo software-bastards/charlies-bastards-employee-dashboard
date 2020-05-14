@@ -17,7 +17,6 @@ const fileUpload = require("express-fileupload");
 const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
 const dashboardRouter = require("./routes/dashboard");
-
 const editHours = require("./routes/editHours");
 const uploadImage = require("./routes/uploadImage");
 const displayhoursRouter = require("./routes/displayhours");

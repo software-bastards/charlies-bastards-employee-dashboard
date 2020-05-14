@@ -3,8 +3,15 @@ const router = express.Router();
 const db = require("../database/configurationSequelize");
 const upload = db.upload;
 const path = require("path");
+const passport = require("passport");
+const jwt = require("jsonwebtoken");
 
-router.post("/upload", async (req, res) => {
+router.post("/upload", (req, res, next) => {
+  passport.authenticate("jwt", { session: false }, (err, user, info) => {
+    if (err) console.log(err);
+  });
+  next();
+}, async (req, res) => {
   if (req.files === null) {
     return res.status(400).json({ msg: "No file uploaded" });
   }
@@ -18,7 +25,7 @@ router.post("/upload", async (req, res) => {
       return res.status(500).send(err);
     }
     
-console.log(file+userId+month)
+
      upload.create({
       upload_name: file.name,
       upload_image:  `/uploads/${file.name}`,
@@ -30,9 +37,15 @@ console.log(file+userId+month)
 
 
 
-router.post("/upload/images", (req, res) => {
-  const userId =req.body.data.userId
-  const month =req.body.data.month
+  router.get(`/upload/images`, 
+  (req, res, next) => {
+    passport.authenticate("jwt", { session: false }, (err, user, info) => {
+      if (err) console.log(err);
+    });
+    next();
+  },(req, res) => {
+    const userId =req.query.user
+    const month =req.query.month
   upload
     .findAll({ where: { account_id: userId, month:month } })
     .then(async (user) => {
@@ -47,7 +60,7 @@ router.post("/upload/images", (req, res) => {
            res.status(200).send({message:"There is no image avaible"})
          }
        }
-    ).catch( err => console.log(err)/* res.status(404).json({message:"something went wrong"}) */)
+    ).catch( err =>{ console.log(err); res.status(404).json({message:"something went wrong"}) })
 });
 
 module.exports = router;
