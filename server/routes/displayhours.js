@@ -36,15 +36,6 @@ router.get(
         console.log(err);
         res.status(404).json({ message: "something went wrong" });
       });
-
-    /*  .then((response) => {
-        let hourList = response.map((element) => {
-          return element.dataValues;
-        });
-
-        res.status(200).send(hourList);
-      })
-      .catch((err) => console.log(err)); */
   }
 );
 
