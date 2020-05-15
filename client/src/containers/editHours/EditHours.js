@@ -46,7 +46,7 @@ export function EditHours({ userToken, userId, monthData }) {
     <div className="edit_main" data-testid="component-editHours">
       <Link
         data-testid="backbutton-editHours"
-        className="btn-goback"
+        className="btn-logout"
         to="/dashboard"
       >
         {" "}

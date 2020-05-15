@@ -64,7 +64,7 @@ test(" The displayImage button works", () => {
   expect(handleClick).toBeCalled();
 });
 
-describe("<DisplayImage />", () => {
+describe("<DisplayImages />", () => {
   let wrapper;
   const setUploadFile = jest.fn();
   const useStateSpy = jest.spyOn(React, "useState");
