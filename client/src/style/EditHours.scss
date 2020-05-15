@@ -11,21 +11,7 @@
 
   font-family: $font-main;
 }
-.btn-goback {
-  color: $blue;
-  border: none;
-  background-color: $yellow;
-  width: 30vh;
-  font-size: 26pt;
-  font-family: $font-main;
-  position: absolute;
-  left: 160vh;
-  top: 92vh;
-  &:hover {
-    text-decoration: none;
-    color: $blue;
-  }
-}
+
 .edit_header {
   position: absolute;
   width: 258px;

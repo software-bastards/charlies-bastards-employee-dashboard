@@ -38,7 +38,7 @@ function Dashboard() {
               className="avatar"
             />
           </div>
-          <div className="col-sm"> Worked {} hours last month</div>
+          <div className="col-sm"> Worked hours last month</div>
           <div className="col-sm">Why even </div>
         </div>
       </div>

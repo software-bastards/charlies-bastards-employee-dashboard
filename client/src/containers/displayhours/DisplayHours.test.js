@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import EnzymeAdapter from "enzyme-adapter-react-16";
-import Enzyme, { render } from "enzyme";
+import Enzyme, { render, mount } from "enzyme";
 import { Provider } from "react-redux";
 import DisplayHours from "./DisplayHours";
 import configureStore from "redux-mock-store";
 import { cleanup } from "@testing-library/react";
+import hoursHelper from "../../services/API/hoursHelper";
 
 afterEach(cleanup);
 Enzyme.configure({ adapter: new EnzymeAdapter() });
