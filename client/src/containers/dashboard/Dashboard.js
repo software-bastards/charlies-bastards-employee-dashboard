@@ -38,7 +38,7 @@ function Dashboard() {
               className="avatar"
             />
           </div>
-          <div className="col-sm"> Worked {} hours last month</div>
+          <div className="col-sm"> Worked hours last month</div>
           <div className="col-sm">Why even </div>
         </div>
       </div>
@@ -48,7 +48,7 @@ function Dashboard() {
         className="btn-dash"
         onClick={() => history.push("/displayhours")}
       >
-        Display Your Hours
+        Display Hours
       </button>
 
       <button
@@ -71,6 +71,13 @@ function Dashboard() {
         onClick={() => history.push("/upload")}
       >
         Upload Image
+      </button>
+      <button
+        data-testid="test-image-router"
+        className="btn-dash"
+        onClick={() => history.push("/display-images")}
+      >
+        Display Image
       </button>
       <br />
       <button

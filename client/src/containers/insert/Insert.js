@@ -1,10 +1,11 @@
 import React from "react";
-import { withRouter, useHistory, Link } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import insertHelper from "../../services/insertHelper";
+import insertHelper from "../../services/API/insertHelper";
 import { useSelector } from "react-redux";
 
 function Insert() {
+  const history = useHistory();
   const authorization = useSelector((store) => {
     return store.authorization;
   });
@@ -13,9 +14,8 @@ function Insert() {
 
   function onSubmit(data, e) {
     e.preventDefault();
-    console.log(data);
-    console.log(authorization.token);
     insertHelper(authorization.token, authorization.id, data);
+    history.push("/dashboard");
   }
 
   return (
@@ -52,7 +52,6 @@ function Insert() {
           className="insert-button"
           data-testid="insert-button"
           type="submit"
-          onClick={() => (window.location = "/dashboard")}
         >
           Submit hours
         </button>

@@ -9,19 +9,19 @@ router.get(
   (req, res, next) => {
     const id = req.query.account_id;
 
-     passport.authenticate("jwt", { session: false }, (err, user, info) => {
+    passport.authenticate("jwt", { session: false }, (err, user, info) => {
       if (err) console.log(err);
     });
     next();
   },
   (req, res) => {
-     const id = req.query.account_id;
+    const id = req.query.account_id;
     hour
       .findAll({ where: { account_id: id } })
       .then((result) => res.status(200).send(result))
       .catch((err) => {
         console.error(err), res.status(500);
-      }); 
+      });
   }
 );
 
@@ -34,7 +34,6 @@ router.put(
     next();
   },
   (req, res) => {
-  
     const idBody = req.body.data.account_id;
     const monthBody = req.body.data.month;
     const dayBody = req.body.data.day;
@@ -53,17 +52,25 @@ router.put(
         }
       )
       .then((results) =>
-       hour.findAll({where:{ account_id: idBody, month_number: monthBody,day_number:dayBody}})
-       .then(user=> 
-        {
-        user.length>0? res.status(200).send({
-          message: "Your hours were updated"
-        }): res.status(404).send({
-          message: "You didn't work this day"
-        })}
-        )
-       
-      ).catch((err) => {
+        hour
+          .findAll({
+            where: {
+              account_id: idBody,
+              month_number: monthBody,
+              day_number: dayBody,
+            },
+          })
+          .then((user) => {
+            user.length > 0
+              ? res.status(200).send({
+                  message: "Your hours were updated",
+                })
+              : res.status(404).send({
+                  message: "You didn't work this day",
+                });
+          })
+      )
+      .catch((err) => {
         console.error(err),
           res.status(500).json({ message: "Something went wrong" });
       });

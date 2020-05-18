@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import hoursHelper from "../../services/hoursHelper";
+import hoursHelper from "../../services/API/hoursHelper";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "../../style/displayhours.scss";
 import { useSpring, animated } from "react-spring";
 import Clock from "../Clock/Clock";
+import { months } from "../../services/editHoursSev";
 
 function DisplayHours() {
   const history = useHistory();
   const [data, setData] = useState({});
+  const [month, setMonth] = useState();
+  const [hourMonth, setHourMonth] = useState([]);
+  const [message, setMessage] = useState("");
 
   const props = useSpring({
     config: { duration: 1000 },
@@ -19,26 +23,66 @@ function DisplayHours() {
   const authorization = useSelector((store) => {
     return store.authorization;
   });
+  /**
+   * @function handleOnChange - target the number of the month selected on the select input and set the month state
+   * @param {*} e - event
+   *
+   */
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    hoursHelper(authorization.token, authorization.id)
-      .then((response) => setData(response.data))
-      .catch((err) => console.log(err));
+  /**
+   * @function handleFilteredMonth - store image on the database based on account ID and the selected month
+   * The server sends back the image data and a message saying if your request was succesful or not
+   */
+  const handleFilteredMonth = () => {
+    hoursHelper(authorization.token, authorization.id, month)
+      .then((res) => {
+        {
+          setHourMonth(res.data);
+          setMessage(res.data.message);
+        }
+      })
+      .catch((err) => setMessage(err.response.data.message));
   };
+
+  const handleOnChange = (e) => {
+    setMonth(e.target.value);
+  };
+
   return (
     <div className="displayhours-main">
       <Clock />
       <animated.div style={props}>
-        <button
-          data-testid="test-hours"
-          className="btn-dash"
-          onClick={handleClick}
-        >
-          show the table
-        </button>
+        <section className="select-hours">
+          <select
+            className="select-hours-selector"
+            onChange={handleOnChange}
+            name="month"
+            id="month"
+          >
+            <option value={1}>Select a Month</option>
+            {months.map((e, index) => (
+              <option
+                className="select-hours-drop"
+                key={index}
+                value={index + 1}
+              >
+                {e}
+              </option>
+            ))}
+          </select>
+          <button
+            className="select-button-hours"
+            data-testid="test-displayimage-router"
+            onClick={handleFilteredMonth}
+          >
+            Select
+          </button>
+        </section>
+
         <animated.div style={props}>
-          <table className={data.length > 0 ? "table-hours" : "hidden-table"}>
+          <table
+            className={hourMonth.length > 0 ? "table-hours" : "hidden-table"}
+          >
             <thead className="table-hours-head">
               <tr>
                 <td className="table-cell">Month</td>
@@ -46,18 +90,18 @@ function DisplayHours() {
                 <td className="table-cell">Hour</td>
               </tr>
             </thead>
-            {data.length > 0 &&
-              data.map((item, index) => (
+            {hourMonth.length > 0 &&
+              hourMonth.map((item, index) => (
                 <tbody
                   data-testid="test-tav"
                   className="table-hours-body"
                   key={index}
                 >
                   <tr>
-                    <td className="table-cell">{item.month_number}</td>
-                    <td className="table-cell">{item.day_number}</td>
+                    <td className="table-cell">{months[item.month - 1]}</td>
+                    <td className="table-cell">{item.day}</td>
                     <td className="table-cell" s>
-                      {item.hour_logged}
+                      {item.hour}
                     </td>
                   </tr>
                 </tbody>

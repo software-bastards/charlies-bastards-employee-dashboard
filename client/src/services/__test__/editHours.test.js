@@ -13,6 +13,7 @@ describe(" axios send data to update", () => {
       editHours("month", "day", "hour", "token", "account_id")
     ).resolves.toEqual(message);
     expect(axios.put).toHaveBeenCalledTimes(1);
+
     expect(axios.put).toHaveBeenCalledWith(
       "/myhours/edit",
       {
@@ -25,6 +26,7 @@ describe(" axios send data to update", () => {
         headers: { Authorization: "token" },
       }
     );
+
   });
 
   test(" request failure, retrieve an error", async () => {

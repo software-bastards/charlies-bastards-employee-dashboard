@@ -18,3 +18,19 @@ $font-secondary: "Roboto";
 //font sizes
 $header: 30px;
 $btn-size: 24px;
+
+.btn-logout {
+  color: $blue;
+  border: none;
+  background-color: rgba(252, 250, 250, 0);
+  width: 30vh;
+  font-size: 26pt;
+  font-family: $font-main;
+  position: fixed;
+  right: 0vh;
+  top: 92vh;
+  &:hover {
+    text-decoration: none;
+    color: $blue;
+  }
+}
