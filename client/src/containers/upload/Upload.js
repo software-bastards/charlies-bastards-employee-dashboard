@@ -3,7 +3,6 @@ import uploadAPI from "../../services/API/upload";
 import { connect, useDispatch } from "react-redux";
 import { months } from "../../services/editHoursSev";
 import "../../style/upload.scss";
-import { setMessage } from "../../reducers/actions/index";
 import { Link } from "react-router-dom";
 
 function Upload({ userId, userToken, message }) {
