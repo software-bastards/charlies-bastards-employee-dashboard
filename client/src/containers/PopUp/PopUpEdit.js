@@ -1,10 +1,11 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import editHours from "../../services/API/editHours";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import {connect,useDispatch} from 'react-redux'
-import {monthHours} from "../../reducers/actions/index"
-
+import { connect, useDispatch } from "react-redux";
+import { monthHours } from "../../reducers/actions/index";
+import "../../style/popupedit.scss";
+import Clock from "../Clock/Clock";
 
 function PopUpEdit({ userToken, userId, monthData }) {
   const { register, errors, handleSubmit } = useForm();
@@ -19,38 +20,63 @@ function PopUpEdit({ userToken, userId, monthData }) {
    */
   const updateData = (value, e) => {
     e.preventDefault();
-    editHours(monthData[0].month_number, value.day, value.hour, userToken, userId)
-      .then((res) =>{ setMessage(res.data.message) 
-        dispatch(monthHours([])) 
+    editHours(
+      monthData[0].month_number,
+      value.day,
+      value.hour,
+      userToken,
+      userId
+    )
+      .then((res) => {
+        setMessage(res.data.message);
+        dispatch(monthHours([]));
       })
-      .catch((err) =>  setMessage(err.response.data.message));
+      .catch((err) => setMessage(err.response.data.message));
   };
 
   return (
-    <div>
-        <form onSubmit={handleSubmit(updateData)}>
-        <h2>{message}</h2>
-        <label htmlFor="day">Day</label>
-        <input type="number" name="day" ref={register({ required: true })} />
-        {errors.password && "This field is required"}
-        <label htmlFor="hour">Hour</label>
-        <input type="number" name="hour" ref={register({ required: true })} />
-        {errors.password && "This field is required"}
+    <div className="popupedit-main">
+      <Clock />
+      <div className="popupedit-form-container">
+        <h1 className="popup-edit-header">EDIT HOURS</h1>
+        <form className="popupedit-form" onSubmit={handleSubmit(updateData)}>
+          <h2>{message}</h2>
+          <label className="popupedit-label" htmlFor="day">
+            Day
+          </label>
+          <input
+            className="popupedit-input"
+            type="number"
+            name="day"
+            ref={register({ required: true })}
+          />
+          {errors.password && "This field is required"}
+          <label className="popupedit-label" htmlFor="hour">
+            Hour
+          </label>
+          <input
+            className="popupedit-input"
+            type="number"
+            name="hour"
+            ref={register({ required: true })}
+          />
+          {errors.password && "This field is required"}
 
-        <button type="submit"> Submit </button>
-      </form>
-      <Link to="/myhours">
-        <button>Back</button>
-      </Link> 
+          <button className="select-button-hours" type="submit">
+            {" "}
+            Submit{" "}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
 
-function mapStateToPropr(state){
+function mapStateToPropr(state) {
   return {
-    monthData:state.getMonthData.monthData,
+    monthData: state.getMonthData.monthData,
     userToken: state.authorization.token,
     userId: state.authorization.id,
-  }
+  };
 }
 export default connect(mapStateToPropr)(PopUpEdit);
