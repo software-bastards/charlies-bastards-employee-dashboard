@@ -100,9 +100,7 @@ function DisplayHours() {
                   <tr>
                     <td className="table-cell">{months[item.month - 1]}</td>
                     <td className="table-cell">{item.day}</td>
-                    <td className="table-cell" s>
-                      {item.hour}
-                    </td>
+                    <td className="table-cell">{item.hour}</td>
                   </tr>
                 </tbody>
               ))}

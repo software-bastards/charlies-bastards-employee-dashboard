@@ -6,6 +6,7 @@ import { monthHours } from "../../reducers/actions/index";
 import UserHours from "./UserHours";
 import { Link } from "react-router-dom";
 import "../../style/EditHours.scss";
+import Clock from "../Clock/Clock";
 
 export function EditHours({ userToken, userId, monthData }) {
   const [data, setData] = useState([]);
@@ -23,7 +24,7 @@ export function EditHours({ userToken, userId, monthData }) {
    */
 
   const handleId = (e) => {
-    const id = e.target.id;
+    const id = e.target.value;
     filterMonth(id);
   };
 
@@ -44,6 +45,7 @@ export function EditHours({ userToken, userId, monthData }) {
 
   return (
     <div className="edit_main" data-testid="component-editHours">
+      <Clock />
       <Link
         data-testid="backbutton-editHours"
         className="btn-logout"
@@ -56,8 +58,29 @@ export function EditHours({ userToken, userId, monthData }) {
       <h1 data-testid="h1-editHours" className="edit_header">
         Edit Hours
       </h1>
-
-      {months.map((item, index) => (
+      <section className="select-hours-edit">
+        <select
+          className="select-hours-selector"
+          onChange={handleId}
+          name="month"
+          id="month"
+        >
+          <option value={1}>Select a Month</option>
+          {months.map((e, index) => (
+            <option className="select-hours-drop" key={index} value={index + 1}>
+              {e}
+            </option>
+          ))}
+        </select>
+        {/*   <button
+          className="select-button-hours"
+          data-testid="test-displayimage-router"
+          onClick={filterMonth}
+        >
+          Select
+        </button> */}
+      </section>
+      {/*   {months.map((item, index) => (
         <div className="month-edit" key={index}>
           <button
             className="btn-edit"
@@ -69,7 +92,7 @@ export function EditHours({ userToken, userId, monthData }) {
           </button>
         </div>
       ))}
-
+*/}
       {monthData.length > 0 ? (
         <UserHours monthData={monthData} />
       ) : workThisMonth ? (
