@@ -9,7 +9,6 @@ import { months } from "../../services/editHoursSev";
 
 function DisplayHours() {
   const history = useHistory();
-  const [data, setData] = useState({});
   const [month, setMonth] = useState();
   const [hourMonth, setHourMonth] = useState([]);
   const [message, setMessage] = useState("");
@@ -36,10 +35,11 @@ function DisplayHours() {
   const handleFilteredMonth = () => {
     hoursHelper(authorization.token, authorization.id, month)
       .then((res) => {
-        {
+       
+        
           setHourMonth(res.data);
           setMessage(res.data.message);
-        }
+       
       })
       .catch((err) => setMessage(err.response.data.message));
   };
@@ -47,7 +47,6 @@ function DisplayHours() {
   const handleOnChange = (e) => {
     setMonth(e.target.value);
   };
-
 
   return (
     <div className="displayhours-main">
@@ -92,21 +91,21 @@ function DisplayHours() {
               </tr>
             </thead>
             {hourMonth.length > 0 &&
-              hourMonth.sort((a,b)=> a.day - b.day).map((item, index) => (
-                <tbody
-                  data-testid="test-tav"
-                  className="table-hours-body"
-                  key={index}
-                >
-                  <tr>
-                    <td className="table-cell">{months[item.month - 1]}</td>
-                    <td className="table-cell">{item.day}</td>
-                    <td className="table-cell" >
-                      {item.hour}
-                    </td>
-                  </tr>
-                </tbody>
-              ))}
+              hourMonth
+                .sort((a, b) => a.day - b.day)
+                .map((item, index) => (
+                  <tbody
+                    data-testid="test-tav"
+                    className="table-hours-body"
+                    key={index}
+                  >
+                    <tr>
+                      <td className="table-cell">{months[item.month - 1]}</td>
+                      <td className="table-cell">{item.day}</td>
+                      <td className="table-cell">{item.hour}</td>
+                    </tr>
+                  </tbody>
+                ))}
           </table>
         </animated.div>
         <button

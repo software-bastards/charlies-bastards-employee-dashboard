@@ -13,10 +13,10 @@ export function EditHours({ userToken, userId, monthData }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getDataFromHour(userToken, userId).then((res) => {
+       getDataFromHour(userToken, userId).then((res) => {
       setData(res.data);
     });
-  }, []);
+  }, [userToken,userId]);
   /**
    * @function handleId - target the button id and call filterMonth function
    * @param {*} e
