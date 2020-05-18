@@ -71,6 +71,7 @@ function Upload({ userId, userToken }) {
           <h2>{message}</h2>
           <label htmlFor="customFile">{fileName}</label>
           <input
+          id='custom-file-input'
             className="custom-file-input"
             type="file"
             onChange={onChange}

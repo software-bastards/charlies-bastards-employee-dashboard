@@ -38,14 +38,16 @@
   flex-direction: column;
   margin: 5% 0% 5% 3%;
 }
-.custom-file-input {
-  color: transparent;
+
+#custom-file-input{
+  opacity:1;
 }
 .custom-file-input::-webkit-file-upload-button {
-  color: $blue;
+
+  opacity:0;
 }
 .custom-file-input::before {
-  content: "Select some file(s)";
+  content: "Select file(s)";
   color: $yellow;
   display: inline-block;
   background: $blue;
@@ -56,6 +58,7 @@
   cursor: pointer;
   font-size: 100%;
   padding: 3%;
+  margin-right:4%;
 }
 
 .submit-input {
