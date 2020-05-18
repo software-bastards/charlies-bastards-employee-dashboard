@@ -48,6 +48,7 @@ function DisplayHours() {
     setMonth(e.target.value);
   };
 
+
   return (
     <div className="displayhours-main">
       <Clock />
@@ -91,7 +92,7 @@ function DisplayHours() {
               </tr>
             </thead>
             {hourMonth.length > 0 &&
-              hourMonth.map((item, index) => (
+              hourMonth.sort((a,b)=> a.day - b.day).map((item, index) => (
                 <tbody
                   data-testid="test-tav"
                   className="table-hours-body"
@@ -100,7 +101,7 @@ function DisplayHours() {
                   <tr>
                     <td className="table-cell">{months[item.month - 1]}</td>
                     <td className="table-cell">{item.day}</td>
-                    <td className="table-cell" s>
+                    <td className="table-cell" >
                       {item.hour}
                     </td>
                   </tr>

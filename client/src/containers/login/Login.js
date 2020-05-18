@@ -10,7 +10,7 @@ function Login() {
   const [message, setMessage] = useState("");
   const { register, errors, handleSubmit } = useForm();
   const dispatch = useDispatch();
-
+  const [flagSnack, setFlagSnack] = useState(false);
   /**
    * @function onSubmit -
    *  target the values inserted by the user and send it to the server
@@ -32,11 +32,23 @@ function Login() {
           )
         );
       })
-      .catch((err) => setMessage(`${err.response.data.message}`));
+      .catch((err) => {
+        setFlagSnack(!flagSnack);
+        setMessage(`${err.response.data.message}`);
+      });
   };
 
   return (
     <main className="main_login">
+      <h1
+        onClick={() => {
+          setFlagSnack(!flagSnack);
+        }}
+        className={flagSnack ? "snackbar" : "snackclose"}
+      >
+        {message}
+      </h1>
+
       <div className="centrilized-content">
         <img src={secure} alt="secure" id="image-login-secure" />
         <form
@@ -44,7 +56,6 @@ function Login() {
           data-testid="form-component"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1>{message}</h1>
           <div className="input-component">
             <label data-testid="test-label" htmlFor="email">
               E-mail
