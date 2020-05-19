@@ -29,7 +29,7 @@ router.get(
           });
           res.status(200).send(data);
         } else {
-          res.status(200).send({ message: "There is no image avaible" });
+          res.status(200).send({ message: "You did not work this month!" });
         }
       })
       .catch((err) => {
