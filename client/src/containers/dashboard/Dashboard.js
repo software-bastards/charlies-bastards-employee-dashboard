@@ -13,7 +13,7 @@ function Dashboard({ authorization, userToken, userId }) {
   const dispatch = useDispatch();
   const [hourM, setHourM] = useState([]);
   const [message, setMessage] = useState("");
-
+  const [flagSnack, setFlagSnack] = useState(false);
   const props = useSpring({
     config: { duration: 1000 },
     opacity: 1,
@@ -29,7 +29,10 @@ function Dashboard({ authorization, userToken, userId }) {
         }
         setHourM(temp);
       })
-      .catch((err) => setMessage(err.response.data.message));
+      .catch((err) => {
+        setFlagSnack(!flagSnack);
+        setMessage(err.response.data.message);
+      });
   }, [userToken, userId]);
   console.log(hourM);
   const handleLogOut = (e) => {
@@ -40,6 +43,14 @@ function Dashboard({ authorization, userToken, userId }) {
 
   return (
     <animated.div style={props} className="dash-container">
+      <h1
+        onClick={() => {
+          setFlagSnack(!flagSnack);
+        }}
+        className={flagSnack ? "snackbar" : "snackclose"}
+      >
+        {message}
+      </h1>
       <Clock />
       <div className="container">
         <div className="row">
