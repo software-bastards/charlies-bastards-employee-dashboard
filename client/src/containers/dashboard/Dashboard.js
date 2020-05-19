@@ -23,13 +23,11 @@ function Dashboard({ authorization, userToken, userId }) {
   useEffect(() => {
     dashboardHelper(userToken, userId)
       .then((res) => {
-
         let temp = [];
         for (let i = 0; i < res.data.length; i++) {
           temp.push(res.data[i].hour_logged);
         }
         setHourM(temp);
-
       })
       .catch((err) => {
         setFlagSnack(!flagSnack);

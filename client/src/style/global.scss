@@ -18,6 +18,11 @@ $font-secondary: "Roboto";
 //font sizes
 $header: 30px;
 $btn-size: 24px;
+body {
+  background-color: $yellow;
+  text-align: center;
+  height: $page-height;
+}
 
 .btn-logout {
   color: $blue;

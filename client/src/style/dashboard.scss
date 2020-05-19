@@ -1,16 +1,15 @@
 @import "./global.scss";
 
-body {
-  background-color: $yellow;
-  text-align: center;
-  height: $page-height;
-}
 .avatar {
-  width: 30px;
+  width: 40px;
 }
 .dashboard-h1 {
   padding-top: 0;
   margin-top: 0;
+}
+.col-sm {
+  font-family: $font-main;
+  font-size: 24pt;
 }
 .dash-container {
   background-color: $yellow;
