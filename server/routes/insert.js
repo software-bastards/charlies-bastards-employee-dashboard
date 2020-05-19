@@ -7,8 +7,12 @@ const db = require("../database/configurationSequelize");
 const hour = db.hour;
 const account = db.account;
 const passport = require("passport");
+
+
 //Helper functions
 const { isNotNumber } = require("../Configurations/helper");
+
+
 router.post(
   "/inserthours",
   passport.authenticate("jwt", { session: false }),

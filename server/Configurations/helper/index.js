@@ -7,7 +7,11 @@ module.exports = {
   //   }
   //   return true;
   // },
+
+
   // isObjectPropertyEmpty: (object) =>
   //   Object.values(object).some((key) => key === null || key === ""),
+
+
   isNotNumber: (incomingId) => isNaN(incomingId),
 };
