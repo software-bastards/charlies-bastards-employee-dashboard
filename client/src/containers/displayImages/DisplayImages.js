@@ -26,10 +26,11 @@ const DisplayImages = ({ userToken, userId }) => {
   const handleImage = () => {
     displayImages(userToken, userId, month)
       .then((res) => {
-        {
+        
+
           setUploadFile(res.data);
           setMessage(res.data.message);
-        }
+      
       })
       .catch((err) => setMessage(err.response.data.message));
   };

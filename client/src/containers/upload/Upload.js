@@ -3,17 +3,15 @@ import uploadAPI from "../../services/API/upload";
 import { connect, useDispatch } from "react-redux";
 import { months } from "../../services/editHoursSev";
 import "../../style/upload.scss";
-
 import { Link } from "react-router-dom";
 
 function Upload({ userId, userToken }) {
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState("Select your file(s)");
-  const [image, setImage] = useState({});
   const [month, setMonth] = useState();
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
-
+const [snackFlag,setSnackFlag] =useState(false)
   /**
    * @function onChange target the data from the uploaded image  and set the state
    * @param {*} e
@@ -34,9 +32,10 @@ function Upload({ userId, userToken }) {
     e.preventDefault();
 
     handlerOnSubmit()
-      .then(setMessage("You uploaded your image"))
+      .then(res=>{setMessage("You uploaded your image");setSnackFlag(!snackFlag)})
       .catch((err) => {
-        dispatch(setMessage("something went wrong"));
+       setMessage("something went wrong");
+        setSnackFlag(!snackFlag)
       });
   };
 
@@ -50,10 +49,7 @@ function Upload({ userId, userToken }) {
     data.forEach((e) => formData.append("file", e));
 
     try {
-      uploadAPI(formData).then((res) => {
-        const { fileName, filePath, message } = res.data;
-        setImage({ fileName, filePath, message });
-      });
+      uploadAPI(formData)
     } catch (err) {
       console.log(err);
     }
@@ -69,9 +65,9 @@ function Upload({ userId, userToken }) {
       <form id="form-upload" onSubmit={onSubmit}>
         <h1> Upload </h1>
         <div className="input-upload">
-          <h2>{message}</h2>
           <label htmlFor="customFile">{fileName}</label>
           <input
+          id='custom-file-input'
             className="custom-file-input"
             type="file"
             onChange={onChange}
@@ -96,6 +92,8 @@ function Upload({ userId, userToken }) {
         </div>
         <input className="submit-input" type="submit" value="Upload" />
       </form>
+     <p onClick={()=>setSnackFlag(!snackFlag)}className={snackFlag?'snackbar':'snackclose'}>{message}</p>
+
     </main>
   );
 }
