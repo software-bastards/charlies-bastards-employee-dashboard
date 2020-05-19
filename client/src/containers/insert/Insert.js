@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import insertHelper from "../../services/API/insertHelper";
@@ -13,16 +13,38 @@ function Insert() {
   });
 
   const { register, handleSubmit } = useForm();
+  const [message, setMessage] = useState("");
+  const [flagSnack, setFlagSnack] = useState(false);
 
   function onSubmit(data, e) {
     e.preventDefault();
-    insertHelper(authorization.token, authorization.id, data);
-    history.push("/dashboard");
+    insertHelper(authorization.token, authorization.id, data)
+      .then((res) => {
+        setFlagSnack(!flagSnack);
+        setMessage(res.data.message);
+      })
+      .catch((err) => {
+        setFlagSnack(!flagSnack);
+        setMessage(err.response.data.message);
+      });
+    /*  history.push("/dashboard"); */
   }
 
   return (
+
+    <div>
+      <h1
+        onClick={() => {
+          setFlagSnack(!flagSnack);
+        }}
+        className={flagSnack ? "snackbar" : "snackclose"}
+      >
+        {message}
+      </h1>
+
     <div className="insert">
       <h1>Hey, Insert your hours here!</h1>
+
       <form
         className="insert-form"
         onSubmit={handleSubmit(onSubmit)}

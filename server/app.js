@@ -21,6 +21,7 @@ const editHours = require("./routes/editHours");
 const uploadImage = require("./routes/uploadImage");
 const displayhoursRouter = require("./routes/displayhours");
 const inserthoursRouter = require("./routes/insert");
+const dashboardHourRouter = require("./routes/dashboardhour");
 
 //configurations
 const db = require("./database/configurationSequelize");
@@ -44,6 +45,7 @@ app.use("/", editHours);
 app.use("/", uploadImage);
 app.use("/", displayhoursRouter);
 app.use("/", inserthoursRouter);
+app.use("/", dashboardHourRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

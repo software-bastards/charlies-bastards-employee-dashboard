@@ -11,7 +11,7 @@ function Upload({ userId, userToken }) {
   const [month, setMonth] = useState();
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
-const [snackFlag,setSnackFlag] =useState(false)
+  const [snackFlag, setSnackFlag] = useState(false);
   /**
    * @function onChange target the data from the uploaded image  and set the state
    * @param {*} e
@@ -32,10 +32,13 @@ const [snackFlag,setSnackFlag] =useState(false)
     e.preventDefault();
 
     handlerOnSubmit()
-      .then(res=>{setMessage("You uploaded your image");setSnackFlag(!snackFlag)})
+      .then((res) => {
+        setMessage("You uploaded your image");
+        setSnackFlag(!snackFlag);
+      })
       .catch((err) => {
-       setMessage("something went wrong");
-        setSnackFlag(!snackFlag)
+        setMessage("something went wrong");
+        setSnackFlag(!snackFlag);
       });
   };
 
@@ -49,7 +52,7 @@ const [snackFlag,setSnackFlag] =useState(false)
     data.forEach((e) => formData.append("file", e));
 
     try {
-      uploadAPI(formData)
+      uploadAPI(formData);
     } catch (err) {
       console.log(err);
     }
@@ -67,7 +70,7 @@ const [snackFlag,setSnackFlag] =useState(false)
         <div className="input-upload">
           <label htmlFor="customFile">{fileName}</label>
           <input
-          id='custom-file-input'
+            id="custom-file-input"
             className="custom-file-input"
             type="file"
             onChange={onChange}
@@ -76,7 +79,7 @@ const [snackFlag,setSnackFlag] =useState(false)
 
           <label htmlFor="month">Select a month</label>
           <select
-            className="select-css"
+            className="select-css-upload"
             onChange={handleOnChange}
             name="month"
             id="month"
@@ -92,8 +95,12 @@ const [snackFlag,setSnackFlag] =useState(false)
         </div>
         <input className="submit-input" type="submit" value="Upload" />
       </form>
-     <p onClick={()=>setSnackFlag(!snackFlag)}className={snackFlag?'snackbar':'snackclose'}>{message}</p>
-
+      <p
+        onClick={() => setSnackFlag(!snackFlag)}
+        className={snackFlag ? "snackbar" : "snackclose"}
+      >
+        {message}
+      </p>
     </main>
   );
 }
