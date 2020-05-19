@@ -15,22 +15,6 @@ router.post(
   "/inserthours",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-<<<<<<< HEAD
-    hour
-      .create({
-        hour_logged: req.body.hour,
-        month_number: req.body.month_number,
-        day_number: req.body.day_number,
-        account_id: req.body.account_id,
-      })
-      .then((response) => res.status(200).send(response.dataValues))
-      .catch((error) =>
-        res.status(500).send({
-          message:
-            "Sorry! We are currently having server difficulties. Try again later",
-        })
-      );
-=======
     //check if entered value is number
     if (isNotNumber(req.body.mounth_number)) {
       res.status(400).send({ message: "Oops, month should be a number!" });
@@ -58,7 +42,6 @@ router.post(
         }
       }
     }
->>>>>>> insert_hours_component
   }
 );
 
