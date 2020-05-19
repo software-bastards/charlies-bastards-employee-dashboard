@@ -9,6 +9,7 @@ import Upload from "./containers/upload/Upload";
 import DisplayImages from "./containers/displayImages/DisplayImages";
 import DisplayHours from "./containers/displayhours/DisplayHours";
 import Insert from "./containers/insert/Insert";
+import Menu from "./containers/menu/Menu";
 
 function mapToProps(state) {
   return {
@@ -20,6 +21,7 @@ function mapToProps(state) {
 function App({ isAuthenticated, message }) {
   return (
     <div className="main-app">
+      <Menu />
       <Switch>
         <Route exact path="/">
           {isAuthenticated ? <Redirect to="/dashboard" /> : <Login />}

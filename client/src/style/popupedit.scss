@@ -20,6 +20,9 @@
   width: 40%;
   height: 65vh;
   position: relative;
+  -webkit-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
 }
 .popupedit-form {
   display: flex;

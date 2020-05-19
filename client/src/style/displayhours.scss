@@ -6,6 +6,9 @@
   align-items: center;
   margin: auto;
   background-color: $white;
+  -webkit-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
 }
 .table-hours-head {
   background-color: $blue;

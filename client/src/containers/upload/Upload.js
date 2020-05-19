@@ -60,11 +60,6 @@ function Upload({ userId, userToken }) {
 
   return (
     <main className="upload-component">
-      <Link className="link-back" to="/dashboard">
-        {" "}
-        Menu
-      </Link>
-
       <form id="form-upload" onSubmit={onSubmit}>
         <h1> Upload </h1>
         <div className="input-upload">
