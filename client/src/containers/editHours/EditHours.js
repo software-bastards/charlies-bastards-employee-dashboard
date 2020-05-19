@@ -14,10 +14,10 @@ export function EditHours({ userToken, userId, monthData }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-       getDataFromHour(userToken, userId).then((res) => {
+    getDataFromHour(userToken, userId).then((res) => {
       setData(res.data);
     });
-  }, [userToken,userId]);
+  }, [userToken, userId]);
   /**
    * @function handleId - target the button id and call filterMonth function
    * @param {*} e
@@ -46,14 +46,6 @@ export function EditHours({ userToken, userId, monthData }) {
   return (
     <div className="edit_main" data-testid="component-editHours">
       <Clock />
-      <Link
-        data-testid="backbutton-editHours"
-        className="btn-logout"
-        to="/dashboard"
-      >
-        {" "}
-        Go Back
-      </Link>
 
       <h1 data-testid="h1-editHours" className="edit_header">
         Edit Hours
@@ -100,9 +92,7 @@ export function EditHours({ userToken, userId, monthData }) {
           You did not work this month{" "}
         </p>
       ) : (
-        <p data-testid="work-editHours" className="select-month">
-          Select a Month
-        </p>
+        ""
       )}
     </div>
   );

@@ -118,13 +118,6 @@ function DisplayHours() {
                 ))}
           </table>
         </animated.div>
-        <button
-          data-testid="test-dashboard-router"
-          className="btn-logout"
-          onClick={() => history.push("/dashboard")}
-        >
-          Go Back
-        </button>
       </animated.div>
     </div>
   );

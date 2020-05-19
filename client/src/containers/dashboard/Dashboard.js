@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch, connect } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { deleteSession } from "../../reducers/actions/index";
+import { /*  useDispatch, */ connect } from "react-redux";
+/* import { useHistory } from "react-router-dom";
+import { deleteSession } from "../../reducers/actions/index"; */
 import Clock from "../Clock/Clock";
 import "../../style/dashboard.scss";
 import dashboardHelper from "../../services/API/dashboardHelper";
@@ -9,8 +9,8 @@ import { useSpring, animated } from "react-spring";
 import { useEffect } from "react";
 
 function Dashboard({ authorization, userToken, userId }) {
-  const history = useHistory();
-  const dispatch = useDispatch();
+  /*   const history = useHistory();
+  const dispatch = useDispatch(); */
   const [hourM, setHourM] = useState([]);
   const [message, setMessage] = useState("");
   const [flagSnack, setFlagSnack] = useState(false);
@@ -35,11 +35,11 @@ function Dashboard({ authorization, userToken, userId }) {
       });
   }, [userToken, userId]);
   console.log(hourM);
-  const handleLogOut = (e) => {
+  /*   const handleLogOut = (e) => {
     e.preventDefault();
     dispatch(deleteSession());
     history.push("/");
-  };
+  }; */
 
   return (
     <animated.div style={props} className="dash-container">
@@ -76,7 +76,7 @@ function Dashboard({ authorization, userToken, userId }) {
           </div>
         </div>
       </div>
-      <div className="dashboard-buttons">
+      {/*   <div className="dashboard-buttons">
         <button
           data-testid="test-display-router"
           className="btn-dash"
@@ -113,16 +113,8 @@ function Dashboard({ authorization, userToken, userId }) {
         >
           Display Image
         </button>
-      </div>
+      </div> */}
       <br />
-      <button
-        data-testid="test-logout"
-        className="btn-logout"
-        onClick={handleLogOut}
-      >
-        {" "}
-        Log Out
-      </button>
     </animated.div>
   );
 }
