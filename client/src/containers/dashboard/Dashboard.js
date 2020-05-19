@@ -31,7 +31,6 @@ function Dashboard() {
     hoursHelper(token, id, month)
       .then((res) => {
         setHourM([res]);
-        console.log(hourM);
       })
       .catch((err) => setMessage(err.response.data.message));
   };

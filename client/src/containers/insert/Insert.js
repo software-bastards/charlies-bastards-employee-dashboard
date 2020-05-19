@@ -46,6 +46,7 @@ function Insert() {
 
         <label>Day</label>
         <input
+          type="date"
           ref={register}
           name="day_number"
           className="insert-day_number"
