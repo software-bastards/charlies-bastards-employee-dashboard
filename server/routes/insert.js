@@ -8,10 +8,8 @@ const hour = db.hour;
 const account = db.account;
 const passport = require("passport");
 
-
 //Helper functions
 const { isNotNumber } = require("../Configurations/helper");
-
 
 router.post(
   "/inserthours",
@@ -34,7 +32,11 @@ router.post(
               day_number: req.body.day_number,
               account_id: req.body.account_id,
             })
-            .then((response) => res.status(200).send(response.dataValues))
+            .then((response) =>
+              res
+                .status(200)
+                .send({ message: "Hooray, you inserted your hours!" })
+            )
             .catch((error) =>
               res.status(500).send({
                 message:
