@@ -1,0 +1,40 @@
+@import "./global.scss";
+
+.table-edit {
+  text-align: center;
+  padding-top: 400px;
+  align-items: center;
+  margin-top: 50px;
+  background-color: $white;
+}
+
+.edit-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.table-edit-head {
+  background-color: $blue;
+  font-family: $font-main;
+  font-size: 22pt;
+  color: $white;
+}
+.table-edit-body {
+  font-family: $font-secondary;
+  font-size: 20pt;
+  padding-top: 30px;
+  margin-top: 20px;
+  -webkit-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+}
+.table-cell {
+  width: 200px;
+}
+.hidden-p {
+  opacity: 0;
+}
+.hidden-table {
+  opacity: 0;
+}

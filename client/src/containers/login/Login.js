@@ -1,79 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import loginHelper from "../../services/loginHelper";
-import { connect, useDispatch } from "react-redux";
+import loginHelper from "../../services/API/loginHelper";
+import { useDispatch } from "react-redux";
 import { createSession } from "../../reducers/actions/index";
-import { withRouter, useHistory } from "react-router-dom";
+import secure from "../../icons/locker.svg";
+import "../../style/login.scss";
+
 function Login() {
-  const [message, setMessage] = React.useState("");
+  const [message, setMessage] = useState("");
   const { register, errors, handleSubmit } = useForm();
   const dispatch = useDispatch();
-  const history = useHistory();
+  const [flagSnack, setFlagSnack] = useState(false);
   /**
-   * @function onSuhmit
+   * @function onSubmit -
+   *  target the values inserted by the user and send it to the server
+   *then send the response to the redux store.
    * @param {string} data -Values passed in the input
-   * @param {*} e - event
-   */
+   * @param {*} e - event  */
 
   const onSubmit = (value, e) => {
     e.preventDefault();
     loginHelper(value.email, value.password)
       .then((res) => {
-        console.log(res);
         dispatch(
           createSession(
+            res.data.id,
             res.data.message,
             res.data.token,
             res.data.firstname,
-            res.data.lastname,
-            res.data.account_id
+            res.data.lastname
           )
         );
       })
-      .then(history.push("/dashboard"));
-    /*       .catch((err) => setMessage(`${err.response.data.message.message}`));
-     */
+      .catch((err) => {
+        setFlagSnack(!flagSnack);
+        setMessage(`${err.response.data.message}`);
+      });
   };
 
   return (
-    <main>
-      <form data-testid="form-component" onSubmit={handleSubmit(onSubmit)}>
-        <p>{message}</p>
-        <label data-testid="test-label" htmlFor="email">
-          E-mail
-        </label>
-        <input
-          data-testid="input-form-email"
-          type="text"
-          name="email"
-          ref={register({ required: true })}
-        />
-        {errors.email && "This field is required"}
-
-        <label data-testid="test-label" htmlFor="password">
-          Password
-        </label>
-        <input
-          data-testid="input-form-password"
-          type="password"
-          name="password"
-          ref={register({ required: true })}
-        />
-        {errors.password && "This field is required"}
-
-        <button data-testid="submit-button" type="submit">
-          {" "}
-          Login{" "}
-        </button>
-      </form>
-      <button
-        onClick={() => (window.location = "http://localhost:5000/auth/google")}
+    <main className="main_login">
+      <h1
+        onClick={() => {
+          setFlagSnack(!flagSnack);
+        }}
+        className={flagSnack ? "snackbar" : "snackclose"}
       >
-        {" "}
-        Google +
-      </button>
+        {message}
+      </h1>
+
+      <div className="centrilized-content">
+        <img src={secure} alt="secure" id="image-login-secure" />
+        <form
+          className="form-login"
+          data-testid="form-component"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="input-component">
+            <label data-testid="test-label" htmlFor="email">
+              E-mail
+            </label>
+            <input
+              data-testid="input-form-email"
+              type="text"
+              name="email"
+              ref={register({ required: true })}
+            />
+            {errors.email && "This field is required"}
+
+            <label data-testid="test-label" htmlFor="password">
+              Password
+            </label>
+            <input
+              data-testid="input-form-password"
+              type="password"
+              name="password"
+              ref={register({ required: true })}
+            />
+            {errors.password && "This field is required"}
+          </div>
+          <div className="buttonsDiv-login">
+            <button data-testid="submit-button" type="submit">
+              {" "}
+              Login{" "}
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
   );
 }
 
-export default withRouter(Login);
+export default Login;

@@ -1,48 +1,81 @@
-import React, { useState, useEffect } from "react";
-import dashboardHelper from "../../services/dashboardHelper";
-import { connect, useSelector } from "react-redux";
-/* import { logoutUser } from "../../reducers/actions/logoutUser"; */
-import { useHistory, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import Clock from "../Clock/Clock";
+import "../../style/dashboard.scss";
+import dashboardHelper from "../../services/API/dashboardHelper";
+import { useSpring, animated } from "react-spring";
+import { useEffect } from "react";
 
-function Dashboard({ token, firstname, lastname }) {
-  const [user, setUser] = useState("");
-  const history = useHistory();
-  const authorization = useSelector((store) => {
-    return store.authorization;
+function Dashboard({ authorization, userToken, userId }) {
+  const [hourM, setHourM] = useState([]);
+  const [message, setMessage] = useState("");
+  const [flagSnack, setFlagSnack] = useState(false);
+  const props = useSpring({
+    config: { duration: 1000 },
+    opacity: 1,
+    from: { opacity: 0 },
   });
 
-  /*   useEffect((prevProps) => {
-    console.log(firstname);
-  }); */
-  /*   const logOut = (e) => {
-    e.preventDefault();
-    setUser(!isAuthenticated);
-  }; */
-
-  /*   const onLogOut = (e) => {
-    localStorage.removeItem("token");
-    history.push("/");
-    /*       .catch((err) => setMessage(`${err.response.data.message.message}`));
-     */
+  useEffect(() => {
+    dashboardHelper(userToken, userId)
+      .then((res) => {
+        let temp = [];
+        for (let i = 0; i < res.data.length; i++) {
+          temp.push(res.data[i].hour_logged);
+        }
+        setHourM(temp);
+      })
+      .catch((err) => {
+        setFlagSnack(!flagSnack);
+        setMessage(err.response.data.message);
+      });
+  }, [userToken, userId]);
+  console.log(hourM);
 
   return (
-    <div className="dash-container">
-      <h1>
-        Welcome {authorization.firstname} {authorization.lastname}
+    <animated.div style={props} className="dash-container">
+      <h1
+        onClick={() => {
+          setFlagSnack(!flagSnack);
+        }}
+        className={flagSnack ? "snackbar" : "snackclose"}
+      >
+        {message}
       </h1>
-      <button /* onClick={() => onLogOut()} */> Log Out</button>
-      <Link to="/insert">go to insert page</Link>
-    </div>
+      <Clock />
+      <div className="container">
+        <div className="row">
+          <div className="col-sm">
+            Welcome, {authorization.firstname}{" "}
+            <img
+              src="https://frontendbastards.nl/images/fe/team/dymion.svg"
+              alt="dymion"
+              className="avatar"
+            />
+          </div>
+          <div className="col-sm">
+            Worked {hourM.length > 0 ? hourM.reduce((a, b) => a + b) : 0} hours
+            last month
+          </div>
+          <div className="col-sm">
+            You worked average{" "}
+            {hourM.length > 0
+              ? hourM.reduce((a, b) => a + b) / hourM.length
+              : 0}
+            hours
+          </div>
+        </div>
+      </div>
+    </animated.div>
   );
 }
 
-/* function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return {
-    token: state.authorization.token,
-    firstname: state.authorization.firstname,
-    lastname: state.authorization.lastname,
-    isAuthenticated: state.authorization.token,
+    authorization: state.authorization,
+    userToken: state.authorization.token,
+    userId: state.authorization.id,
   };
-} */
+}
 
-export default Dashboard;
+export default connect(mapStateToProps)(Dashboard);

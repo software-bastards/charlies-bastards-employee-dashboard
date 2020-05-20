@@ -7,10 +7,10 @@ module.exports = (Sequelize, connector) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      hour: {
+      hour_logged: {
         type: Sequelize.INTEGER,
       },
-      mounth_number: {
+      month_number: {
         type: Sequelize.INTEGER,
       },
       day_number: {
@@ -18,7 +18,9 @@ module.exports = (Sequelize, connector) => {
       },
 
       upload_id: Sequelize.INTEGER,
+      account_id: Sequelize.INTEGER,
     },
+
     { underscored: true, freezeTableName: true }
   );
 

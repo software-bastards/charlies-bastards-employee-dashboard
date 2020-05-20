@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { withRouter, useHistory, Link } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import insertHelper from "../../services/insertHelper";
+import insertHelper from "../../services/API/insertHelper";
 import { useSelector } from "react-redux";
 import "../../style/insertHours.scss";
 import "../../style/global.scss";
@@ -28,15 +28,11 @@ function Insert() {
         setFlagSnack(!flagSnack);
         setMessage(err.response.data.message);
       });
-    //history.push("/dashboard");
+    /*  history.push("/dashboard"); */
   }
 
   return (
-    <div className="insert_main">
-      {/* <div className="insert-clock">
-        <Clock />
-      </div> */}
-
+    <div className="insert">
       <h1
         onClick={() => {
           setFlagSnack(!flagSnack);
@@ -45,14 +41,42 @@ function Insert() {
       >
         {message}
       </h1>
+      <h1>Hey, Insert your hours here!</h1>
 
-      <div className="insert-form">
-        <h1 className="edit_header">INSERT HOURS</h1>
+      <form
+        className="insert-form"
+        onSubmit={handleSubmit(onSubmit)}
+        data-testid="insert-form-component"
+      >
+        <label>Hour</label>
+        <input
+          ref={register}
+          name="hour"
+          className="insert-hour"
+          data-testid="insert-hour"
+        />
 
-        <form
-          className="select-hours-insert"
-          onSubmit={handleSubmit(onSubmit)}
-          data-testid="insert-form-component"
+        <label> Month</label>
+        <input
+          ref={register}
+          name="month_number"
+          className="insert-month_number"
+          data-testid="insert-month_number"
+        />
+
+        <label>Day</label>
+        <input
+          type="date"
+          ref={register}
+          name="day_number"
+          className="insert-day_number"
+          data-testid="insert-day_number"
+        />
+
+        <button
+          className="insert-button"
+          data-testid="insert-button"
+          type="submit"
         >
           <label> Month</label>
           <input

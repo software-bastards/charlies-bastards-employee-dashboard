@@ -1,26 +1,32 @@
 import React from "react";
 import App from "./App";
-import Enzyme, { shallow, ShallowWrapper } from "enzyme";
-import EnzymeAdapter from "enzyme-adapter-react-16";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
+import { render } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
-/** 
- * Factory function to create a ShallowWrapper for the App Component
- * @function setup
- * @param {object} props - Component props specific to this setup
- * @param {any} state - Initial state for setup
- * @return {ShallowWrapper}
- *  */
-
- const setup = (props={})=>{
-   const wrapper = shallow(<App {...props}/>)
-   return wrapper
- }
-
-test('renders app component',  ()=>{
-const wrapper = setup();
-const componentApp = wrapper.find('[data-test="component-app"]')
-expect(componentApp.length).toBe(1)
-
-}
-);
+test("full app rendering withou error", () => {
+  const state = {
+    authorization: {
+      token: "something",
+      id: "someth",
+      email: "sth",
+      firstname: "sth",
+      lastname: "sth",
+      message: "sth",
+    },
+    data: "2:41:16 PM",
+  };
+  const historyMock = { push: jest.fn() };
+  const mockStore = configureStore();
+  const store = mockStore(state);
+  const renderComponent = () =>
+    render(
+      <Router>
+        <Provider store={store}>
+          <App history={historyMock} />
+        </Provider>
+      </Router>
+    );
+  const wrapper = renderComponent();
+});

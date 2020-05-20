@@ -10,21 +10,18 @@ const jwt = require("jsonwebtoken");
 router.post("/login", function (req, res, next) {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw res.status(500).send("Something went wrong");
-    if (!user) return res.status(400).send({ message: info });
+    if (!user) return res.status(400).send(info);
 
     const token = jwt.sign(
       JSON.stringify(user),
       process.env.ACCESS_TOKEN_SECRET
     );
-
-    console.log(user);
-
     return res.status(200).json({
       success: true,
+      id: user.id,
       firstname: user.firstname,
       lastname: user.lastname,
-      account_id: user.id,
-      token: token,
+      token: "Bearer " + token,
       message: "you were authenticated",
     });
   })(req, res, next);
