@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import { monthHours } from "../../reducers/actions/index";
 import "../../style/popupedit.scss";
-import Clock from "../Clock/Clock";
 
 function PopUpEdit({ userToken, userId, monthData }) {
   const { register, errors, handleSubmit } = useForm();
@@ -36,7 +35,6 @@ function PopUpEdit({ userToken, userId, monthData }) {
 
   return (
     <div className="popupedit-main">
-      <Clock />
       <div className="popupedit-form-container">
         <h1 className="popup-edit-header">EDIT HOURS</h1>
         <form className="popupedit-form" onSubmit={handleSubmit(updateData)}>
