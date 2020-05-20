@@ -16,7 +16,8 @@
 }
 .menu-hidden {
   opacity: 0;
-  width: 10%;
+  width: 0px;
+  height: 100vh;
 }
 .menu-main {
   position: absolute;
@@ -63,6 +64,10 @@
   width: 300px;
   margin-left: 0px;
 }
+.menu-hidden .menu-list-item {
+  width: 0px;
+  height: 0px;
+}
 .menu-list-item {
   height: 56px;
   display: flex;
@@ -107,5 +112,29 @@
   &:focus {
     outline: none;
     box-shadow: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .btn-logout-menu {
+    width: 20px;
+    font-size: 16pt;
+    right: 30px;
+  }
+  .menu-open {
+    width: 250px;
+    font-size: 12pt;
+    &:hover {
+      font-size: 12pt;
+    }
+  }
+  .menu-list-item {
+    width: 210px;
+  }
+  ul.menu-list {
+    margin: 20 0 0 0;
+  }
+  .menu-button {
+    font-size: 16pt;
   }
 }
