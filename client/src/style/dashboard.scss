@@ -19,7 +19,6 @@
   color: $white;
   font-size: $header;
   font-family: $font-secondary;
-  position: relative;
 }
 .dashboard-buttons {
   width: 90%;
@@ -35,6 +34,7 @@
   height: 15vh;
   margin: 5vh;
   background-color: $black;
+  position: static;
   text-align: center;
   -webkit-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
   -moz-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
