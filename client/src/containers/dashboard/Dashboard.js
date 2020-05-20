@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { /*  useDispatch, */ connect } from "react-redux";
-/* import { useHistory } from "react-router-dom";
-import { deleteSession } from "../../reducers/actions/index"; */
+import { connect } from "react-redux";
 import Clock from "../Clock/Clock";
 import "../../style/dashboard.scss";
 import dashboardHelper from "../../services/API/dashboardHelper";
@@ -9,8 +7,6 @@ import { useSpring, animated } from "react-spring";
 import { useEffect } from "react";
 
 function Dashboard({ authorization, userToken, userId }) {
-  /*   const history = useHistory();
-  const dispatch = useDispatch(); */
   const [hourM, setHourM] = useState([]);
   const [message, setMessage] = useState("");
   const [flagSnack, setFlagSnack] = useState(false);
@@ -35,11 +31,6 @@ function Dashboard({ authorization, userToken, userId }) {
       });
   }, [userToken, userId]);
   console.log(hourM);
-  /*   const handleLogOut = (e) => {
-    e.preventDefault();
-    dispatch(deleteSession());
-    history.push("/");
-  }; */
 
   return (
     <animated.div style={props} className="dash-container">
@@ -63,7 +54,6 @@ function Dashboard({ authorization, userToken, userId }) {
             />
           </div>
           <div className="col-sm">
-            {" "}
             Worked {hourM.length > 0 ? hourM.reduce((a, b) => a + b) : 0} hours
             last month
           </div>
@@ -71,50 +61,11 @@ function Dashboard({ authorization, userToken, userId }) {
             You worked average{" "}
             {hourM.length > 0
               ? hourM.reduce((a, b) => a + b) / hourM.length
-              : 0}{" "}
-            hours{" "}
+              : 0}
+            hours
           </div>
         </div>
       </div>
-      {/*   <div className="dashboard-buttons">
-        <button
-          data-testid="test-display-router"
-          className="btn-dash"
-          onClick={() => history.push("/displayhours")}
-        >
-          Display Hours
-        </button>
-
-        <button
-          data-testid="test-insert-router"
-          className="btn-dash"
-          onClick={() => history.push("/inserthours")}
-        >
-          Insert New Log
-        </button>
-        <button
-          data-testid="test-edit-router"
-          className="btn-dash"
-          onClick={() => history.push("/myhours")}
-        >
-          Edit Hours
-        </button>
-        <button
-          data-testid="test-upload-router"
-          className="btn-dash"
-          onClick={() => history.push("/upload")}
-        >
-          Upload Image
-        </button>
-        <button
-          data-testid="test-image-router"
-          className="btn-dash"
-          onClick={() => history.push("/display-images")}
-        >
-          Display Image
-        </button>
-      </div> */}
-      <br />
     </animated.div>
   );
 }

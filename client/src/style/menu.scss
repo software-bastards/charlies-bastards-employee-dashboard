@@ -5,7 +5,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 25%;
+  width: 100%;
   height: 100vh;
   color: $white;
   opacity: 1;
@@ -16,12 +16,13 @@
 }
 .menu-hidden {
   opacity: 0;
+  width: 10%;
 }
 .menu-main {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 28%;
   cursor: pointer;
 }
 .menu-button {
@@ -43,15 +44,30 @@
     outline: none;
   }
 }
+.menu-button-x {
+  background-color: rgba(0, 0, 0, 0);
+  color: $white;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: none;
+  font-size: 20pt;
+  font-family: $font-main;
+  &:focus {
+    outline: none;
+  }
+}
 .menu-list {
   list-style-type: none;
   margin-top: 100px;
+  width: 300px;
   margin-left: 0px;
 }
 .menu-list-item {
   height: 56px;
   display: flex;
   align-items: flex-end;
+  width: 300px;
 }
 .menu-list-link {
   color: $white;
