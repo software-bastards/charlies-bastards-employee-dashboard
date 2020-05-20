@@ -4,9 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import { months, filterData } from "../../services/editHoursSev";
 import { monthHours } from "../../reducers/actions/index";
 import UserHours from "./UserHours";
-import { Link } from "react-router-dom";
 import "../../style/EditHours.scss";
-import Clock from "../Clock/Clock";
 
 export function EditHours({ userToken, userId, monthData }) {
   const [data, setData] = useState([]);
@@ -45,8 +43,6 @@ export function EditHours({ userToken, userId, monthData }) {
 
   return (
     <div className="edit_main" data-testid="component-editHours">
-      <Clock />
-
       <h1 data-testid="h1-editHours" className="edit_header">
         Edit Hours
       </h1>
