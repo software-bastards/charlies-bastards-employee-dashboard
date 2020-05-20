@@ -60,7 +60,7 @@ function Dashboard({ authorization, userToken, userId }) {
             You worked average{" "}
             {hourM.length > 0
               ? hourM.reduce((a, b) => a + b) / hourM.length
-              : 0}
+              : 0}{" "}
             hours
           </div>
         </div>

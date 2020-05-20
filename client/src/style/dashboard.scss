@@ -21,6 +21,7 @@
   color: $white;
   font-size: $header;
   font-family: $font-secondary;
+  margin-top: 20px;
 }
 .dashboard-buttons {
   width: 90%;
@@ -36,7 +37,7 @@
   height: 100px;
 }
 .col-sm {
-  height: 15vh;
+  height: 18vh;
   margin: 5vh;
   background-color: $black;
   position: static;
@@ -64,4 +65,44 @@
   position: fixed;
   right: 0vh;
   top: 92vh;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .col-sm {
+    font-size: 18pt;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 768px) {
+  .col-sm {
+    font-size: 18pt;
+  }
+}
+
+@media screen and (min-width: 736px) and (max-width: 767px) {
+  .col-sm {
+    font-size: 16pt;
+    height: 42vh;
+  }
+}
+
+@media screen and (min-width: 684px) and (max-width: 735px) {
+  .col-sm {
+    font-size: 16pt;
+    height: 30vh;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 683px) {
+  .col-sm {
+    font-size: 16pt;
+    height: 42vh;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 414px) {
+  .col-sm {
+    font-size: 16pt;
+    padding-top: 2px;
+  }
 }

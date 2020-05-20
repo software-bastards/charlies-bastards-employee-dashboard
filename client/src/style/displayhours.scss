@@ -57,6 +57,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  margin-top: 80px;
 }
 .select-hours {
   display: flex;
@@ -86,7 +87,7 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-
+  background-color: $black;
   background-image: url(../icons/selector.svg);
   /*   linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
   background-repeat: no-repeat, repeat;

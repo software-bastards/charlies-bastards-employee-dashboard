@@ -10,15 +10,50 @@
 .clock {
   color: $blue;
   font-family: $font-main;
-  font-size: 32pt;
+  font-size: 24pt;
   position: absolute;
-  left: 160vh;
+  left: 25vh;
   top: 0vh;
+  margin-top: 20px;
 }
 
-@media only screen and (max-width: 700px) {
-  .clock-component {
-    font-size: 40%;
-    left: 75%;
+@media screen and (min-width: 1025px) {
+  .clock {
+    left: 180vh;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .clock {
+    left: 115vh;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 768px) {
+  .clock {
+    left: 55vh;
+  }
+}
+
+@media screen and (min-width: 734px) and (max-width: 767px) {
+  .clock {
+    left: 135vh;
+  }
+}
+
+@media screen and (min-width: 684px) and (max-width: 733px) {
+  .clock {
+    left: 125vh;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 683px) {
+  .clock {
+    left: 145vh;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 414px) {
+  .clock {
+    left: 25vh;
   }
 }
