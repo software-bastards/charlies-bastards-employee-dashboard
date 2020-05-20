@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import Clock from "../Clock/Clock";
 import "../../style/dashboard.scss";
 import dashboardHelper from "../../services/API/dashboardHelper";
 import { useSpring, animated } from "react-spring";
@@ -42,7 +41,7 @@ function Dashboard({ authorization, userToken, userId }) {
       >
         {message}
       </h1>
-      <Clock />
+
       <div className="container">
         <div className="row">
           <div className="col-sm">

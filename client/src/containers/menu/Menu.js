@@ -16,6 +16,7 @@ function Menu() {
   const handleLogOut = (e) => {
     e.preventDefault();
     dispatch(deleteSession());
+    setMenuFlag(!menuFlag);
     history.push("/");
   };
   return (

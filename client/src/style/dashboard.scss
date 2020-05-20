@@ -12,10 +12,12 @@
   font-size: 24pt;
 }
 .dash-container {
-  background-color: $yellow;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0);
   text-align: center;
-  float: none;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   color: $white;
   font-size: $header;
   font-family: $font-secondary;
@@ -28,7 +30,10 @@
   margin: auto;
 }
 .container {
-  padding-top: 15vh;
+  padding-top: 0vh;
+  width: 80%;
+  margin: 100px 100px 0 50px;
+  height: 100px;
 }
 .col-sm {
   height: 15vh;
