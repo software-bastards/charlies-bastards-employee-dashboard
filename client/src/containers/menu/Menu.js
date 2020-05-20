@@ -8,6 +8,7 @@ function Menu() {
   const [menuFlag, setMenuFlag] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+
   const openMenu = () => {
     setMenuFlag(!menuFlag);
   };
