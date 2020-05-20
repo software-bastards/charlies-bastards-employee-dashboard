@@ -8,6 +8,11 @@
   width: 25%;
   height: 100vh;
   color: $white;
+  opacity: 1;
+  -webkit-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  -webkit-transition: opacity 2s;
 }
 .menu-hidden {
   opacity: 0;
@@ -26,7 +31,7 @@
   top: 40px;
   left: 0px;
   background-color: rgba(0, 0, 0, 0);
-  width: 30vh;
+  width: 22vh;
   font-size: 26pt;
   font-family: $font-main;
 
