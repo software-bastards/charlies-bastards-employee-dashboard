@@ -19,7 +19,7 @@ function App(isAuthenticated) {
           {!isAuthenticated ? <Redirect to="/" /> : <Dashboard />}
         </Route>
         <Route path="/insert">
-          {!isAuthenticated ? <Redirect to="/" /> : <Insert />}>
+          {!isAuthenticated ? <Redirect to="/" /> : <Insert />}
         </Route>
       </Switch>
     </div>
