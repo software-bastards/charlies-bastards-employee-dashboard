@@ -52,7 +52,12 @@
     box-shadow: none;
   }
 }
-
+.displayhours-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
 .select-hours {
   display: flex;
   justify-content: center;
@@ -94,6 +99,7 @@
 }
 
 .select-hours select {
+  width: 220px;
   letter-spacing: normal;
   word-spacing: normal;
   text-transform: none;
@@ -103,4 +109,7 @@
   white-space: pre;
   -webkit-rtl-ordering: logical;
   cursor: default;
+}
+.select-hours {
+  width: 500px;
 }
