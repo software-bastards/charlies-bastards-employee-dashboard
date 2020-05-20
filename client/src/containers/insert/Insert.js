@@ -28,11 +28,10 @@ function Insert() {
         setFlagSnack(!flagSnack);
         setMessage(err.response.data.message);
       });
-    /*  history.push("/dashboard"); */
   }
 
   return (
-    <div className="insert">
+    <div className="insert-form">
       <h1
         onClick={() => {
           setFlagSnack(!flagSnack);
@@ -41,8 +40,9 @@ function Insert() {
       >
         {message}
       </h1>
-      <h1>Hey, Insert your hours here!</h1>
-
+      <div className="insert-hours-title">
+        <h1>INSERT HOURS</h1>
+      </div>
       <form
         className="insert-form"
         onSubmit={handleSubmit(onSubmit)}
@@ -59,14 +59,13 @@ function Insert() {
         <label> Month</label>
         <input
           ref={register}
-          name="month_number"
+          name="mounth_number"
           className="insert-month_number"
           data-testid="insert-month_number"
         />
 
         <label>Day</label>
         <input
-          type="date"
           ref={register}
           name="day_number"
           className="insert-day_number"
@@ -78,40 +77,9 @@ function Insert() {
           data-testid="insert-button"
           type="submit"
         >
-          <label> Month</label>
-          <input
-            ref={register}
-            name="mounth_number"
-            className="insert-month_number"
-            data-testid="insert-month_number"
-          />
-
-          <label>Day</label>
-          <input
-            ref={register}
-            name="day_number"
-            className="insert-day_number"
-            data-testid="insert-day_number"
-          />
-
-          <label>Hour</label>
-          <input
-            ref={register}
-            name="hour"
-            className="insert-hour"
-            data-testid="insert-hour"
-          />
-
-          <button
-            className="insert-button"
-            data-testid="insert-button"
-            type="submit"
-            //  onClick={() => (window.location = "/dashboard")}
-          >
-            Submit
-          </button>
-        </form>
-      </div>
+          Submit
+        </button>
+      </form>
     </div>
   );
 }

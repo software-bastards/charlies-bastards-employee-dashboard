@@ -14,6 +14,63 @@
   box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
   -webkit-transition: opacity 2s;
 }
+
+// @media screen and (min-width: 1025px) {
+//   .menu-open {
+//     width: 120%;
+//     height: 111vh;
+//   }
+// }
+
+// @media screen and (min-width: 769px) and (max-width: 1024px) {
+//   .menu-open {
+//     width: 120%;
+//     height: 110vh;
+//   }
+// }
+
+// @media screen and (min-width: 767px) and (max-width: 768px) {
+//   .menu-open {
+//     width: 160%;
+//     height: 109vh;
+//   }
+// }
+
+// @media screen and (min-width: 736px) and (max-width: 767px) {
+//   .menu-open {
+//     width: 160%;
+//     height: 162vh;
+//   }
+// }
+
+// @media screen and (min-width: 684px) and (max-width: 735px) {
+//   .menu-open {
+//     width: 170%;
+//     height: 150vh;
+//   }
+// }
+
+// @media screen and (min-width: 415px) and (max-width: 683px) {
+//   .menu-open {
+//     width: 175%;
+//     height: 175vh;
+//   }
+// }
+
+// @media screen and (min-width: 376px) and (max-width: 414px) {
+//   .menu-open {
+//     width: 250%;
+//     height: 112vh;
+//   }
+// }
+
+// @media screen and (min-width: 375px) and (max-width: 376px) {
+//   .menu-open {
+//     width: 250%;
+//     height: 114vh;
+//   }
+// }
+
 .menu-hidden {
   opacity: 0;
   width: 10%;
@@ -86,6 +143,13 @@
     color: $yellow;
   }
 }
+
+// @media screen and (min-width: 375px) and (max-width: 414px) {
+//   .menu-list-link {
+//     font-size: 12pt;
+//   }
+// }
+
 .btn-logout-menu {
   color: $yellow;
   border: none;
@@ -109,3 +173,30 @@
     box-shadow: none;
   }
 }
+
+// @media screen and (min-width: 736px) and (max-width: 768px) {
+//   .btn-logout-menu {
+//     font-size: 18pt;
+//     &:hover {
+//       font-size: 18pt;
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 684px) and (max-width: 735px) {
+//   .btn-logout-menu {
+//     font-size: 20pt;
+//     &:hover {
+//       font-size: 20pt;
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 415px) and (max-width: 683px) {
+//   .btn-logout-menu {
+//     font-size: 16pt;
+//     &:hover {
+//       font-size: 16pt;
+//     }
+//   }
+// }
