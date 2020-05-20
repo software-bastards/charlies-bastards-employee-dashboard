@@ -1,49 +1,56 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { deleteSession } from "../../reducers/actions/index";
+import { /*  useDispatch, */ connect } from "react-redux";
+/* import { useHistory } from "react-router-dom";
+import { deleteSession } from "../../reducers/actions/index"; */
 import Clock from "../Clock/Clock";
 import "../../style/dashboard.scss";
-import hoursHelper from "../../services/API/hoursHelper";
+import dashboardHelper from "../../services/API/dashboardHelper";
 import { useSpring, animated } from "react-spring";
 import { useEffect } from "react";
 
-function Dashboard() {
-  const history = useHistory();
-  const dispatch = useDispatch();
-
+function Dashboard({ authorization, userToken, userId }) {
+  /*   const history = useHistory();
+  const dispatch = useDispatch(); */
   const [hourM, setHourM] = useState([]);
   const [message, setMessage] = useState("");
-
+  const [flagSnack, setFlagSnack] = useState(false);
   const props = useSpring({
     config: { duration: 1000 },
     opacity: 1,
     from: { opacity: 0 },
   });
-  const authorization = useSelector((store) => {
-    return store.authorization;
-  });
 
-  const hours = () => {
-    const month = new Date().getMonth();
-    const id = authorization.id;
-    const token = authorization.token;
-    hoursHelper(token, id, month)
+  useEffect(() => {
+    dashboardHelper(userToken, userId)
       .then((res) => {
-        setHourM([res]);
-        console.log(hourM);
+        let temp = [];
+        for (let i = 0; i < res.data.length; i++) {
+          temp.push(res.data[i].hour_logged);
+        }
+        setHourM(temp);
       })
-      .catch((err) => setMessage(err.response.data.message));
-  };
-
-  const handleLogOut = (e) => {
+      .catch((err) => {
+        setFlagSnack(!flagSnack);
+        setMessage(err.response.data.message);
+      });
+  }, [userToken, userId]);
+  console.log(hourM);
+  /*   const handleLogOut = (e) => {
     e.preventDefault();
     dispatch(deleteSession());
     history.push("/");
-  };
+  }; */
 
   return (
     <animated.div style={props} className="dash-container">
+      <h1
+        onClick={() => {
+          setFlagSnack(!flagSnack);
+        }}
+        className={flagSnack ? "snackbar" : "snackclose"}
+      >
+        {message}
+      </h1>
       <Clock />
       <div className="container">
         <div className="row">
@@ -55,14 +62,21 @@ function Dashboard() {
               className="avatar"
             />
           </div>
-          <div className="col-sm" onClick={hours}>
+          <div className="col-sm">
             {" "}
-            Worked hours last month
+            Worked {hourM.length > 0 ? hourM.reduce((a, b) => a + b) : 0} hours
+            last month
           </div>
-          <div className="col-sm">You worked average .. days </div>
+          <div className="col-sm">
+            You worked average{" "}
+            {hourM.length > 0
+              ? hourM.reduce((a, b) => a + b) / hourM.length
+              : 0}{" "}
+            hours{" "}
+          </div>
         </div>
       </div>
-      <div className="dashboard-buttons">
+      {/*   <div className="dashboard-buttons">
         <button
           data-testid="test-display-router"
           className="btn-dash"
@@ -99,18 +113,18 @@ function Dashboard() {
         >
           Display Image
         </button>
-      </div>
+      </div> */}
       <br />
-      <button
-        data-testid="test-logout"
-        className="btn-logout"
-        onClick={handleLogOut}
-      >
-        {" "}
-        Log Out
-      </button>
     </animated.div>
   );
 }
 
-export default Dashboard;
+export function mapStateToProps(state) {
+  return {
+    authorization: state.authorization,
+    userToken: state.authorization.token,
+    userId: state.authorization.id,
+  };
+}
+
+export default connect(mapStateToProps)(Dashboard);

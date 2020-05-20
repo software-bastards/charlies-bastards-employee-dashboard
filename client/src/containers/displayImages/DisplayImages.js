@@ -3,7 +3,6 @@ import displayImages from "../../services/API/displayImages";
 import { connect } from "react-redux";
 import "../../style/displayImages.scss";
 import { months } from "../../services/editHoursSev";
-import { Link } from "react-router-dom";
 
 const DisplayImages = ({ userToken, userId }) => {
   const [uploadFile, setUploadFile] = useState([]);
@@ -26,21 +25,14 @@ const DisplayImages = ({ userToken, userId }) => {
   const handleImage = () => {
     displayImages(userToken, userId, month)
       .then((res) => {
-        
-
-          setUploadFile(res.data);
-          setMessage(res.data.message);
-      
+        setUploadFile(res.data);
+        setMessage(res.data.message);
       })
       .catch((err) => setMessage(err.response.data.message));
   };
 
   return (
     <main className="displayImages-main">
-      <Link to="/dashboard" className="link-back">
-        {" "}
-        Menu{" "}
-      </Link>
       <div className="wrap-displaImages">
         {message ? <h1>{message}</h1> : <h1>My Images</h1>}
 
@@ -51,7 +43,7 @@ const DisplayImages = ({ userToken, userId }) => {
             name="month"
             id="month"
           >
-            <option value={1}>Select a Month</option>
+            <option value={1}>Select Month</option>
             {months.map((e, index) => (
               <option key={index} value={index + 1}>
                 {e}

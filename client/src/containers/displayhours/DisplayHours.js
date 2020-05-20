@@ -12,6 +12,7 @@ function DisplayHours() {
   const [month, setMonth] = useState();
   const [hourMonth, setHourMonth] = useState([]);
   const [message, setMessage] = useState("");
+  const [flagSnack, setFlagSnack] = useState(false);
 
   const props = useSpring({
     config: { duration: 1000 },
@@ -35,13 +36,14 @@ function DisplayHours() {
   const handleFilteredMonth = () => {
     hoursHelper(authorization.token, authorization.id, month)
       .then((res) => {
-       
-        
-          setHourMonth(res.data);
-          setMessage(res.data.message);
-       
+        setHourMonth(res.data);
+        setFlagSnack(!flagSnack);
+        setMessage(res.data.message);
       })
-      .catch((err) => setMessage(err.response.data.message));
+      .catch((err) => {
+        setFlagSnack(!flagSnack);
+        setMessage(err.response.data.message);
+      });
   };
 
   const handleOnChange = (e) => {
@@ -50,6 +52,14 @@ function DisplayHours() {
 
   return (
     <div className="displayhours-main">
+      <h1
+        onClick={() => {
+          setFlagSnack(!flagSnack);
+        }}
+        className={flagSnack ? "snackbar" : "snackclose"}
+      >
+        {message}
+      </h1>
       <Clock />
       <animated.div style={props}>
         <section className="select-hours">
@@ -108,13 +118,6 @@ function DisplayHours() {
                 ))}
           </table>
         </animated.div>
-        <button
-          data-testid="test-dashboard-router"
-          className="btn-logout"
-          onClick={() => history.push("/dashboard")}
-        >
-          Go Back
-        </button>
       </animated.div>
     </div>
   );

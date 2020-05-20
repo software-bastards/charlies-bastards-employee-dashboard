@@ -18,6 +18,11 @@ $font-secondary: "Roboto";
 //font sizes
 $header: 30px;
 $btn-size: 24px;
+body {
+  background-color: $yellow;
+  text-align: center;
+  height: $page-height;
+}
 
 .btn-logout {
   color: $blue;
@@ -36,21 +41,23 @@ $btn-size: 24px;
 }
 
 .snackbar {
-  position:absolute;
-  bottom:90%;
+  position: absolute;
+  bottom: 90%;
+  left: 38%;
+  margin: auto;
   justify-self: center;
-  display:block;
-  background:$blue;
-  border:#f2f2f2;
-  padding:10px 40px 10px 20px;
-  color:#fff;
-  font-family:$font-secondary;
-  font-size:3.5vh;
+  display: block;
+  background: $blue;
+  border: #f2f2f2;
+  padding: 10px 40px 10px 20px;
+  color: #fff;
+  font-family: $font-secondary;
+  font-size: 3.5vh;
   transition: top 1s ease-in-out;
-  z-index:9;
-  cursor:pointer;
-} 
+  z-index: 9;
+  cursor: pointer;
+}
 .snackclose {
-  display:none;
-  z-index:10;
+  display: none;
+  z-index: 10;
 }
