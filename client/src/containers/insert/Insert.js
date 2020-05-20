@@ -3,7 +3,9 @@ import { withRouter, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import insertHelper from "../../services/API/insertHelper";
 import { useSelector } from "react-redux";
-import "../../style/insert.scss";
+import "../../style/insertHours.scss";
+import "../../style/global.scss";
+import Clock from "./Clock/Clock";
 
 function Insert() {
   const history = useHistory();
@@ -26,11 +28,10 @@ function Insert() {
         setFlagSnack(!flagSnack);
         setMessage(err.response.data.message);
       });
-    /*  history.push("/dashboard"); */
   }
 
   return (
-    <div className="insert">
+    <div className="insert-form">
       <h1
         onClick={() => {
           setFlagSnack(!flagSnack);
@@ -39,8 +40,9 @@ function Insert() {
       >
         {message}
       </h1>
-      <h1>Hey, Insert your hours here!</h1>
-
+      <div className="insert-hours-title">
+        <h1>INSERT HOURS</h1>
+      </div>
       <form
         className="insert-form"
         onSubmit={handleSubmit(onSubmit)}
@@ -57,14 +59,13 @@ function Insert() {
         <label> Month</label>
         <input
           ref={register}
-          name="month_number"
+          name="mounth_number"
           className="insert-month_number"
           data-testid="insert-month_number"
         />
 
         <label>Day</label>
         <input
-          type="date"
           ref={register}
           name="day_number"
           className="insert-day_number"
@@ -76,7 +77,7 @@ function Insert() {
           data-testid="insert-button"
           type="submit"
         >
-          Submit hours
+          Submit
         </button>
       </form>
     </div>
