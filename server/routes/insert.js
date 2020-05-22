@@ -15,6 +15,7 @@ router.post(
   "/inserthours",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+   
     //check if entered value is number
     if (isNotNumber(req.body.mounth_number)) {
       res.status(400).send({ message: "Oops, month should be a number!" });
@@ -27,8 +28,8 @@ router.post(
         } else {
           hour
             .create({
-              hour: req.body.hour,
-              mounth_number: req.body.mounth_number,
+              hour_logged: req.body.hour,
+              month_number: req.body.mounth_number,
               day_number: req.body.day_number,
               account_id: req.body.account_id,
             })
