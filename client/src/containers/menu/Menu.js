@@ -69,7 +69,7 @@ function Menu() {
               onClick={openMenu}
               className="menu-list-link"
             >
-              Display Your Documents
+              Display Documents
             </Link>
           </li>
         </ul>

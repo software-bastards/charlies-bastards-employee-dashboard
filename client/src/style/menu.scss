@@ -13,6 +13,7 @@
   -moz-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
   box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
   -webkit-transition: opacity 2s;
+  transition: opacity 2s;
 }
 
 @media screen and (min-width: 1025px) {
@@ -73,10 +74,13 @@
 
 .menu-hidden {
   opacity: 0;
-  width: 10%;
+  width: 0px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 .menu-main {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 28%;
@@ -133,6 +137,10 @@
   width: 300px;
   margin-left: 0px;
 }
+.menu-hidden .menu-list-item {
+  width: 0px;
+  height: 0px;
+}
 .menu-list-item {
   height: 56px;
   display: flex;
@@ -187,29 +195,26 @@
   }
 }
 
-@media screen and (min-width: 736px) and (max-width: 768px) {
+@media only screen and (max-width: 700px) {
   .btn-logout-menu {
-    font-size: 18pt;
-    &:hover {
-      font-size: 18pt;
-    }
-  }
-}
-
-@media screen and (min-width: 684px) and (max-width: 735px) {
-  .btn-logout-menu {
-    font-size: 20pt;
-    &:hover {
-      font-size: 20pt;
-    }
-  }
-}
-
-@media screen and (min-width: 415px) and (max-width: 683px) {
-  .btn-logout-menu {
+    width: 20px;
     font-size: 16pt;
+    right: 30px;
+  }
+  .menu-open {
+    width: 250px;
+    font-size: 12pt;
     &:hover {
-      font-size: 16pt;
+      font-size: 12pt;
     }
+  }
+  .menu-list-item {
+    width: 210px;
+  }
+  ul.menu-list {
+    margin: 20 0 0 0;
+  }
+  .menu-button {
+    font-size: 16pt;
   }
 }
