@@ -15,26 +15,27 @@ router.post(
     next();
   },
   async (req, res) => {
-    if (req.files === null) {
-      return res.status(400).json({ message: "No file uploaded" });
+  if (req.files === null ) {
+      return  res.status(400).json({ message: "No file uploaded" }); 
     
-    }
-  /*   if (req.body.file[1] === null) {
-      return res.status(400).json({ message: "No file uploaded" });
+    } 
     
-    } */
-
-    const file = req.files.file;
+     const file = req.files.file;
     const userId = req.body.file[0];
-    const month = req.body.file[1];
-    await file.mv(
+    const month = req.body.file[1]; 
+
+  
+    
+
+
+     await file.mv(
       path.join(__dirname, "../../client/public/uploads/", file.name),
       (err) => {
         if (err) {
-          console.error(err);
           return res.status(500).send({message:err});
         }})
 
+        
         upload.create({
           upload_name: file.name,
           upload_image: `/uploads/${file.name}`,
@@ -45,7 +46,8 @@ router.post(
             fileName: file.name,
             filePath: `/uploads/${file.name}`,
             message: "Your image was uploaded", 
-          })).catch(err=> res.status(500).send({message:"Something went wrong"}))
+          })).catch(err=>  
+          {   res.status(500).send({message:"You didn't choose a month"})} ) 
       }
     );
  
@@ -78,7 +80,7 @@ router.get(
         }
       })
       .catch((err) => {
-        console.log(err);
+     
         res.status(404).json({ message: "something went wrong" });
       });
   }

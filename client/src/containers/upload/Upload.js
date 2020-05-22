@@ -37,6 +37,8 @@ function Upload({ userId }) {
    * It also set the image state and dispatch the message that comes from te server
    */
   const handlerOnSubmit = async () => {
+
+
     const formData = new FormData();
     const data = [file, userId, month];
     data.forEach((e) => formData.append("file", e));
