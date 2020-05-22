@@ -23,7 +23,7 @@ function App({ isAuthenticated, message }) {
   return (
     <div className="main-app">
       <Menu />
-      <Clock />
+      {/*   <Clock /> */}
       <Switch>
         <Route exact path="/">
           {isAuthenticated ? <Redirect to="/dashboard" /> : <Login />}
