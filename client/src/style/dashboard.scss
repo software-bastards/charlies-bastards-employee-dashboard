@@ -67,7 +67,7 @@
   flex-direction: row;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 769px) {
   .dashboard-container {
     display: flex;
     background-color: rgba(0, 0, 0, 0);
@@ -84,48 +84,81 @@
     font-family: $font-main;
     font-size: 14pt;
     width: 180px;
+    height: 100px;
   }
-  row {
+  .row {
     width: 100%;
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 926px) {
   .col-sm {
-    font-size: 18pt;
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 767px) and (max-width: 768px) {
   .col-sm {
-    font-size: 18pt;
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 736px) and (max-width: 767px) {
   .col-sm {
-    font-size: 16pt;
-    height: 42vh;
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 684px) and (max-width: 735px) {
   .col-sm {
-    font-size: 16pt;
-    height: 30vh;
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 415px) and (max-width: 683px) {
   .col-sm {
-    font-size: 16pt;
-    height: 42vh;
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 375px) and (max-width: 414px) {
   .col-sm {
-    font-size: 16pt;
-    padding-top: 2px;
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
   }
 }
