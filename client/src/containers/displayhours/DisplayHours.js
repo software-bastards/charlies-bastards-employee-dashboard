@@ -36,12 +36,12 @@ function DisplayHours() {
     hoursHelper(authorization.token, authorization.id, month)
       .then((res) => {
         setHourMonth(res.data);
-        setFlagSnack(!flagSnack);
+
         setMessage(res.data.message);
       })
       .catch((err) => {
         setFlagSnack(!flagSnack);
-        setMessage(err.response.data.message);
+        setMessage(err.res.data.message);
       });
   };
 

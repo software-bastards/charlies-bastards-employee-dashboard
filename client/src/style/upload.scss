@@ -1,7 +1,7 @@
 @import "./global.scss";
 
 .upload-component {
-   height: 100vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   align-content: center;
@@ -28,29 +28,30 @@
 #form-upload h1 {
   text-align: center;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   height: 15%;
   padding-top: 3%;
   background: $blue;
   font-size: 6vh;
   color: white;
-  align-self:stretch;
+  align-self: stretch;
 }
 .input-upload {
   display: flex;
   flex-direction: column;
 
-  width:90%;
-  height:60%;
-
+  width: 90%;
+  height: 60%;
 }
 
 #custom-file-input {
   opacity: 1;
-  height:20%;
+  height: 20%;
   display: flex;
   flex-direction: column;
-
+  &:focus {
+    outline: none;
+  }
 }
 .custom-file-input::-webkit-file-upload-button {
   opacity: 0;
@@ -67,8 +68,6 @@
   cursor: pointer;
   font-size: 100%;
   padding: 3%;
- 
-
 }
 
 .submit-input {
@@ -81,17 +80,16 @@
   margin-top: 1%;
   align-self: center;
   cursor: pointer;
-
 }
 .select-css-upload {
   display: block;
   color: $white;
-  width:100%;
+  width: 100%;
   height: 20%;
   font-size: 100%;
-  padding-left:5%;
+  padding-left: 5%;
   font-family: $font-secondary;
-  display:flex;
+  display: flex;
   box-sizing: border-box;
   border: 1px solid $blue;
   box-shadow: 0 5px 0 5px rgba(192, 189, 189, 0.04);
@@ -99,9 +97,9 @@
   -webkit-appearance: none;
   appearance: none;
   background-color: $black;
-  background-image: url('../icons/selector.svg');
-  background-size:50%;
-  background-position:90%;
+  background-image: url("../icons/selector.svg");
+  background-size: 50%;
+  background-position: 90%;
   background-repeat: no-repeat;
   &:focus {
     outline: none;
@@ -110,15 +108,12 @@
 }
 .select-css::-ms-expand {
   display: none;
-
 }
 
 @media only screen and (min-width: 700px) {
- 
   .input-upload {
-    font-size:2vh;
+    font-size: 2vh;
   }
-
 }
 
 @media only screen and (orientation: landscape) {
