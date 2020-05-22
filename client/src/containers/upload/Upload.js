@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import uploadAPI from "../../services/API/upload";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { months } from "../../services/editHoursSev";
 import "../../style/upload.scss";
 
-function Upload({ userId, userToken }) {
+function Upload({ userId }) {
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState("Select your file(s)");
   const [month, setMonth] = useState();
   const [message, setMessage] = useState("");
-  const dispatch = useDispatch();
   const [snackFlag, setSnackFlag] = useState(false);
   /**
    * @function onChange target the data from the uploaded image  and set the state
@@ -31,14 +30,6 @@ function Upload({ userId, userToken }) {
     e.preventDefault();
 
     handlerOnSubmit()
-      .then((res) => {
-        setMessage("You uploaded your image");
-        setSnackFlag(!snackFlag);
-      })
-      .catch((err) => {
-        setMessage("something went wrong");
-        setSnackFlag(!snackFlag);
-      });
   };
 
   /**
@@ -46,12 +37,20 @@ function Upload({ userId, userToken }) {
    * It also set the image state and dispatch the message that comes from te server
    */
   const handlerOnSubmit = async () => {
+
+
     const formData = new FormData();
     const data = [file, userId, month];
     data.forEach((e) => formData.append("file", e));
 
     try {
-      uploadAPI(formData);
+      uploadAPI(formData).then((res) => {
+        setMessage(res.data.message);
+        setSnackFlag(!snackFlag);
+      }).catch((err) => {
+        setMessage(err.response.data.message);
+        setSnackFlag(!snackFlag);
+      });
     } catch (err) {
       console.log(err);
     }
@@ -59,7 +58,7 @@ function Upload({ userId, userToken }) {
 
   return (
     <main className="upload-component">
-      <form id="form-upload" onSubmit={onSubmit}>
+      <form id="form-upload"  onSubmit={onSubmit}>
         <h1> Upload </h1>
         <div className="input-upload">
           <label htmlFor="customFile">{fileName}</label>

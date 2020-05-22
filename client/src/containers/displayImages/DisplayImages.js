@@ -22,7 +22,7 @@ const DisplayImages = ({ userToken, userId }) => {
    * @function handleImage - store image on the database based on account ID and the selected month
    * The server sends back the image data and a message saying if your request was succesful or not
    */
-  const handleImage = () => {
+  const handleImage = (month) => {
     displayImages(userToken, userId, month)
       .then((res) => {
         setUploadFile(res.data);
@@ -34,12 +34,12 @@ const DisplayImages = ({ userToken, userId }) => {
   return (
     <main className="displayImages-main">
       <div className="wrap-displaImages">
-        {message ? <h1>{message}</h1> : <h1>My Images</h1>}
+        {message ? <h1>{message}</h1> : <h1>My Documents</h1>}
 
         <section className="select-image">
           <select
+          onChange={(e)=>handleImage(e.target.value)}
             className="select-css"
-            onChange={handleOnChange}
             name="month"
             id="month"
           >
@@ -50,9 +50,7 @@ const DisplayImages = ({ userToken, userId }) => {
               </option>
             ))}
           </select>
-          <button data-testid="test-displayimage-router" onClick={handleImage}>
-            Select
-          </button>
+        
         </section>
 
         <div className="displayImages-content">
