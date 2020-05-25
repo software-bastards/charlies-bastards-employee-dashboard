@@ -59,7 +59,7 @@ function Dashboard({ authorization, userToken, userId }) {
           <div className="col-sm">
             You worked average{" "}
             {hourM.length > 0
-              ? hourM.reduce((a, b) => a + b) / hourM.length
+              ? Math.floor(hourM.reduce((a, b) => a + b) / hourM.length)
               : 0}{" "}
             hours
           </div>

@@ -29,7 +29,7 @@ function Upload({ userId }) {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    handlerOnSubmit()
+    handlerOnSubmit();
   };
 
   /**
@@ -37,20 +37,20 @@ function Upload({ userId }) {
    * It also set the image state and dispatch the message that comes from te server
    */
   const handlerOnSubmit = async () => {
-
-
     const formData = new FormData();
     const data = [file, userId, month];
     data.forEach((e) => formData.append("file", e));
 
     try {
-      uploadAPI(formData).then((res) => {
-        setMessage(res.data.message);
-        setSnackFlag(!snackFlag);
-      }).catch((err) => {
-        setMessage(err.response.data.message);
-        setSnackFlag(!snackFlag);
-      });
+      uploadAPI(formData)
+        .then((res) => {
+          setMessage(res.data.message);
+          setSnackFlag(!snackFlag);
+        })
+        .catch((err) => {
+          setMessage(err.response.data.message);
+          setSnackFlag(!snackFlag);
+        });
     } catch (err) {
       console.log(err);
     }
@@ -58,7 +58,7 @@ function Upload({ userId }) {
 
   return (
     <main className="upload-component">
-      <form id="form-upload"  onSubmit={onSubmit}>
+      <form id="form-upload" onSubmit={onSubmit}>
         <h1> Upload </h1>
         <div className="input-upload">
           <label htmlFor="customFile">{fileName}</label>

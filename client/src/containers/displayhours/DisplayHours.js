@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "../../style/displayhours.scss";
 import { useSpring, animated } from "react-spring";
-import Clock from "../Clock/Clock";
 import { months } from "../../services/editHoursSev";
 
 function DisplayHours() {
@@ -37,12 +36,12 @@ function DisplayHours() {
     hoursHelper(authorization.token, authorization.id, month)
       .then((res) => {
         setHourMonth(res.data);
-        setFlagSnack(!flagSnack);
+
         setMessage(res.data.message);
       })
       .catch((err) => {
         setFlagSnack(!flagSnack);
-        setMessage(err.response.data.message);
+        setMessage(err.res.data.message);
       });
   };
 
@@ -60,7 +59,7 @@ function DisplayHours() {
       >
         {message}
       </h1>
-      <Clock />
+
       <animated.div style={props}>
         <section className="select-hours">
           <select
