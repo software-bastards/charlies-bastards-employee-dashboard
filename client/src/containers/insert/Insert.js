@@ -51,6 +51,7 @@ function Insert() {
         <label>Hour</label>
         <input
           ref={register}
+          type="number"
           name="hour"
           className="insert-hour"
           data-testid="insert-hour"
@@ -59,7 +60,8 @@ function Insert() {
         <label> Month</label>
         <input
           ref={register}
-          name="mounth_number"
+          type="number"
+          name="month_number"
           className="insert-month_number"
           data-testid="insert-month_number"
         />
@@ -67,6 +69,7 @@ function Insert() {
         <label>Day</label>
         <input
           ref={register}
+          type="number"
           name="day_number"
           className="insert-day_number"
           data-testid="insert-day_number"

@@ -1,7 +1,6 @@
 @import "./global.scss";
 
 .edit_main {
-  background-color: $yellow;
   display: flex;
   flex-direction: column;
 }
@@ -77,4 +76,7 @@
 }
 
 @media only screen and (max-width: 700px) {
+  .select-hours-selector {
+    width: 200px;
+  }
 }
