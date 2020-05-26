@@ -44,7 +44,7 @@ router.post(
                 hour
                   .create({
                     hour_logged: req.body.hour,
-                    month_number: req.body.mounth_number,
+                    month_number: req.body.month_number,
                     day_number: req.body.day_number,
                     account_id: req.body.account_id,
                   })
