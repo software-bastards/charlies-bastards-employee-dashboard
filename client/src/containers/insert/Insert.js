@@ -31,58 +31,60 @@ function Insert() {
   }
 
   return (
-    <div className="insert-form">
-      <h1
-        onClick={() => {
-          setFlagSnack(!flagSnack);
-        }}
-        className={flagSnack ? "snackbar" : "snackclose"}
-      >
-        {message}
-      </h1>
-      <div className="insert-hours-title">
-        <h1>INSERT HOURS</h1>
-      </div>
-      <form
-        className="insert-form"
-        onSubmit={handleSubmit(onSubmit)}
-        data-testid="insert-form-component"
-      >
-        <label>Hour</label>
-        <input
-          ref={register}
-          type="number"
-          name="hour"
-          className="insert-hour"
-          data-testid="insert-hour"
-        />
-
-        <label> Month</label>
-        <input
-          ref={register}
-          type="number"
-          name="month_number"
-          className="insert-month_number"
-          data-testid="insert-month_number"
-        />
-
-        <label>Day</label>
-        <input
-          ref={register}
-          type="number"
-          name="day_number"
-          className="insert-day_number"
-          data-testid="insert-day_number"
-        />
-
-        <button
-          className="insert-button"
-          data-testid="insert-button"
-          type="submit"
+    <div className="insert-main">
+      <div className="insert-form">
+        <h5
+          onClick={() => {
+            setFlagSnack(!flagSnack);
+          }}
+          className={flagSnack ? "snackbar" : "snackclose"}
         >
-          Submit
-        </button>
-      </form>
+          {message}
+        </h5>
+        <div className="insert-hours-title">
+          <h1>INSERT HOURS</h1>
+        </div>
+        <form
+          className="insert-form"
+          onSubmit={handleSubmit(onSubmit)}
+          data-testid="insert-form-component"
+        >
+          <label>Hour</label>
+          <input
+            type="number"
+            ref={register}
+            name="hour"
+            className="insert-hour"
+            data-testid="insert-hour"
+          />
+
+          <label> Month</label>
+          <input
+            type="number"
+            ref={register}
+            name="month_number"
+            className="insert-month_number"
+            data-testid="insert-month_number"
+          />
+
+          <label>Day</label>
+          <input
+            type="number"
+            ref={register}
+            name="day_number"
+            className="insert-day_number"
+            data-testid="insert-day_number"
+          />
+
+          <button
+            className="insert-button"
+            data-testid="insert-button"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
