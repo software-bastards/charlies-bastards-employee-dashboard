@@ -15,24 +15,22 @@ const ExtractJWT = passportJWT.ExtractJwt;
  */
 
 function findUserByEmail(email) {
-  return  account.findOne({ where: { email: email } });
-  
-  }
+  return account.findOne({ where: { email: email } });
+}
 
-  /**
-   * @function handleJWT
-   *  @param {obj} payload 
-   *  @returns {obj} 
-   */
-  
-  function handleJWT (payload) {
-   return  account.findOne({ where: { email: payload.email } })
-  }
+/**
+ * @function handleJWT
+ *  @param {obj} payload
+ *  @returns {obj}
+ */
+
+function handleJWT(payload) {
+  return account.findOne({ where: { email: payload.email } });
+}
 
 const jwtConfiguration = {
-    jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.ACCESS_TOKEN_SECRET}
+  jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.ACCESS_TOKEN_SECRET,
+};
 
-
-
-    module.exports ={jwtConfiguration,handleJWT,findUserByEmail}
+module.exports = { jwtConfiguration, handleJWT, findUserByEmail };

@@ -1,7 +1,7 @@
 @import "./global.scss";
 
 .clock-component {
-  position: absolute;
+  position: relative;
   color: $blue;
   font-family: $font-family;
   left: 77%;
