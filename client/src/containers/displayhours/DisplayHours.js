@@ -36,12 +36,12 @@ function DisplayHours() {
     hoursHelper(authorization.token, authorization.id, month)
       .then((res) => {
         setHourMonth(res.data);
-
         setMessage(res.data.message);
+        setFlagSnack(!flagSnack);
       })
       .catch((err) => {
+        setMessage(err.response.data.message);
         setFlagSnack(!flagSnack);
-        setMessage(err.res.data.message);
       });
   };
 
@@ -51,15 +51,18 @@ function DisplayHours() {
 
   return (
     <div className="displayhours-main">
-      <h1
-        onClick={() => {
-          setFlagSnack(!flagSnack);
-        }}
-        className={flagSnack ? "snackbar" : "snackclose"}
-      >
-        {message}
-      </h1>
-
+      {message ? (
+        <h1
+          className={flagSnack ? "snackbar" : "snackclose"}
+          onClick={() => {
+            setFlagSnack(!flagSnack);
+          }}
+        >
+          {message}
+        </h1>
+      ) : (
+        ""
+      )}
       <animated.div style={props}>
         <section className="select-hours">
           <select

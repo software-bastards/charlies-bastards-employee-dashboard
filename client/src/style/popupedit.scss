@@ -1,8 +1,6 @@
 @import "./global.scss";
 
 .popupedit-main {
-  background-color: $yellow;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,6 +63,12 @@
     width: 50%;
     height: 40px;
   }
+  .popupedit-main {
+    margin-top: 120px;
+  }
+  .popupedit-form-container {
+    width: 70%;
+  }
 }
 @media only screen and (max-width: 968px) {
   .popup-edit-header {
@@ -73,5 +77,11 @@
   .popupedit-input {
     width: 80%;
     height: 40px;
+  }
+  .popupedit-main {
+    margin-top: 120px;
+  }
+  .popupedit-form-container {
+    width: 70%;
   }
 }
