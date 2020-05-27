@@ -29,7 +29,6 @@ function Dashboard({ authorization, userToken, userId }) {
         setMessage(err.response.data.message);
       });
   }, [userToken, userId]);
- 
 
   return (
     <animated.div style={props} className="dash-container">
@@ -46,7 +45,7 @@ function Dashboard({ authorization, userToken, userId }) {
         <div className="row">
           <div className="col-sm">
             Welcome, {authorization.firstname}{" "}
-          {/*   <img
+            {/*   <img
               src="https://frontendbastards.nl/images/fe/team/dymion.svg"
               alt="avatar"
               className="avatar"

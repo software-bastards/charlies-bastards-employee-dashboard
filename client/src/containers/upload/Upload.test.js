@@ -36,3 +36,23 @@ test("if component renders without an error", () => {
     );
   const wrapper = renderComponent();
 });
+
+test("if the flag disappears onclick", () => {
+  const historyMock = { push: jest.fn() };
+  const mockStore = configureStore();
+  const store = mockStore(state);
+  const mountComponent = () =>
+    mount(
+      <Router>
+        <Provider store={store}>
+          <Upload history={historyMock} />
+        </Provider>
+      </Router>
+    );
+  const wrapper = mountComponent();
+  const handleSnackFlag = jest.fn();
+
+  const flag = wrapper.find('[data-testid="upload-flag"]');
+  flag.simulate("click");
+  /*  expect(handleSnackFlag).toHaveBeenCalled(); */
+});

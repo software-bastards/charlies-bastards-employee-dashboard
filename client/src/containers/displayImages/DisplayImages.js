@@ -38,7 +38,7 @@ const DisplayImages = ({ userToken, userId }) => {
 
         <section className="select-image">
           <select
-          onChange={(e)=>handleImage(e.target.value)}
+            onChange={(e) => handleImage(e.target.value)}
             className="select-css"
             name="month"
             id="month"
@@ -50,7 +50,6 @@ const DisplayImages = ({ userToken, userId }) => {
               </option>
             ))}
           </select>
-        
         </section>
 
         <div className="displayImages-content">
