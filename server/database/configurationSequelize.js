@@ -34,7 +34,7 @@ db.upload = require("../models/upload.model")(Sequelize, connector);
 db.project = require("../models/project.model")(Sequelize, connector);
 db.hour = require("../models/hour.model")(Sequelize, connector);
 
-// put alies
+
 
 //account conection
 db.account.hasMany(db.project, { foreignKey: "account_id", sourceKey: "id" });
