@@ -14,7 +14,7 @@ const passport = require("passport");
 const fileUpload = require("express-fileupload");
 
 //Routes
-const registerRouter = require("./routes/register");
+
 const loginRouter = require("./routes/login");
 const dashboardRouter = require("./routes/dashboard");
 const editHours = require("./routes/editHours");
@@ -38,7 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
 app.use(cors());
-app.use("/", registerRouter);
+
 app.use("/", loginRouter);
 app.use("/", dashboardRouter);
 app.use("/", editHours);
@@ -51,8 +51,6 @@ app.use("/", dashboardHourRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
-
-
 
 // error handler
 app.use(function (err, req, res, next) {
