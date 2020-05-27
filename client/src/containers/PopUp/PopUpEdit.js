@@ -10,6 +10,7 @@ function PopUpEdit({ userToken, userId, monthData }) {
   const { register, errors, handleSubmit } = useForm();
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
+  const [flagSnack, setFlagSnack] = useState(false);
 
   /**
    * @function updateData - send information to the server to  udate the data from the db
@@ -28,9 +29,10 @@ function PopUpEdit({ userToken, userId, monthData }) {
     )
       .then((res) => {
         setMessage(res.data.message);
-        dispatch(monthHours([]));
+        setFlagSnack(!flagSnack);
+       
       })
-      .catch((err) => setMessage(err.response.data.message));
+      .catch((err) => {setMessage(err.response.data.message);setFlagSnack(!flagSnack);});
   };
 
   return (
@@ -38,7 +40,14 @@ function PopUpEdit({ userToken, userId, monthData }) {
       <div className="popupedit-form-container">
         <h1 className="popup-edit-header">EDIT HOURS</h1>
         <form className="popupedit-form" onSubmit={handleSubmit(updateData)}>
-          <h2>{message}</h2>
+        <h1
+        onClick={() => {
+          setFlagSnack(!flagSnack);
+        }}
+        className={flagSnack ? "snackbar" : "snackclose"}
+      >
+        {message}
+      </h1>
           <label className="popupedit-label" htmlFor="day">
             Day
           </label>
