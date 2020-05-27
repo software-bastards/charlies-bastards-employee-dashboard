@@ -52,7 +52,7 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// Connecting sockets to the server and adding them to the request
+
 
 // error handler
 app.use(function (err, req, res, next) {

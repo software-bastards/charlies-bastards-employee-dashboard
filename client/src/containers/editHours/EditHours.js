@@ -33,11 +33,9 @@ export function EditHours({ userToken, userId, monthData }) {
    * @param {number} id
    */
   const filterMonth = (id) => {
-    filterData(data, id)
-      .then((response) => {
-        dispatch(monthHours(response));
-      })
-      .catch((err) => console.log(err));
+    filterData(data, id).then((response) => {
+      dispatch(monthHours(response));
+    });
     if (monthData.length > 0) setWorkThisMonth(true);
   };
 
@@ -60,27 +58,8 @@ export function EditHours({ userToken, userId, monthData }) {
             </option>
           ))}
         </select>
-        {/*   <button
-          className="select-button-hours"
-          data-testid="test-displayimage-router"
-          onClick={filterMonth}
-        >
-          Select
-        </button> */}
       </section>
-      {/*   {months.map((item, index) => (
-        <div className="month-edit" key={index}>
-          <button
-            className="btn-edit"
-            data-testid="button-editHours"
-            id={index + 1}
-            onClick={handleId}
-          >
-            {item}
-          </button>
-        </div>
-      ))}
-*/}
+
       {monthData.length > 0 ? (
         <UserHours monthData={monthData} />
       ) : workThisMonth ? (

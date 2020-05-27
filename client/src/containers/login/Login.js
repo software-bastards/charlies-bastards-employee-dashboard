@@ -33,8 +33,9 @@ function Login() {
         );
       })
       .catch((err) => {
-        setFlagSnack(!flagSnack);
+        
         setMessage(`${err.response.data.message}`);
+        setFlagSnack(!flagSnack);
       });
   };
 

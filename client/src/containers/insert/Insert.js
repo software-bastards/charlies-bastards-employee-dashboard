@@ -5,7 +5,6 @@ import insertHelper from "../../services/API/insertHelper";
 import { useSelector } from "react-redux";
 import "../../style/insertHours.scss";
 import "../../style/global.scss";
-import Clock from "./Clock/Clock";
 
 function Insert() {
   const history = useHistory();

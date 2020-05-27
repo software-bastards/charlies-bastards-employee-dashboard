@@ -29,7 +29,6 @@ function Dashboard({ authorization, userToken, userId }) {
         setMessage(err.response.data.message);
       });
   }, [userToken, userId]);
-  console.log(hourM);
 
   return (
     <animated.div style={props} className="dash-container">
@@ -46,11 +45,11 @@ function Dashboard({ authorization, userToken, userId }) {
         <div className="row">
           <div className="col-sm">
             Welcome, {authorization.firstname}{" "}
-            <img
+            {/*   <img
               src="https://frontendbastards.nl/images/fe/team/dymion.svg"
-              alt="dymion"
+              alt="avatar"
               className="avatar"
-            />
+            /> */}
           </div>
           <div className="col-sm">
             Worked {hourM.length > 0 ? hourM.reduce((a, b) => a + b) : 0} hours

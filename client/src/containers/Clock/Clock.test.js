@@ -35,22 +35,4 @@ jest.mock("react-router-dom", () => ({
   }),
 }));
 
-/* test("mocks a constructor like new Date()", () => {
-  const setDate = jest.fn();
-  const Date = "";
-});
- */
-/* test("Initial value is 0", () => {
-  const date = testHook(() => Clock(), false);
-  expect(date).toBe(0);
-});
 
-test("Value after render is 1", () => {
-  const date = testHook(() => Clock());
-  expect(date).toBe(
-    <div>
-      <div className="clock">5:31:23 PM</div>
-    </div>
-  );
-});
- */
