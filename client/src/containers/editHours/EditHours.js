@@ -33,10 +33,9 @@ export function EditHours({ userToken, userId, monthData }) {
    * @param {number} id
    */
   const filterMonth = (id) => {
-    filterData(data, id)
-      .then((response) => {
-        dispatch(monthHours(response));
-      })
+    filterData(data, id).then((response) => {
+      dispatch(monthHours(response));
+    });
     if (monthData.length > 0) setWorkThisMonth(true);
   };
 
@@ -59,7 +58,6 @@ export function EditHours({ userToken, userId, monthData }) {
             </option>
           ))}
         </select>
-      
       </section>
 
       {monthData.length > 0 ? (

@@ -30,7 +30,6 @@ function Dashboard({ authorization, userToken, userId }) {
         setMessage(err.response.data.message);
       });
   }, [userToken, userId]);
- 
 
   return (
     <animated.div style={props} className="dash-container">

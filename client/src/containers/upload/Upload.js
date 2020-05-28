@@ -56,6 +56,10 @@ function Upload({ userId }) {
     }
   };
 
+  const handleSnackFlag = () => {
+    setSnackFlag(!snackFlag);
+  };
+
   return (
     <main className="upload-component">
       <form id="form-upload" onSubmit={onSubmit}>
@@ -89,7 +93,8 @@ function Upload({ userId }) {
         <input className="submit-input" type="submit" value="Upload" />
       </form>
       <p
-        onClick={() => setSnackFlag(!snackFlag)}
+        data-testid="upload-flag"
+        onClick={handleSnackFlag}
         className={snackFlag ? "snackbar" : "snackclose"}
       >
         {message}

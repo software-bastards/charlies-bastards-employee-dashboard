@@ -42,27 +42,6 @@ jest.mock("react-router-dom", () => ({
     push: mockHistoryPush,
   }),
 }));
-test(" The displayImage button works", () => {
-  const historyMock = { push: jest.fn() };
-  const mockStore = configureStore();
-  const store = mockStore(state);
-  const mountComponent = () =>
-    mount(
-      <Router>
-        <Provider store={store}>
-          <DisplayImages history={historyMock} />
-        </Provider>
-      </Router>
-    );
-  const wrapper = mountComponent();
-  const handleClick = jest.fn();
-  handleClick(displayImages);
-  const displayButton = wrapper.find(
-    '[data-testid="test-displayimage-router"]'
-  );
-  displayButton.props().onClick;
-  expect(handleClick).toBeCalled();
-});
 
 describe("<DisplayImages />", () => {
   let wrapper;
