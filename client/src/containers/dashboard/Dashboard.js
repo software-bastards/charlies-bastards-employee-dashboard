@@ -4,6 +4,7 @@ import "../../style/dashboard.scss";
 import dashboardHelper from "../../services/API/dashboardHelper";
 import { useSpring, animated } from "react-spring";
 import { useEffect } from "react";
+import avatar from '../../icons/jimmy.svg'
 
 function Dashboard({ authorization, userToken, userId }) {
   const [hourM, setHourM] = useState([]);
@@ -45,11 +46,11 @@ function Dashboard({ authorization, userToken, userId }) {
         <div className="row">
           <div className="col-sm">
             Welcome, {authorization.firstname}{" "}
-            {/*   <img
-              src="https://frontendbastards.nl/images/fe/team/dymion.svg"
+             <img
+              src={avatar}
               alt="avatar"
               className="avatar"
-            /> */}
+            /> 
           </div>
           <div className="col-sm">
             Worked {hourM.length > 0 ? hourM.reduce((a, b) => a + b) : 0} hours
