@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import editHours from "../../services/API/editHours";
 import { useForm } from "react-hook-form";
-
-import { connect, useDispatch } from "react-redux";
-import { monthHours } from "../../reducers/actions/index";
+import { connect } from "react-redux";
 import "../../style/popupedit.scss";
 
 export function PopUpEdit({ userToken, userId, monthData }) {
   const { register, errors, handleSubmit } = useForm();
   const [message, setMessage] = useState("");
-  const dispatch = useDispatch();
   const [flagSnack, setFlagSnack] = useState(false);
 
   /**

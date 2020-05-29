@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../style/menu.scss";
 import { Link, useHistory } from "react-router-dom";
 import { deleteSession } from "../../reducers/actions/index";
-import { useSelector, useDispatch, connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function Menu() {
   const [menuFlag, setMenuFlag] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import insertHelper from "../../services/API/insertHelper";
 import { useSelector } from "react-redux";
@@ -7,7 +7,6 @@ import "../../style/insertHours.scss";
 import "../../style/global.scss";
 
 function Insert() {
-  const history = useHistory();
   const authorization = useSelector((store) => {
     return store.authorization;
   });

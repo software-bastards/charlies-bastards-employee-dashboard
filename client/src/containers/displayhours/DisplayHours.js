@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import hoursHelper from "../../services/API/hoursHelper";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import "../../style/displayhours.scss";
 import { useSpring, animated } from "react-spring";
 import { months } from "../../services/editHoursSev";
 
 function DisplayHours() {
-  const history = useHistory();
   const [month, setMonth] = useState();
   const [hourMonth, setHourMonth] = useState([]);
   const [message, setMessage] = useState("");

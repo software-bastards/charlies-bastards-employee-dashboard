@@ -4,12 +4,10 @@ import "../../style/dashboard.scss";
 import dashboardHelper from "../../services/API/dashboardHelper";
 import { useSpring, animated } from "react-spring";
 import { useEffect } from "react";
-import avatar from '../../icons/jimmy.svg'
+import avatar from "../../icons/jimmy.svg";
 
 function Dashboard({ authorization, userToken, userId }) {
   const [hourM, setHourM] = useState([]);
-  const [message, setMessage] = useState("");
-  const [flagSnack, setFlagSnack] = useState(false);
   const props = useSpring({
     config: { duration: 1000 },
     opacity: 1,
@@ -17,40 +15,23 @@ function Dashboard({ authorization, userToken, userId }) {
   });
 
   useEffect(() => {
-    dashboardHelper(userToken, userId)
-      .then((res) => {
-        let temp = [];
-        for (let i = 0; i < res.data.length; i++) {
-          temp.push(res.data[i].hour_logged);
-        }
-        setHourM(temp);
-      })
-      .catch((err) => {
-        setFlagSnack(!flagSnack);
-        setMessage(err.response.data.message);
-      });
+    dashboardHelper(userToken, userId).then((res) => {
+      let temp = [];
+      for (let i = 0; i < res.data.length; i++) {
+        temp.push(res.data[i].hour_logged);
+      }
+      setHourM(temp);
+    });
   }, [userToken, userId]);
 
   return (
     <animated.div style={props} className="dash-container">
-      <h1
-        onClick={() => {
-          setFlagSnack(!flagSnack);
-        }}
-        className={flagSnack ? "snackbar" : "snackclose"}
-      >
-        {message}
-      </h1>
-
       <div className="container">
         <div className="row">
           <div className="col-sm">
-            Welcome, {authorization.firstname}{" "}
-             <img
-              src={avatar}
-              alt="avatar"
-              className="avatar"
-            /> 
+            Welcome, {authorization.firstname} <br />
+            {authorization.lastname}
+            <img src={avatar} alt="avatar" className="avatar" />
           </div>
           <div className="col-sm">
             Worked {hourM.length > 0 ? hourM.reduce((a, b) => a + b) : 0} hours

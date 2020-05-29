@@ -1,5 +1,4 @@
 import React from "react";
-import { getMonthName } from "../../services/editHoursSev";
 import { Link } from "react-router-dom";
 import "../../style/userhours.scss";
 
