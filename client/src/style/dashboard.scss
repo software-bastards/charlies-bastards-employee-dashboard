@@ -1,0 +1,163 @@
+@import "./global.scss";
+
+.avatar {
+  width: 40px;
+}
+.dashboard-h1 {
+  padding-top: 0;
+  margin-top: 0;
+}
+.col-sm {
+  font-family: $font-main;
+  font-size: 24pt;
+}
+.dash-container {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: $white;
+  font-size: $header;
+  font-family: $font-secondary;
+}
+.dashboard-buttons {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 50vh;
+  width: 80%;
+
+  height: 100px;
+}
+.col-sm {
+  height: 18vh;
+  margin: 5vh;
+  background-color: $black;
+  position: static;
+  text-align: center;
+  -webkit-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  -moz-box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+  box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 1);
+}
+.btn-dash {
+  color: $white;
+  background-color: $black;
+  width: 26vh;
+  font-size: 16pt;
+  font-family: $font-main;
+  margin: 10px;
+  padding: 0;
+}
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 769px) {
+  .dashboard-container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    color: $white;
+    font-size: $header;
+    font-family: $font-secondary;
+  }
+  .col-sm {
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 926px) {
+  .col-sm {
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 768px) {
+  .col-sm {
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 736px) and (max-width: 767px) {
+  .col-sm {
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 684px) and (max-width: 735px) {
+  .col-sm {
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 683px) {
+  .col-sm {
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 414px) {
+  .col-sm {
+    font-family: $font-main;
+    font-size: 14pt;
+    width: 180px;
+    height: 100px;
+  }
+  .row {
+    width: 100%;
+  }
+}

@@ -1,0 +1,30 @@
+@import "./global.scss";
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap");
+
+.insert {
+  h1 {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    color: $white;
+    font-family: $font-main;
+  }
+  .insert-form {
+    background-color: $yellow;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+    color: $white;
+    font-size: $header;
+  }
+
+  .insert-button {
+    color: $white;
+    border: none;
+    background-color: $blue;
+    width: 20vh;
+    font-size: $btn-size;
+    font-family: $font-main;
+    margin-left: 20px;
+  }
+}

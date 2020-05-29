@@ -1,0 +1,226 @@
+@import "./global.scss";
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+.displayImages-main {
+  background: $yellow;
+  height: 100vh;
+  font-family: $font-family;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.wrap-displaImages{
+  width:80%;
+  height:60%;
+}
+
+.displayImages-main h1 {
+  font-size: $font-size-h1;
+
+}
+
+.image-display {
+  width: 100px;
+  height: 100px;
+
+}
+
+.select-image {
+  display: flex;
+  width:100%;
+    height:10%;
+    display:flex;
+   justify-content:center;
+
+}
+
+.select-image button {
+  border: 1px solid $yellow;
+  color: $yellow;
+  background: $blue;
+  box-shadow: -1px 1px 10px rgba(255, 255, 255, 0.58);
+
+}
+
+.select-css {
+  display: block;
+  color: $white;
+  width:60%;
+  font-size: $btn-size;
+  font-family: $font-secondary;
+  display:flex;
+  padding-left:30px;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid $blue;
+  box-shadow: 0 5px 0 5px rgba(192, 189, 189, 0.04);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: $black;
+  background-image: url('../icons/selector.svg');
+  background-size:50%;
+  background-position:90%;
+  background-repeat: no-repeat;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+.select-css::-ms-expand {
+  display: none;
+
+}
+
+.select-css option {
+  font-weight: normal;
+
+}
+
+.displayImages-content {
+  display: flex;
+   max-width: 100%;
+  height: 70%;
+  max-height: 70%;
+  overflow-y: auto;
+  flex-wrap: wrap;
+
+}
+
+.displayImages-image {
+  cursor: pointer;
+  width: 30%;
+  height: 30%;
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+ 
+
+
+}
+
+.displayImages-image h3 {
+  font-size: 1vh;
+
+}
+.displayImages-image img {
+  width: 80%;
+  height: 70%;
+}
+
+@media only screen and (min-width: 700px) and (max-width:1000px) {
+  .select-image button {
+    border: 1px solid $yellow;
+    height: 100%;
+    margin-left: 5%;
+    width: 50%;
+    color: $yellow;
+    background: $blue;
+    box-shadow: -1px 1px 10px rgba(255, 255, 255, 0.58);
+  }
+
+  .select-css {
+    width: 45%;
+  }
+  .displayImages-image {
+    cursor: pointer;
+    width: 30%;
+    height: 30%;
+    margin: 2%;
+  
+  
+  }
+  
+  
+}
+
+@media only screen and (min-width: 1000px) {
+  .wrap-displaImages {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
+  }
+  .displayImages-main {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+  }
+  .displayImages-main h1 {
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    font-size: 6vh;
+  }
+
+  .select-image {
+    width: 80%;
+    align-self: center;
+  }
+  .displayImages-content {
+    flex-direction: row;
+  }
+
+  .displayImages-image {
+    cursor: pointer;
+    width: 35%;
+    height: 35%;
+    margin: 2%;
+  }
+  .displayImages-image h3 {
+    font-size: 2vh;
+  }
+  .displayImages-image:hover {
+   filter:grayscale(100%)
+  }
+  .select-css{
+    width:43%;
+  }
+}
+@media only screen and  (orientation: landscape) {
+  .wrap-displaImages {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
+  }
+  .displayImages-main {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+  }
+  .displayImages-main h1 {
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    font-size: 8vh;
+  }
+
+  .select-image {
+    width: 60%;
+    align-self: center;
+  }
+  .displayImages-content {
+    flex-direction: row;
+  }
+
+  .displayImages-image {
+    cursor: pointer;
+    width: 15%;
+    height: 37%;
+    margin: 5%;
+  }
+  .displayImages-image h3 {
+    font-size: 2vh;
+  }
+}
+ 
